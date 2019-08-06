@@ -8,3 +8,8 @@ p {
 a {
 	color: #FF0000;
 }
+label {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
