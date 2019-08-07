@@ -1,1 +1,1 @@
-$( document ).ready(() => $.get("/log.php"));
+$( document ).ready(() => $.get("/log.php",{path: window.location.pathname}));
