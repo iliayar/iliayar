@@ -1,5 +1,5 @@
 <?php
-	if(!isset($_GET['path']) {
+	if(!isset($_GET['path'])) {
 		exit(0);
 	}
 	$fp = fopen("/var/log/nginx/ips.log", "a");
