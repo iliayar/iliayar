@@ -1,18 +1,22 @@
 <html>
 	<head>
-		<title>iliayar - main</title>
+		<title>iliayar - Main</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link href="css/YTPlayer.css" media="all" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<p>
-		Cool site is comming
-		А пока пиши <a href="https://t.me/iliayar">@iliayar</a>
-		</p>
-		<audio loop autoplay controls> <source src="media/megalovania.mp3" ></audio>	
-		<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <div id="bgndVideo" class="player" data-property="{videoURL:'http://youtu.be/y_4pkHOJnGQ',ratio: 16/9, showControls: false, containment:'body',autoPlay: false, vol: 20, startAt:0, opacity:1}">My video</div>
+
+        <div class="playpause">
+            <input type="checkbox" value="" checked id="playPauseCheckbox" name="playPauseCheckbox" />
+            <label for="playPauseCheckbox"></label>
+        </div>
+
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/jquery.mb.YTPlayer.js"></script>
 		<script src = "js/main.js"></script>
 		<script src = "js/index.js"></script>
-		<label><a href="/Anime.html" >click me</a></label>
 	</body>
 </html>
