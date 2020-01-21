@@ -1,0 +1,28 @@
+<html>
+	<head></head>
+	<body>
+<script type="text/javascript" src="http://www.neox.net/flowplayer/html/flashembed.min.js"></script>
+ 
+<div id="flow_example"></div>
+	<script type="text/javascript">
+		//window.onload = function() {  
+		    flashembed("flow_example",
+			          {
+					           src:'http://www.neox.net/flowplayer/FlowPlayerDark.swf',
+					                          width: 400,
+					                          height: 300
+					        },
+			          {config: {
+					                          videoFile: 'http://iliayar.ru:31337/live.flv',
+					                          autoPlay: false,
+					                          initialScale: 'fit',
+					                          loop: false,
+					                          autoRewind: true,
+					                          autoBuffering: true
+					        }}
+			       );
+//}
+	</script>
+
+	</body>
+</html>
