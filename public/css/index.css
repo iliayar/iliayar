@@ -1,65 +1,81 @@
 .section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .section h1 {
-  text-align: center;
-  font-size: 6rem;
-  font-family: "Cookie";
-  padding: 20px;
-  margin: 15px;
-  z-index: 1;
-  opacity: 0.7;
+    text-align: center;
+    font-size: 6rem;
+    font-family: "Cookie";
+    padding: 20px;
+    margin: 15px;
+    z-index: 1;
+    opacity: 0.7;
 }
 
 .video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .color-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: lightblue;
-  width: 100%;
-  height: 100vh;
-  opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: lightblue;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
 }
 
-.playpause label {
-	position: fixed;
-	left: 50%;
-	right: 50%;
-	/* top: 100%; */
-	bottom: 10%;
-	transform: translate(-50%, 0);
-	display: block;
-	box-sizing: border-box;
-	width: 0;
-	height: 74px;
-	border-color: transparent transparent transparent #9c0000;
-	transition: 100ms all ease;
-	cursor: pointer;
-	border-style: double;
-	border-width: 0px 0 0px 60px;
+.center-block {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    font-size: 50px;
+    align-content: center;
+    align: center;
+    align-items: center;
+    text-align: center;
 }
-.playpause input[type="checkbox"] {
-	position: absolute;
-	left: -9999px;
+
+body {
+    background-color: #000000;
 }
-.playpause input[type="checkbox"]:checked + label {
-	border-style: solid;
-	border-width: 37px 0 37px 60px;
+
+input#un-mute {
+    display: none;
 }
-.playpause input[type="checkbox"]:focus + label {
-	box-shadow: 0 0 5px lightblue;
+
+.mute img {
+    display: none;
+}
+
+input#un-mute:checked ~ .unmute img {
+    display: none;
+}
+
+input#un-mute:checked ~ .mute img {
+    display: initial;
+}
+
+.mute img, .unmute img {
+    height: 40px;
+} 
+
+.center-block a {
+    color: #000000;
+    text-decoration: none;
+}
+.center-block a:hover {
+    color: #d30cb8;
+    text-decoration: bold;
 }
