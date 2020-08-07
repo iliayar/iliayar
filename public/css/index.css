@@ -36,7 +36,6 @@
 }
 
 .abs-block {
-    position: absolute;
     left: 50%;
     width: 40%;
     transform: translate(-50%, 0%);
@@ -52,7 +51,7 @@
 }
 
 .center-block {
-    top: 10%;
+    top: 3%;
     font-size: 25px;
     text-align: left;
     color: #000000;
