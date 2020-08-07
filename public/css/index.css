@@ -35,41 +35,62 @@
     opacity: 0.5;
 }
 
-.center-block {
+.abs-block {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
-    top: 30%;
-    font-size: 50px;
-    align-content: center;
-    align: center;
-    align-items: center;
+    width: 40%;
+    transform: translate(-50%, 0%);
+}
+
+.title-block {
+    font-size: 40px;
     text-align: center;
+    color: #000000;
+}
+.title-block div{
+    display: inline;
+}
+
+.center-block {
+    top: 10%;
+    font-size: 25px;
+    text-align: left;
+    color: #000000;
+}
+
+#lambda {
+    color: #8b0a80;
+}
+
+#tilde {
+    color: #00ebfa;
+}
+
+.interactive {
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-color: #000000;
+}
+
+.interactive:hover {
+    cursor: pointer;
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-color: #c70eb8;
+}
+
+.cmd {
+    display: inline;
 }
 
 body {
-    background-color: #000000;
+    background-color: #222;
+    font-family: "Hack";
 }
 
-input#un-mute {
-    display: none;
+.cmd i {
+    font-size: 40px;
 }
-
-.mute img {
-    display: none;
-}
-
-input#un-mute:checked ~ .unmute img {
-    display: none;
-}
-
-input#un-mute:checked ~ .mute img {
-    display: initial;
-}
-
-.mute img, .unmute img {
-    height: 40px;
-} 
 
 .center-block a {
     color: #000000;

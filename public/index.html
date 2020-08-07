@@ -4,23 +4,40 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/index.css">
     <link href="css/YTPlayer.css" media="all" rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.14.0/css/all.css">
   </head>
   <body>
-
-    <div class="center-block">
-      <div class="sound">
-	<input type="checkbox" name="un-mute" id="un-mute">
-	<label for="un-mute" class="unmute">
-	  <img src="http://upload.wikimedia.org/wikipedia/commons/3/3f/Mute_Icon.svg" alt="Mute_Icon.svg" title="Mute icon">
-	</label>
-	<label for="un-mute" class="mute">
-	  <img src="http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg" alt="Speaker_Icon.svg" title="Unmute/speaker icon">
-	</label>
+    <div class="title-block abs-block">
+      Welcome to iliayar's <div id="tilde">~</div>
+    </div>
+    <div class="center-block abs-block">
+      <div id="tilde" class="cmd">~</div> <div id="lambda" class="cmd">λ</div> <div class="cmd interactive" id="un-mute">unmute</div>
+      </br>
+      <div id="tilde" class="cmd">~</div> <div id="lambda" class="cmd">λ</div> <div class="cmd">whois</div>
+      </br>
+      <div class="cmd">
+	Ilya Yaroshevskiy</br>
+	Saint-Petersburg</br>
+	ITMO</br>
+	<ball style="color: #ff0000">TODO</ball> change colors
       </div>
-      <a href="https://t.me/iliayar">iliayar</a>
+      </br>
+      <div id="tilde" class="cmd">~</div> <div id="lambda" class="cmd">λ</div> <div class="cmd">ls links</div>
+      </br>
+      <div class="cmd">
+	<a href="https://github.com/iliayar"><i class="fab fa-github"></i></a>
+	<a href="https://gitlab.com/iliayar"><i class="fab fa-gitlab"></i></a>
+	<a href="https://git.iliayar.ru/iliayar"><i class="fab fa-git-alt"></i></a>
+	</br>
+	<a href="https://t.me/iliayar"><i class="fab fa-telegram-plane"></i></a>
+	<a href="https://vk.com/iliayar"><i class="fab fa-vk"></i></a>
+	</br>
+	<a href="mailto: iliayar3@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
 
-    <div id="bgndVideo" class="player" data-property="{videoURL:'http://www.youtu.be/0ZYQLu5XZfk',stopMovieOnBlur: false, ratio: 16/9, showControls: false, containment:'body',autoPlay: true, vol: 30, startAt:0, stopAt: 40, opacity:0.4, showAnnotations: false, mute: true}">My video</div>
+    <div id="bgndVideo" class="player" data-property="{videoURL:'http://www.youtu.be/0ZYQLu5XZfk',stopMovieOnBlur: false, ratio: 16/9, showControls: false, containment:'body',autoPlay: true, vol: 30, startAt:0, opacity:0.8, showAnnotations: false, mute: true}">My video</div>
 
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/jquery.mb.YTPlayer.js"></script>
