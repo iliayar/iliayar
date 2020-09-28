@@ -14,7 +14,7 @@
 	 function convert(text) {
 	     var lines = text.trim().split('\n')
 	     for(var i = 0; i < lines.length; ++i) {
-		 var values = lines[i].split(';').slice(0, 3)
+		 var values = lines[i].trim().split('\t').slice(0, 3)
 		 for(var j = 0; j < values.length; ++j) {
 		     values[j] = "0x" + values[j]
 		 }
