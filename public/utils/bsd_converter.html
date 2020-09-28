@@ -8,8 +8,8 @@
 	<input type="file" id="input_file" value="" /> </br>
 	<textarea id="text_input" rows="30" cols="20"></textarea> <br />
 	<input type="button" id="convert_button" value="Convert" /> <br />
-	<div id="output" style="white-space: pre-wrap;">
-	</div>
+	<a id="download_link">Download</a> <br />
+	<textarea id="output" rows="30" cols="20"></textarea> 
 	<script type="text/javascript">
 	 function convert(text) {
 	     var lines = text.trim().split('\n')
@@ -30,20 +30,31 @@
 	 }
 	 document.getElementById("convert_button").onclick = () => {
 	  var file = document.getElementById("input_file").files[0]
+	  var output = document.getElementById("output") 
+	  var download = document.getElementById("download_link")
 	  if(file) {
 	      var reader = new FileReader()
 	      reader.readAsText(file, "UTF-8")
 	      reader.onload = (e) => {
 		  console.log("File readed")
-		  document.getElementById("output").innerHTML = convert(e.target.result)
+		  output.value = convert(e.target.result)
+		  download.setAttribute("download", file.name)
+		  download.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(output.value))
+		  output.select()
+		  document.execCommand("copy")
 	      }
 	      reader.onerror = e => {
 		  alert("Could not read file")
 	      }
 	  } else {
 	      var text = document.getElementById("text_input")
-	      document.getElementById("output").innerHTML = convert(text.value)
+	      output.value = convert(text.value)
+	      download.setAttribute("download", "result.txt")
+	      download.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(output.value))
+	      output.select()
+	      document.execCommand("copy")
 	  }
+	  var download = document.getElementById("download_link")
 	 }
 	</script>
     </body>
