@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+	<title>Bsd converted</title>
+	<meta charset="utf-8" />
+    </head>
+    <body>
+	<input type="file" id="input_file" value="" /> </br>
+	<textarea id="text_input" rows="30" cols="20"></textarea> <br />
+	<input type="button" id="convert_button" value="Convert" /> <br />
+	<div id="output" style="white-space: pre-wrap;">
+	</div>
+	<script type="text/javascript">
+	 function convert(text) {
+	     var lines = text.trim().split('\n')
+	     for(var i = 0; i < lines.length; ++i) {
+		 var values = lines[i].split(';').slice(0, 3)
+		 for(var j = 0; j < values.length; ++j) {
+		     values[j] = "0x" + values[j]
+		 }
+		 if(i == lines.length - 1) {
+		     values[2] = "0x00"
+		 }
+		 lines[i] = values.reduce((acc, e) => acc + e + ",", "")
+		 if(i == lines.length - 1) {
+		     lines[i] = lines[i].substring(0, lines[i].length - 1)
+		 }
+	     }
+	     return lines.reduce((acc, e) => acc + "\n" + e)
+	 }
+	 document.getElementById("convert_button").onclick = () => {
+	  var file = document.getElementById("input_file").files[0]
+	  if(file) {
+	      var reader = new FileReader()
+	      reader.readAsText(file, "UTF-8")
+	      reader.onload = (e) => {
+		  console.log("File readed")
+		  document.getElementById("output").innerHTML = convert(e.target.result)
+	      }
+	      reader.onerror = e => {
+		  alert("Could not read file")
+	      }
+	  } else {
+	      var text = document.getElementById("text_input")
+	      document.getElementById("output").innerHTML = convert(text.value)
+	  }
+	 }
+	</script>
+    </body>
+</html>
