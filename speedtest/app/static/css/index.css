@@ -1,0 +1,10 @@
+.output {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
