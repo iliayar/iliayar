@@ -1,6 +1,6 @@
 (function() {
 
-    var ws = new WebSocket(`ws://${window.location.host}/ws/speedtest`);
+    var ws = new WebSocket(`wss://${window.location.host}/ws/speedtest`);
 
     function displayPing(data) {
 	ping = document.querySelector('#ping');
