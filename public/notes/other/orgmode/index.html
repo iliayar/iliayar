@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-02-26 Fri 16:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Org mode</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Yaroshevskiy Ilya" />
+<link id="style" rel="stylesheet" type="text/css" href="../../style.css"/>
+<script type="text/javascript" src="../../script.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Org mode</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf8e9793">1. Code example</a></li>
+<li><a href="#org32708b2">2. \(\LaTeX\) examples</a></li>
+<li><a href="#org8a25419">3. Quote example</a></li>
+<li><a href="#org67ac6de">4. Dot graph</a></li>
+<li><a href="#orgbee2ec0">5. Gnuplot example</a></li>
+<li><a href="#org3217cd8">6. Python example</a></li>
+<li><a href="#orgd420f0f">7. Python &amp; Gnuplot example</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf8e9793" class="outline-2">
+<h2 id="orgf8e9793"><span class="section-number-2">1</span> Code example</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-C++"><span class="linenr">1: </span><span style="color: #F92660; font-weight: bold;">#include</span> <span style="color: #F92660;">&lt;</span><span style="color: #E6DB74;">iostream</span><span style="color: #F92660;">&gt;</span>
+<span class="linenr">2: </span>
+<span class="linenr">3: </span><span style="color: #66D9EF; font-style: italic;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #F92660;">()</span> <span style="color: #F92660;">{</span>
+<span id="coderef-sc" class="coderef-off"><span class="linenr">4: </span>        <span style="color: #9C91E4;">std</span>::cout &lt;&lt; <span style="color: #E6DB74;">"Hello World!"</span> &lt;&lt; <span style="color: #9C91E4;">std</span>::endl;</span>
+<span class="linenr">5: </span>        <span style="color: #F92660;">return</span> 0
+<span class="linenr">6: </span><span style="color: #F92660;">}</span>
+</pre>
+</div>
+
+<p>
+Test reference <a href="#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');">4</a>
+</p>
+
+<p>
+Inline code: <code>cmake ..</code>
+</p>
+
+<p>
+Using codeblocks result:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python" id="org91c9639"><span style="color: #F92660;">return</span> <span style="color: #E6DB74;">"Test"</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #F92660;">return</span> <span style="color: #E6DB74;">"Wow it's: {}"</span>.<span style="color: #FD971F;">format</span><span style="color: #F92660;">(</span>s<span style="color: #F92660;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org32708b2" class="outline-2">
+<h2 id="org32708b2"><span class="section-number-2">2</span> \(\LaTeX\) examples</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+\[ e^{ix} = \cos x + i \sin x \]
+\[ \begin{vmatrix} 1 & 1 \\ 1 & 0 \end{vmatrix}^2 = \begin{vmatrix} 2 & 1 \\ 1 & 1 \end{vmatrix} \]
+</p>
+
+<p>
+Test latex classes: \(\R\)
+</p>
+
+<div class="theorem" id="orgaf64ba2">
+<p>
+Some cool theorem
+</p>
+
+</div>
+<div class="proof" id="org28e85cb">
+<p>
+Some cool proof of some cool theorem
+</p>
+
+</div>
+<div class="theorem" id="org37edefe">
+<p>
+Another cool theorem
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org8a25419" class="outline-2">
+<h2 id="org8a25419"><span class="section-number-2">3</span> Quote example</h2>
+<div class="outline-text-2" id="text-3">
+<blockquote>
+<p>
+Great clouds overhead
+Tiny black birds rise and fall
+Snow covers Emacs
+</p>
+
+<p>
+&#x2014;AlexSchroeder
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-org67ac6de" class="outline-2">
+<h2 id="org67ac6de"><span class="section-number-2">4</span> Dot graph</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-dot"><span style="color: #F92660;">digraph</span> <span style="color: #F92660;">{</span>
+    a -&gt; b <span style="color: #FD971F;">[</span><span style="color: #F8F8F2;">color=</span><span style="color: #E6DB74;">blue</span>, <span style="color: #F8F8F2;">label=</span><span style="color: #E6DB74;">"test"</span><span style="color: #FD971F;">]</span>;
+    b -&gt; c;
+    b -&gt; d;
+    d -&gt; e;
+    d -&gt; f;
+<span style="color: #F92660;">}</span>
+</pre>
+</div>
+
+
+<div id="org71231fe" class="figure">
+<p><img src="TMP.png" alt="TMP.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbee2ec0" class="outline-2">
+<h2 id="orgbee2ec0"><span class="section-number-2">5</span> Gnuplot example</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-gnuplot"><span style="color: #9C91E4;">reset</span>
+
+<span style="color: #9C91E4;">set</span> <span style="color: #66D9EF; font-style: italic;">title</span> <span style="color: #E6DB74;">"Putting it All Together"</span>
+
+<span style="color: #9C91E4;">set</span> xlabel <span style="color: #E6DB74;">"X"</span>
+<span style="color: #9C91E4;">set</span> xrange [<span style="color: #9C91E4;">-8:8</span>]
+<span style="color: #9C91E4;">set</span> xtics -8,2,8
+
+
+<span style="color: #9C91E4;">set</span> ylabel <span style="color: #E6DB74;">"Y"</span>
+<span style="color: #9C91E4;">set</span> yrange [<span style="color: #9C91E4;">-20:70</span>]
+<span style="color: #9C91E4;">set</span> ytics -20,10,70
+
+<span style="color: #F8F8F2;">f(x) =</span> x**2
+<span style="color: #F8F8F2;">g(x) =</span> x**3
+<span style="color: #F8F8F2;">h(x) =</span> 10*<span style="color: #A6E22E;">sqrt</span>(<span style="color: #A6E22E;">abs</span>(x))
+
+<span style="color: #F92660;">plot</span> f(x) w lp <span style="color: #66D9EF; font-style: italic;">lw</span> 1, g(x) w p <span style="color: #66D9EF; font-style: italic;">lw</span> 2, h(x) w l <span style="color: #66D9EF; font-style: italic;">lw</span> 3
+</pre>
+</div>
+
+
+<div id="orgddc2ac3" class="figure">
+<p><img src="plot1.png" alt="plot1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3217cd8" class="outline-2">
+<h2 id="org3217cd8"><span class="section-number-2">6</span> Python example</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #F92660;">import</span> matplotlib
+matplotlib.use<span style="color: #F92660;">(</span><span style="color: #E6DB74;">'Agg'</span><span style="color: #F92660;">)</span>
+<span style="color: #F92660;">import</span> matplotlib.pyplot <span style="color: #F92660;">as</span> plt
+<span style="color: #F8F8F2;">filename</span> = <span style="color: #E6DB74;">'13_2.png'</span>
+plt.plot<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 1, 2<span style="color: #FD971F;">]</span>, <span style="color: #FD971F;">[</span>1, 1, 0, 0<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+plt.ylabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$hash(s[i : k]) = hash(j : k)$"</span><span style="color: #F92660;">)</span>
+plt.xlabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$s_i$"</span><span style="color: #F92660;">)</span>
+plt.yticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+plt.xticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 2<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+plt.savefig<span style="color: #F92660;">(</span>filename<span style="color: #F92660;">)</span>
+<span style="color: #F92660;">return</span> filename
+</pre>
+</div>
+
+
+<div id="orga46f2f7" class="figure">
+<p><img src="13_2.png" alt="13_2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd420f0f" class="outline-2">
+<h2 id="orgd420f0f"><span class="section-number-2">7</span> Python &amp; Gnuplot example</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+<pre class="src src-python" id="orga18115d"><span style="color: #F92660;">import</span> math
+<span style="color: #F92660;">import</span> numpy <span style="color: #F92660;">as</span> np
+<span style="color: #F8F8F2;">y</span> = <span style="color: #F92660;">lambda</span> x: x**2
+<span style="color: #F8F8F2;">X</span> = <span style="color: #FD971F;">list</span><span style="color: #F92660;">(</span>np.arange<span style="color: #FD971F;">(</span>-10, 10, 0.25<span style="color: #FD971F;">)</span><span style="color: #F92660;">)</span>
+<span style="color: #F8F8F2;">Y</span> = <span style="color: #F92660;">[]</span>
+<span style="color: #F92660;">for</span> x <span style="color: #F92660;">in</span> <span style="color: #F8F8F2;">X</span>:
+    Y += <span style="color: #F92660;">[</span>y<span style="color: #FD971F;">(</span>x<span style="color: #FD971F;">)</span><span style="color: #F92660;">]</span>
+<span style="color: #F92660;">return</span> <span style="color: #FD971F;">list</span><span style="color: #F92660;">(</span><span style="color: #FD971F;">zip</span><span style="color: #FD971F;">(</span>X, Y<span style="color: #FD971F;">)</span><span style="color: #F92660;">)</span>
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">-10.0</td>
+<td class="org-right">100.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-9.75</td>
+<td class="org-right">95.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-9.5</td>
+<td class="org-right">90.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-9.25</td>
+<td class="org-right">85.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-9.0</td>
+<td class="org-right">81.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-8.75</td>
+<td class="org-right">76.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-8.5</td>
+<td class="org-right">72.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-8.25</td>
+<td class="org-right">68.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-8.0</td>
+<td class="org-right">64.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-7.75</td>
+<td class="org-right">60.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-7.5</td>
+<td class="org-right">56.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-7.25</td>
+<td class="org-right">52.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-7.0</td>
+<td class="org-right">49.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-6.75</td>
+<td class="org-right">45.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-6.5</td>
+<td class="org-right">42.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-6.25</td>
+<td class="org-right">39.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-6.0</td>
+<td class="org-right">36.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-5.75</td>
+<td class="org-right">33.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-5.5</td>
+<td class="org-right">30.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-5.25</td>
+<td class="org-right">27.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-5.0</td>
+<td class="org-right">25.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-4.75</td>
+<td class="org-right">22.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-4.5</td>
+<td class="org-right">20.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-4.25</td>
+<td class="org-right">18.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-4.0</td>
+<td class="org-right">16.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-3.75</td>
+<td class="org-right">14.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-3.5</td>
+<td class="org-right">12.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-3.25</td>
+<td class="org-right">10.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-3.0</td>
+<td class="org-right">9.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-2.75</td>
+<td class="org-right">7.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-2.5</td>
+<td class="org-right">6.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-2.25</td>
+<td class="org-right">5.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-2.0</td>
+<td class="org-right">4.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-1.75</td>
+<td class="org-right">3.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">-1.5</td>
+<td class="org-right">2.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-1.25</td>
+<td class="org-right">1.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-1.0</td>
+<td class="org-right">1.0</td>
+</tr>
+
+<tr>
+<td class="org-right">-0.75</td>
+<td class="org-right">0.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">-0.5</td>
+<td class="org-right">0.25</td>
+</tr>
+
+<tr>
+<td class="org-right">-0.25</td>
+<td class="org-right">0.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">0.0</td>
+<td class="org-right">0.0</td>
+</tr>
+
+<tr>
+<td class="org-right">0.25</td>
+<td class="org-right">0.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">0.5</td>
+<td class="org-right">0.25</td>
+</tr>
+
+<tr>
+<td class="org-right">0.75</td>
+<td class="org-right">0.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">1.0</td>
+<td class="org-right">1.0</td>
+</tr>
+
+<tr>
+<td class="org-right">1.25</td>
+<td class="org-right">1.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">1.5</td>
+<td class="org-right">2.25</td>
+</tr>
+
+<tr>
+<td class="org-right">1.75</td>
+<td class="org-right">3.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">2.0</td>
+<td class="org-right">4.0</td>
+</tr>
+
+<tr>
+<td class="org-right">2.25</td>
+<td class="org-right">5.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">2.5</td>
+<td class="org-right">6.25</td>
+</tr>
+
+<tr>
+<td class="org-right">2.75</td>
+<td class="org-right">7.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">3.0</td>
+<td class="org-right">9.0</td>
+</tr>
+
+<tr>
+<td class="org-right">3.25</td>
+<td class="org-right">10.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">3.5</td>
+<td class="org-right">12.25</td>
+</tr>
+
+<tr>
+<td class="org-right">3.75</td>
+<td class="org-right">14.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">4.0</td>
+<td class="org-right">16.0</td>
+</tr>
+
+<tr>
+<td class="org-right">4.25</td>
+<td class="org-right">18.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">4.5</td>
+<td class="org-right">20.25</td>
+</tr>
+
+<tr>
+<td class="org-right">4.75</td>
+<td class="org-right">22.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">5.0</td>
+<td class="org-right">25.0</td>
+</tr>
+
+<tr>
+<td class="org-right">5.25</td>
+<td class="org-right">27.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">5.5</td>
+<td class="org-right">30.25</td>
+</tr>
+
+<tr>
+<td class="org-right">5.75</td>
+<td class="org-right">33.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">6.0</td>
+<td class="org-right">36.0</td>
+</tr>
+
+<tr>
+<td class="org-right">6.25</td>
+<td class="org-right">39.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">6.5</td>
+<td class="org-right">42.25</td>
+</tr>
+
+<tr>
+<td class="org-right">6.75</td>
+<td class="org-right">45.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">7.0</td>
+<td class="org-right">49.0</td>
+</tr>
+
+<tr>
+<td class="org-right">7.25</td>
+<td class="org-right">52.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">7.5</td>
+<td class="org-right">56.25</td>
+</tr>
+
+<tr>
+<td class="org-right">7.75</td>
+<td class="org-right">60.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">8.0</td>
+<td class="org-right">64.0</td>
+</tr>
+
+<tr>
+<td class="org-right">8.25</td>
+<td class="org-right">68.0625</td>
+</tr>
+
+<tr>
+<td class="org-right">8.5</td>
+<td class="org-right">72.25</td>
+</tr>
+
+<tr>
+<td class="org-right">8.75</td>
+<td class="org-right">76.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">9.0</td>
+<td class="org-right">81.0</td>
+</tr>
+
+<tr>
+<td class="org-right">9.25</td>
+<td class="org-right">85.5625</td>
+</tr>
+
+<tr>
+<td class="org-right">9.5</td>
+<td class="org-right">90.25</td>
+</tr>
+
+<tr>
+<td class="org-right">9.75</td>
+<td class="org-right">95.0625</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+<pre class="src src-gnuplot"><span style="color: #F92660;">plot</span> data
+</pre>
+</div>
+
+<div id="org53e682d" class="figure">
+<p><img src="plot2.png" alt="plot2.png" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Test</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #F92660;">return</span> data<span style="color: #F92660;">[</span>1<span style="color: #F92660;">]</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Yaroshevskiy Ilya</p>
+<p class="date">Created: 2021-02-26 Fri 16:44</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

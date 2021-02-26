@@ -1,0 +1,6 @@
+#+TITLE: Old Site
+
+#+SETUPFILE: ../../setup.org
+
+[[file:old.html][Old site]]
+

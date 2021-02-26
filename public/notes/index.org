@@ -1,0 +1,14 @@
+#+TITLE: Archive
+
+#+HTML_HEAD: <link id="style" rel="stylesheet" type="text/css" href="index-style.css"/>
+#+HTML_HEAD_EXTRA: <script type="text/javascript" src="script.js"></script>
+#+PROPERTY: header-args :eval never-export
+#+EMAIL: iliayar3@gmail.com
+#+AUTHOR: Yaroshevskiy Ilya
+#+OPTIONS: toc:1 num:nil
+
+* Projects
+[[file:projects/ImageStorage/index.html][Image Storage]]
+* Other
+[[file:other/oldsite/index.html][Old Site]] \\
+[[file:other/orgmode/index.html][Org mode]]
