@@ -1,0 +1,6 @@
+#+TITLE: Image storage bot
+
+#+SETUPFILE: ../../setup.org
+
+- Web storage [[https://storage.iliayar.ru/storage/iliayar][here]]
+- Telegram bot [[http://t.me/imagestoragebot][here]]
