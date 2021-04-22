@@ -1,28 +1,33 @@
-function cursorHide() {
-    jQuery("#cursor").hide();
-    setTimeout(cursorShow, 1000);
-}
+(() => {
+    let un_mute = document.querySelector('#un-mute');
+    let video = document.querySelector("#bg-video");
+    video.volume = 0.3;
 
-function cursorShow() {
-    jQuery("#cursor").show();
-    setTimeout(cursorHide, 1000);
-}
+    console.log(video)
+    console.log(un_mute)
 
-jQuery(function(){
-    jQuery("#bgndVideo").YTPlayer();
-    setTimeout(cursorHide, 1000);
-});
+    un_mute.addEventListener('click', () => {
+	if(video.muted) {
+	    un_mute.innerHTML = 'mute';
+	    video.muted = false
+	} else {
+	    un_mute.innerHTML = 'unmute';
+	    video.muted = true
+	}
+    });
 
+    var cursor = document.querySelector('#cursor')
 
-var un_mute = jQuery("#un-mute")[0];
-
-un_mute.onclick = function() {
-    player = jQuery("#bgndVideo");
-    mute = jQuery("#un-mute");
-    if(player.YTPGetVolume() == 0) {
-	mute.html("mute");
-    } else {
-	mute.html("unmute");
+    function cursorHide() {
+	cursor.style.display = 'none';
+	setTimeout(cursorShow, 1000);
     }
-    player.YTPToggleVolume();
-};
+
+    function cursorShow() {
+	cursor.style.display = 'inline';
+	setTimeout(cursorHide, 1000);
+    }
+
+    cursorHide();
+
+})();

@@ -1,2 +1,1 @@
-// Sorry for it
-(() => {fetch("/log.php?path=" + window.location.pathname)})();
+console.log("Hello stranger...")

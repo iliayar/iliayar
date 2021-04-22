@@ -3,17 +3,20 @@
     <title>iliayar - Main</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/index.css">
-    <link href="css/YTPlayer.css" media="all" rel="stylesheet" type="text/css">
     <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.14.0/css/all.css">
     <base target="_blank"/>
   </head>
   <body>
-    <div class="title-block abs-block">
-      Welcome to iliayar's <div id="tilde">~</div>
-    </div>
-    <div class="center-block abs-block">
-      <div id="tilde" class="cmd">~</div> <div id="lambda" class="cmd">λ</div> <div class="cmd interactive" id="un-mute">unmute</div>
+    <video autoplay muted loop id="bg-video">
+      <source src="media/back.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+      <div class="title-block abs-block">
+	Welcome to iliayar's <div id="tilde">~</div>
+      </div>
+      <div class="center-block abs-block">
+	<div id="tilde" class="cmd">~</div> <div id="lambda" class="cmd">λ</div> <div class="cmd interactive" id="un-mute">unmute</div>
       </br>
       <div id="tilde" class="cmd">~</div> <div id="lambda" class="cmd">λ</div> <div class="cmd">whoami</div>
       </br>
@@ -41,12 +44,11 @@
       <div id="tilde" class="cmd">~</div> <div id="lambda" class="cmd">λ</div> more <div class="cmd interactive"><a href="notes/">/dev/random</a></div>
       </br>
       <div id="active-line"><div id="tilde" class="cmd">~</div> <div id="lambda" class="cmd">λ</div> <div class="cmd" id="active-cmd"></div><div class="cmd" id="cursor">&#x2588;</div></div>
+      </div>
     </div>
 
-    <div id="bgndVideo" class="player" data-property="{videoURL:'http://www.youtu.be/0ZYQLu5XZfk',stopMovieOnBlur: false, ratio: 16/9, showControls: false, containment:'body',autoPlay: true, vol: 30, startAt:0, opacity:0.8, showAnnotations: false, mute: true}">My video</div>
+    <!-- <div id="bgndVideo" class="player" data-property="{videoURL:'http://www.youtu.be/0ZYQLu5XZfk',stopMovieOnBlur: false, ratio: 16/9, showControls: false, containment:'body',autoPlay: true, vol: 30, startAt:0, opacity:0.8, showAnnotations: false, mute: true}">My video</div> -->
 
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/jquery.mb.YTPlayer.js"></script>
     <script src = "js/main.js"></script>
     <script src = "js/index.js"></script>
   </body>
