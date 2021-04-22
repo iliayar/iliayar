@@ -8,7 +8,7 @@
 #+OPTIONS: toc:1 num:nil
 
 * Projects
-[[file:projects/ImageStorage/index.html][Image Storage]]
+[[file:projects/ImageStorage][Image Storage]]
 * Other
-[[file:other/oldsite/index.html][Old Site]] \\
-[[file:other/orgmode/index.html][Org mode]]
+[[file:other/oldsite][Old Site]] \\
+[[file:other/orgmode][Org mode]]

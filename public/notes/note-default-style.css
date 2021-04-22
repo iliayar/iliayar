@@ -3,7 +3,7 @@
 @import url("./default-style.css");
 
 :root {
-    /*--background: #272822;*/
+    --background: #101010;
     /*--foreground: #F8F8F2;*/
     --comment: #75715E;
     --red: #F92672;
@@ -13,6 +13,10 @@
     --green: #A6E22E;
     --blue: #66D9EF;
     --purple: #AE81FF;
+}
+
+.src-artist {
+    overflow: scroll;
 }
 
 .theorem p, .lemma p, .proof p, .task p, .examp p, .solution p {
@@ -25,8 +29,8 @@
 
 html {
     --code-font-size: 13px;
-    --landscape-body-width: 610px;
-    --landscape-sidebar-width: 280px;
+    --landscape-body-width: 70%;
+    --landscape-sidebar-width: 25%;
 }
 
 .verse {

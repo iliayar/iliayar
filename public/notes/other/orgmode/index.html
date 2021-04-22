@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-02-26 Fri 16:44 -->
+<!-- 2021-03-03 Wed 15:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org mode</title>
@@ -63,19 +63,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf8e9793">1. Code example</a></li>
-<li><a href="#org32708b2">2. \(\LaTeX\) examples</a></li>
-<li><a href="#org8a25419">3. Quote example</a></li>
-<li><a href="#org67ac6de">4. Dot graph</a></li>
-<li><a href="#orgbee2ec0">5. Gnuplot example</a></li>
-<li><a href="#org3217cd8">6. Python example</a></li>
-<li><a href="#orgd420f0f">7. Python &amp; Gnuplot example</a></li>
+<li><a href="#orgb07a8c4">1. Code example</a></li>
+<li><a href="#org044d931">2. \(\LaTeX\) examples</a></li>
+<li><a href="#orgd555d0b">3. Quote example</a></li>
+<li><a href="#org92309b0">4. Dot graph</a></li>
+<li><a href="#org5cb9ab6">5. Gnuplot example</a></li>
+<li><a href="#orgea1751e">6. Python example</a></li>
+<li><a href="#orgc640d5e">7. Python &amp; Gnuplot example</a></li>
+<li><a href="#org2c13ccc">8. Test export</a></li>
+<li><a href="#org8ffc3be">9. Drawing???</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf8e9793" class="outline-2">
-<h2 id="orgf8e9793"><span class="section-number-2">1</span> Code example</h2>
+<div id="outline-container-orgb07a8c4" class="outline-2">
+<h2 id="orgb07a8c4"><span class="section-number-2">1</span> Code example</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="linenr">1: </span><span style="color: #F92660; font-weight: bold;">#include</span> <span style="color: #F92660;">&lt;</span><span style="color: #E6DB74;">iostream</span><span style="color: #F92660;">&gt;</span>
@@ -100,7 +102,7 @@ Using codeblocks result:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org91c9639"><span style="color: #F92660;">return</span> <span style="color: #E6DB74;">"Test"</span>
+<pre class="src src-python" id="org0374dac"><span style="color: #F92660;">return</span> <span style="color: #E6DB74;">"Test"</span>
 </pre>
 </div>
 
@@ -111,8 +113,8 @@ Using codeblocks result:
 </div>
 </div>
 
-<div id="outline-container-org32708b2" class="outline-2">
-<h2 id="org32708b2"><span class="section-number-2">2</span> \(\LaTeX\) examples</h2>
+<div id="outline-container-org044d931" class="outline-2">
+<h2 id="org044d931"><span class="section-number-2">2</span> \(\LaTeX\) examples</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 \[ e^{ix} = \cos x + i \sin x \]
@@ -123,19 +125,19 @@ Using codeblocks result:
 Test latex classes: \(\R\)
 </p>
 
-<div class="theorem" id="orgaf64ba2">
+<div class="theorem" id="orgf266f34">
 <p>
 Some cool theorem
 </p>
 
 </div>
-<div class="proof" id="org28e85cb">
+<div class="proof" id="orgced078d">
 <p>
 Some cool proof of some cool theorem
 </p>
 
 </div>
-<div class="theorem" id="org37edefe">
+<div class="theorem" id="orgf4b3501">
 <p>
 Another cool theorem
 </p>
@@ -143,8 +145,8 @@ Another cool theorem
 </div>
 </div>
 </div>
-<div id="outline-container-org8a25419" class="outline-2">
-<h2 id="org8a25419"><span class="section-number-2">3</span> Quote example</h2>
+<div id="outline-container-orgd555d0b" class="outline-2">
+<h2 id="orgd555d0b"><span class="section-number-2">3</span> Quote example</h2>
 <div class="outline-text-2" id="text-3">
 <blockquote>
 <p>
@@ -159,30 +161,30 @@ Snow covers Emacs
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org67ac6de" class="outline-2">
-<h2 id="org67ac6de"><span class="section-number-2">4</span> Dot graph</h2>
+<div id="outline-container-org92309b0" class="outline-2">
+<h2 id="org92309b0"><span class="section-number-2">4</span> Dot graph</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-dot"><span style="color: #F92660;">digraph</span> <span style="color: #F92660;">{</span>
-    a -&gt; b <span style="color: #FD971F;">[</span><span style="color: #F8F8F2;">color=</span><span style="color: #E6DB74;">blue</span>, <span style="color: #F8F8F2;">label=</span><span style="color: #E6DB74;">"test"</span><span style="color: #FD971F;">]</span>;
-    b -&gt; c;
-    b -&gt; d;
-    d -&gt; e;
-    d -&gt; f;
-<span style="color: #F92660;">}</span>
+<pre class="src src-dot">  <span style="color: #F92660;">digraph</span> <span style="color: #F92660;">{</span>
+      a -&gt; b <span style="color: #FD971F;">[</span><span style="color: #F8F8F2;">color=</span><span style="color: #E6DB74;">blue</span>, <span style="color: #F8F8F2;">label=</span><span style="color: #E6DB74;">"test"</span><span style="color: #FD971F;">]</span>;
+      b -&gt; c;
+      b -&gt; d;
+      d -&gt; e;
+      d -&gt; f;
+  <span style="color: #F92660;">}</span>
 </pre>
 </div>
 
 
-<div id="org71231fe" class="figure">
+<div id="org1d550fe" class="figure">
 <p><img src="TMP.png" alt="TMP.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgbee2ec0" class="outline-2">
-<h2 id="orgbee2ec0"><span class="section-number-2">5</span> Gnuplot example</h2>
+<div id="outline-container-org5cb9ab6" class="outline-2">
+<h2 id="org5cb9ab6"><span class="section-number-2">5</span> Gnuplot example</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-gnuplot"><span style="color: #9C91E4;">reset</span>
@@ -207,44 +209,44 @@ Snow covers Emacs
 </div>
 
 
-<div id="orgddc2ac3" class="figure">
+<div id="org62cd3f0" class="figure">
 <p><img src="plot1.png" alt="plot1.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3217cd8" class="outline-2">
-<h2 id="org3217cd8"><span class="section-number-2">6</span> Python example</h2>
+<div id="outline-container-orgea1751e" class="outline-2">
+<h2 id="orgea1751e"><span class="section-number-2">6</span> Python example</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #F92660;">import</span> matplotlib
-matplotlib.use<span style="color: #F92660;">(</span><span style="color: #E6DB74;">'Agg'</span><span style="color: #F92660;">)</span>
-<span style="color: #F92660;">import</span> matplotlib.pyplot <span style="color: #F92660;">as</span> plt
-<span style="color: #F8F8F2;">filename</span> = <span style="color: #E6DB74;">'13_2.png'</span>
-plt.plot<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 1, 2<span style="color: #FD971F;">]</span>, <span style="color: #FD971F;">[</span>1, 1, 0, 0<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-plt.ylabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$hash(s[i : k]) = hash(j : k)$"</span><span style="color: #F92660;">)</span>
-plt.xlabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$s_i$"</span><span style="color: #F92660;">)</span>
-plt.yticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-plt.xticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 2<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-plt.savefig<span style="color: #F92660;">(</span>filename<span style="color: #F92660;">)</span>
-<span style="color: #F92660;">return</span> filename
+<pre class="src src-python">  <span style="color: #F92660;">import</span> matplotlib
+  matplotlib.use<span style="color: #F92660;">(</span><span style="color: #E6DB74;">'Agg'</span><span style="color: #F92660;">)</span>
+  <span style="color: #F92660;">import</span> matplotlib.pyplot <span style="color: #F92660;">as</span> plt
+  <span style="color: #F8F8F2;">filename</span> = <span style="color: #E6DB74;">'13_2.png'</span>
+  plt.plot<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 1, 2<span style="color: #FD971F;">]</span>, <span style="color: #FD971F;">[</span>1, 1, 0, 0<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+  plt.ylabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$hash(s[i : k]) = hash(j : k)$"</span><span style="color: #F92660;">)</span>
+  plt.xlabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$s_i$"</span><span style="color: #F92660;">)</span>
+  plt.yticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+  plt.xticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 2<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+  plt.savefig<span style="color: #F92660;">(</span>filename<span style="color: #F92660;">)</span>
+  <span style="color: #F92660;">return</span> filename
 </pre>
 </div>
 
 
-<div id="orga46f2f7" class="figure">
+<div id="orgacef8c2" class="figure">
 <p><img src="13_2.png" alt="13_2.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgd420f0f" class="outline-2">
-<h2 id="orgd420f0f"><span class="section-number-2">7</span> Python &amp; Gnuplot example</h2>
+<div id="outline-container-orgc640d5e" class="outline-2">
+<h2 id="orgc640d5e"><span class="section-number-2">7</span> Python &amp; Gnuplot example</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
-<pre class="src src-python" id="orga18115d"><span style="color: #F92660;">import</span> math
+<pre class="src src-python" id="org373f982"><span style="color: #F92660;">import</span> math
 <span style="color: #F92660;">import</span> numpy <span style="color: #F92660;">as</span> np
 <span style="color: #F8F8F2;">y</span> = <span style="color: #F92660;">lambda</span> x: x**2
 <span style="color: #F8F8F2;">X</span> = <span style="color: #FD971F;">list</span><span style="color: #F92660;">(</span>np.arange<span style="color: #FD971F;">(</span>-10, 10, 0.25<span style="color: #FD971F;">)</span><span style="color: #F92660;">)</span>
@@ -671,14 +673,117 @@ plt.savefig<span style="color: #F92660;">(</span>filename<span style="color: #F9
 </pre>
 </div>
 
-<div id="org53e682d" class="figure">
+
+<div id="org6d225e0" class="figure">
 <p><img src="plot2.png" alt="plot2.png" />
 </p>
-<p><span class="figure-number">Figure 4: </span>Test</p>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #F92660;">return</span> data<span style="color: #F92660;">[</span>1<span style="color: #F92660;">]</span>
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">-9.75</td>
+<td class="org-right">95.0625</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org2c13ccc" class="outline-2">
+<h2 id="org2c13ccc"><span class="section-number-2">8</span> Test export</h2>
+<div class="outline-text-2" id="text-8">
+<div> Test div </div>
+</div>
+</div>
+<div id="outline-container-org8ffc3be" class="outline-2">
+<h2 id="org8ffc3be"><span class="section-number-2">9</span> Drawing???</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-artist">                                                                                                                                  ..
+                                                                   .                       .                          .   .........            ...........
+                                              .     ..            ...                     .. .                       ..........                .. .    ....
+                               . .           ..      ..            ..                  . ......                  .........                              ...
+                               ...          ..       ..            ...                 ....  ...              ..........                               ....
+            .                  ...          ..       ..             ..                 ....  .....          ......    ..                              .....
+           ..                  ...         ..        ..              ..               ....    .. ..          .         ..                          ... ...
+           ...                ....         ..        ...          .....               ...      ......                   ..                        .. ...
+           ....               ....        ..          ..    ............              ...        .....                  ...                      .. ...
+           ....              ..  ..       ..          ...........     ...             ..          .....                  ...                    .....
+            .....           ...  ..      ...         ......           ...             ..     ...........                  ...                  ....
+              . .           ...  ...    ...           ...              ...           ..............  ....                  ...                 ...
+               . .         ...    ..   ...            ...              ...           .......          ....                  ...                ...
+                ...       ...     ... ...              ..               ..          ....               ...                   ..                 ...
+                 ...     ....     ......               ..               ...         ...                                                           ...
+                  ...    ...       ....                ...               .           ..
+                   ...  ...                             ..
+                    ......                               .                                     madness                                            ..
+                     ....                                                                                                                        ...
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-artist">
+
+
+
+                                                                      ..-    -...
+                                                            .   ...-m.-.% -- ..-.. .- .
+                                                       ....-m- -%+.*- %- .%*+%%++.-m+.  + ..
+                                                     .--.m.mm*+++###*### #m#m####m##+#..+%++. -
+                                                    - -+m-*+ #*########m*##*##########**mm*--mm--.
+                                                ---..%%**#%#####+%*#*%%+*mm+%-+-+m*m-#######*#*++-.
+                                                 .-+####%####-+mmm*--#% -+m--.. - %.#m-##+m####-%*
+                                             .-m.-*##-#*##m#%--+%%--.- .  m .-   +++- %.. +%*####m#*-+ .
+                                             %- %#-###+%m#+-+ ..                     .+- .m+*mm######+*..
+                                             -%###*##m*---  ..                 .-- .-     - -#m#+%###%-* .
+                                           .-#*#####m+-                     -.    .-.--.  - **####*####m*m.
+                                           --*##m#+m -. .                .m -m+.m.--m+..-..+mm###m#+#####-+
+                                          .mm####%--                    ++.m-%##%####*+ -- -+##-m%#-%%#mmm.-
+                                          . %###+-+..                .+mm-#####%-% m-.##m. - -#m+m+-+%##%#+      .   ...
+                                          .m##*%% .. .          ....+--######m +++.+.+m###+  .%%##.+m*####+m .. -. -. .--+-
+                                          .-%####m-.  % ..   .  . --*###+#m.#* ---  +.m+#%- + +++###*#%#%#+*--.-.--%-%-#-* -..%
+                                          mm%##*m+mm+.- m . +   +-+m*###m m-..-%.    +%###-- .-m-.--+-#####%mm.- +*#####*.*m#%.%.- --
+                                          .##%########m+%+-. -..#%*#%###m%.. -     -. .+#m-    . -+ --%######+-+#*#+##**+###m#*++- *+ .
+                                          -+m*#m###m#####-.-+*###-+-*###*%.+.m.  ....-%%mm%-     .  ---####- ++.m#m- %.-########*# %-....-
+                                         .m*-*#######*#+#m#+ ..mm   ---##-.+- -+  m.-%#%m+    -      .-+%%*#*+.-.  . m *+.mm#m*#####.%++-mm
+                                      --.. .%#####%#**m+m##%-+-- .. .+.-%%m#.+.+. %+.m+m*-            m.%#*#+. .     + ... +.--%mm%*-#.#*m-*.
+                                  .   --+.+###%#######+#*#*-          ....++.m .m -. ..               . - #m+.          ..- +-.%+m+--*-####m+..
+                                 +.m-m%#%#.m-m*mm**#+##mm#*m+        . -m..+- . -     .                ..m*..                  . +m m+-######%
+                              m ..-m####%-+m -m..m####%###%.             . m.  .  -                      -.-                      ..m-%*###%#%m.
+                             -.*%+m%%.+ m+  - . .--m###-##+..  ...             - .                                         . +.m-- .m-#######*m.
+                           .+.--%*+---. + .       --mm##*#m-  .-.-                                                  .. .... m .-.*.######%###%..
+                         .+...#%*% -  .           ..-.+%##-. .-                                                ...m    .-+-- .%###+%%m######**+-
+                        .-%-m%-mmm .               ..+ + +. .  %.%-                                        -.... . .. -#+m######mm%+**#####+-+
+                       ---.#mm#m +                   ...-+     ..                                   . . .-+++%%.m#m#-#######+++#+%%%*##+###m.+
+                       --+%m-.+--                     . .     .  .                           .. ..+--.m-m m+%-m##%#*##+#+%##m#+#+-+.+%#*mmm-
+                       -.##%. -                              .  .                      .  .m .++++-.**%-m#-m%###mm-%##%#*#%--*. +--*+#m++.
+                      .-*#**... .                                            .. .  .m+-.-.-+.+mmm -+*#####m*#+#m#m%#*++%+m-+m.m-.m-..-.--.
+                      - +##*m.. -    .-   -.. . m.   -- . .       .   . .--m+% +%-+.. +%.-+-%-#*######-##%##+*--+m#+-..m+% +m##mmm-...
+                      -.m%##*+.+  ..+..+..m..- -.*...-+-+... m... ..-- *.*mm#.*-.m+.m- %#+#%#***#m####*+%+-*m+.+ .+%-%++ .#+#*+.%* -
+                       -m##%##%-. -.+m-.--m.-.m+*m-m.-#.%-+.+..- ---m-*+%#m++######m*#.-+%  m.++#%-.. m.--m+m.-%-+%--m###m.mm% .--.
+                      . -m#m#+m####m+#%#%.%##%m%#-##%#*m%#+m%#m +%#%##+##%#####-m-.m---+- ... .+ ++.......+.+....-*-#+%*-m- -..
+                      --.-###** .-%...m+m.#+.-%--+.m . --.+. .+...--m#++-m+%m%-..-+.-. ++.   . . - -. -.+ -%+%%m**#+-#*-+-..+
+                         .++*#m*+----+...-. . -...+ +. . .m.-..- ..+ ++..m#+. - . - -          -..  ..--m.-#*%%+++% %- .-..
+                         . .-*#%*+mm++++-. .   ....+ -.+ . .  .. +   .-. ++. .  --+. +. . -.-.. +-m. +++#*#+.%-....  .
+                          . .+#**#m +.+. .. -+..   . . -   .- .- -.-...  .- +  - -.+.-.-+.+-+*++-m*m*#*--..m --.
+                            -++-m#+#m+.-m+. .-.-.--% .+.. ... -. m+  -.--.- ...+-.-m. -+ m+####%% .+ * -%+. - ..
+                            .---m%m.m#%#+*+--+++m.-+- . m++. .+*-. --.mm..-.-. %*###**##%%#% + +-+ . .-....
+                               .. -.--m+-%%###%##%#*####*#mm#%m%#m#m-****##%m####-.-- .%-.%-+m.+.. - . .
+                                . .... m+ .--%.-.-++%.-+-..%+--+.m-+%-+-...* mm-m.-++-.--+  -. .
+                                        .+.+ . ..+. . . --.-.+.-..+--m -.--..---   .-. --  ..
+                                           .-.  + -. ..+  - ....--   -. .--.....
 </pre>
 </div>
 </div>
@@ -686,7 +791,7 @@ plt.savefig<span style="color: #F92660;">(</span>filename<span style="color: #F9
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yaroshevskiy Ilya</p>
-<p class="date">Created: 2021-02-26 Fri 16:44</p>
+<p class="date">Created: 2021-03-03 Wed 15:23</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
