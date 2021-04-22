@@ -3,9 +3,6 @@
     let video = document.querySelector("#bg-video");
     video.volume = 0.3;
 
-    console.log(video)
-    console.log(un_mute)
-
     un_mute.addEventListener('click', () => {
 	if(video.muted) {
 	    un_mute.innerHTML = 'mute';
