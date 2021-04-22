@@ -2,10 +2,14 @@
 
 #+HTML_HEAD: <link id="style" rel="stylesheet" type="text/css" href="index-style.css"/>
 #+HTML_HEAD_EXTRA: <script type="text/javascript" src="script.js"></script>
+#+HTML_HEAD_EXTRA: <script type="text/javascript" src="../js/main.js"></script>
 #+PROPERTY: header-args :eval never-export
 #+EMAIL: iliayar3@gmail.com
 #+AUTHOR: Yaroshevskiy Ilya
 #+OPTIONS: toc:1 num:nil
+
+Some random stuff. These pages are created using only Org mode and
+some shitty styles.
 
 * Projects
 [[file:projects/ImageStorage][Image Storage]]

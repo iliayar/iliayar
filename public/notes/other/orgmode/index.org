@@ -2,6 +2,9 @@
 
 #+SETUPFILE: ../../setup.org
 
+Playing with Org mode
+
+
 * Code example
 #+begin_src C++ -n -r :exports both
 #include <iostream>

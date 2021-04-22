@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-03-03 Wed 15:23 -->
+<!-- 2021-04-22 Thu 15:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org mode</title>
@@ -11,6 +11,7 @@
 <meta name="author" content="Yaroshevskiy Ilya" />
 <link id="style" rel="stylesheet" type="text/css" href="../../style.css"/>
 <script type="text/javascript" src="../../script.js"></script>
+<script type="text/javascript" src="../../../js/main.js"></script>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -63,21 +64,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb07a8c4">1. Code example</a></li>
-<li><a href="#org044d931">2. \(\LaTeX\) examples</a></li>
-<li><a href="#orgd555d0b">3. Quote example</a></li>
-<li><a href="#org92309b0">4. Dot graph</a></li>
-<li><a href="#org5cb9ab6">5. Gnuplot example</a></li>
-<li><a href="#orgea1751e">6. Python example</a></li>
-<li><a href="#orgc640d5e">7. Python &amp; Gnuplot example</a></li>
-<li><a href="#org2c13ccc">8. Test export</a></li>
-<li><a href="#org8ffc3be">9. Drawing???</a></li>
+<li><a href="#orgb9bf5d8">1. Code example</a></li>
+<li><a href="#org4cc5a59">2. \(\LaTeX\) examples</a></li>
+<li><a href="#org711df88">3. Quote example</a></li>
+<li><a href="#org633c351">4. Dot graph</a></li>
+<li><a href="#org2621b06">5. Gnuplot example</a></li>
+<li><a href="#org207a158">6. Python example</a></li>
+<li><a href="#org2d212c7">7. Python &amp; Gnuplot example</a></li>
+<li><a href="#orgfb17f0a">8. Test export</a></li>
+<li><a href="#org5138ca5">9. Drawing???</a></li>
 </ul>
 </div>
 </div>
+<p>
+Playing with Org mode
+</p>
 
-<div id="outline-container-orgb07a8c4" class="outline-2">
-<h2 id="orgb07a8c4"><span class="section-number-2">1</span> Code example</h2>
+
+<div id="outline-container-orgb9bf5d8" class="outline-2">
+<h2 id="orgb9bf5d8"><span class="section-number-2">1</span> Code example</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span class="linenr">1: </span><span style="color: #F92660; font-weight: bold;">#include</span> <span style="color: #F92660;">&lt;</span><span style="color: #E6DB74;">iostream</span><span style="color: #F92660;">&gt;</span>
@@ -102,7 +107,7 @@ Using codeblocks result:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org0374dac"><span style="color: #F92660;">return</span> <span style="color: #E6DB74;">"Test"</span>
+<pre class="src src-python" id="org4d18a85"><span style="color: #F92660;">return</span> <span style="color: #E6DB74;">"Test"</span>
 </pre>
 </div>
 
@@ -113,8 +118,8 @@ Using codeblocks result:
 </div>
 </div>
 
-<div id="outline-container-org044d931" class="outline-2">
-<h2 id="org044d931"><span class="section-number-2">2</span> \(\LaTeX\) examples</h2>
+<div id="outline-container-org4cc5a59" class="outline-2">
+<h2 id="org4cc5a59"><span class="section-number-2">2</span> \(\LaTeX\) examples</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 \[ e^{ix} = \cos x + i \sin x \]
@@ -125,19 +130,19 @@ Using codeblocks result:
 Test latex classes: \(\R\)
 </p>
 
-<div class="theorem" id="orgf266f34">
+<div class="theorem" id="orgd87473e">
 <p>
 Some cool theorem
 </p>
 
 </div>
-<div class="proof" id="orgced078d">
+<div class="proof" id="orgc5c2940">
 <p>
 Some cool proof of some cool theorem
 </p>
 
 </div>
-<div class="theorem" id="orgf4b3501">
+<div class="theorem" id="org55a412b">
 <p>
 Another cool theorem
 </p>
@@ -145,8 +150,8 @@ Another cool theorem
 </div>
 </div>
 </div>
-<div id="outline-container-orgd555d0b" class="outline-2">
-<h2 id="orgd555d0b"><span class="section-number-2">3</span> Quote example</h2>
+<div id="outline-container-org711df88" class="outline-2">
+<h2 id="org711df88"><span class="section-number-2">3</span> Quote example</h2>
 <div class="outline-text-2" id="text-3">
 <blockquote>
 <p>
@@ -161,30 +166,30 @@ Snow covers Emacs
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org92309b0" class="outline-2">
-<h2 id="org92309b0"><span class="section-number-2">4</span> Dot graph</h2>
+<div id="outline-container-org633c351" class="outline-2">
+<h2 id="org633c351"><span class="section-number-2">4</span> Dot graph</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-dot">  <span style="color: #F92660;">digraph</span> <span style="color: #F92660;">{</span>
-      a -&gt; b <span style="color: #FD971F;">[</span><span style="color: #F8F8F2;">color=</span><span style="color: #E6DB74;">blue</span>, <span style="color: #F8F8F2;">label=</span><span style="color: #E6DB74;">"test"</span><span style="color: #FD971F;">]</span>;
-      b -&gt; c;
-      b -&gt; d;
-      d -&gt; e;
-      d -&gt; f;
-  <span style="color: #F92660;">}</span>
+<pre class="src src-dot"><span style="color: #F92660;">digraph</span> <span style="color: #F92660;">{</span>
+    a -&gt; b <span style="color: #FD971F;">[</span><span style="color: #F8F8F2;">color=</span><span style="color: #E6DB74;">blue</span>, <span style="color: #F8F8F2;">label=</span><span style="color: #E6DB74;">"test"</span><span style="color: #FD971F;">]</span>;
+    b -&gt; c;
+    b -&gt; d;
+    d -&gt; e;
+    d -&gt; f;
+<span style="color: #F92660;">}</span>
 </pre>
 </div>
 
 
-<div id="org1d550fe" class="figure">
+<div id="org9e631bf" class="figure">
 <p><img src="TMP.png" alt="TMP.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5cb9ab6" class="outline-2">
-<h2 id="org5cb9ab6"><span class="section-number-2">5</span> Gnuplot example</h2>
+<div id="outline-container-org2621b06" class="outline-2">
+<h2 id="org2621b06"><span class="section-number-2">5</span> Gnuplot example</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-gnuplot"><span style="color: #9C91E4;">reset</span>
@@ -209,44 +214,44 @@ Snow covers Emacs
 </div>
 
 
-<div id="org62cd3f0" class="figure">
+<div id="org2839d4c" class="figure">
 <p><img src="plot1.png" alt="plot1.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgea1751e" class="outline-2">
-<h2 id="orgea1751e"><span class="section-number-2">6</span> Python example</h2>
+<div id="outline-container-org207a158" class="outline-2">
+<h2 id="org207a158"><span class="section-number-2">6</span> Python example</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
-<pre class="src src-python">  <span style="color: #F92660;">import</span> matplotlib
-  matplotlib.use<span style="color: #F92660;">(</span><span style="color: #E6DB74;">'Agg'</span><span style="color: #F92660;">)</span>
-  <span style="color: #F92660;">import</span> matplotlib.pyplot <span style="color: #F92660;">as</span> plt
-  <span style="color: #F8F8F2;">filename</span> = <span style="color: #E6DB74;">'13_2.png'</span>
-  plt.plot<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 1, 2<span style="color: #FD971F;">]</span>, <span style="color: #FD971F;">[</span>1, 1, 0, 0<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-  plt.ylabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$hash(s[i : k]) = hash(j : k)$"</span><span style="color: #F92660;">)</span>
-  plt.xlabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$s_i$"</span><span style="color: #F92660;">)</span>
-  plt.yticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-  plt.xticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 2<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-  plt.savefig<span style="color: #F92660;">(</span>filename<span style="color: #F92660;">)</span>
-  <span style="color: #F92660;">return</span> filename
+<pre class="src src-python"><span style="color: #F92660;">import</span> matplotlib
+matplotlib.use<span style="color: #F92660;">(</span><span style="color: #E6DB74;">'Agg'</span><span style="color: #F92660;">)</span>
+<span style="color: #F92660;">import</span> matplotlib.pyplot <span style="color: #F92660;">as</span> plt
+<span style="color: #F8F8F2;">filename</span> = <span style="color: #E6DB74;">'13_2.png'</span>
+plt.plot<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 1, 2<span style="color: #FD971F;">]</span>, <span style="color: #FD971F;">[</span>1, 1, 0, 0<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+plt.ylabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$hash(s[i : k]) = hash(j : k)$"</span><span style="color: #F92660;">)</span>
+plt.xlabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$s_i$"</span><span style="color: #F92660;">)</span>
+plt.yticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+plt.xticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 2<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
+plt.savefig<span style="color: #F92660;">(</span>filename<span style="color: #F92660;">)</span>
+<span style="color: #F92660;">return</span> filename
 </pre>
 </div>
 
 
-<div id="orgacef8c2" class="figure">
+<div id="org1fd1605" class="figure">
 <p><img src="13_2.png" alt="13_2.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc640d5e" class="outline-2">
-<h2 id="orgc640d5e"><span class="section-number-2">7</span> Python &amp; Gnuplot example</h2>
+<div id="outline-container-org2d212c7" class="outline-2">
+<h2 id="org2d212c7"><span class="section-number-2">7</span> Python &amp; Gnuplot example</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
-<pre class="src src-python" id="org373f982"><span style="color: #F92660;">import</span> math
+<pre class="src src-python" id="org666fc28"><span style="color: #F92660;">import</span> math
 <span style="color: #F92660;">import</span> numpy <span style="color: #F92660;">as</span> np
 <span style="color: #F8F8F2;">y</span> = <span style="color: #F92660;">lambda</span> x: x**2
 <span style="color: #F8F8F2;">X</span> = <span style="color: #FD971F;">list</span><span style="color: #F92660;">(</span>np.arange<span style="color: #FD971F;">(</span>-10, 10, 0.25<span style="color: #FD971F;">)</span><span style="color: #F92660;">)</span>
@@ -674,7 +679,7 @@ Snow covers Emacs
 </div>
 
 
-<div id="org6d225e0" class="figure">
+<div id="org3ca853e" class="figure">
 <p><img src="plot2.png" alt="plot2.png" />
 </p>
 </div>
@@ -702,35 +707,35 @@ Snow covers Emacs
 </div>
 </div>
 
-<div id="outline-container-org2c13ccc" class="outline-2">
-<h2 id="org2c13ccc"><span class="section-number-2">8</span> Test export</h2>
+<div id="outline-container-orgfb17f0a" class="outline-2">
+<h2 id="orgfb17f0a"><span class="section-number-2">8</span> Test export</h2>
 <div class="outline-text-2" id="text-8">
 <div> Test div </div>
 </div>
 </div>
-<div id="outline-container-org8ffc3be" class="outline-2">
-<h2 id="org8ffc3be"><span class="section-number-2">9</span> Drawing???</h2>
+<div id="outline-container-org5138ca5" class="outline-2">
+<h2 id="org5138ca5"><span class="section-number-2">9</span> Drawing???</h2>
 <div class="outline-text-2" id="text-9">
 <div class="org-src-container">
-<pre class="src src-artist">                                                                                                                                  ..
-                                                                   .                       .                          .   .........            ...........
-                                              .     ..            ...                     .. .                       ..........                .. .    ....
-                               . .           ..      ..            ..                  . ......                  .........                              ...
-                               ...          ..       ..            ...                 ....  ...              ..........                               ....
-            .                  ...          ..       ..             ..                 ....  .....          ......    ..                              .....
-           ..                  ...         ..        ..              ..               ....    .. ..          .         ..                          ... ...
-           ...                ....         ..        ...          .....               ...      ......                   ..                        .. ...
-           ....               ....        ..          ..    ............              ...        .....                  ...                      .. ...
-           ....              ..  ..       ..          ...........     ...             ..          .....                  ...                    .....
-            .....           ...  ..      ...         ......           ...             ..     ...........                  ...                  ....
-              . .           ...  ...    ...           ...              ...           ..............  ....                  ...                 ...
-               . .         ...    ..   ...            ...              ...           .......          ....                  ...                ...
-                ...       ...     ... ...              ..               ..          ....               ...                   ..                 ...
-                 ...     ....     ......               ..               ...         ...                                                           ...
-                  ...    ...       ....                ...               .           ..
-                   ...  ...                             ..
-                    ......                               .                                     madness                                            ..
-                     ....                                                                                                                        ...
+<pre class="src src-artist">                                                                                                                       ..
+                                                        .                          .                          .   .........            ...........
+                                   .        ..            ...                     .. .                       ..........                .. .    ....
+                    . .      ..      ..            ..                  . ......                  .........                              ...
+                    ...     ..       ..            ...                 ....  ...              ..........                               ....
+ .                     ...          ..       ..             ..                 ....  .....          ......    ..                              .....
+..                     ...         ..        ..              ..               ....    .. ..          .         ..                          ... ...
+...                   ....         ..        ...          .....               ...      ......                   ..                        .. ...
+....                  ....        ..          ..    ............              ...        .....                  ...                      .. ...
+....                 ..  ..       ..          ...........     ...             ..          .....                  ...                    .....
+ .....      ...  ..      ...         ......           ...             ..     ...........                  ...                  ....
+   .    .           ...  ...    ...           ...              ...           ..............  ....                  ...                 ...
+    . .    ...    ..   ...            ...              ...           .......          ....                  ...                ...
+     ...          ...     ... ...              ..               ..          ....               ...                   ..                 ...
+      ...        ....     ......               ..               ...         ...                                                           ...
+       ...       ...       ....                ...               .           ..
+        ...     ...                             ..
+         ......                                  .                                     madness                                            ..
+          ....                                                                                                                   ...
 </pre>
 </div>
 <div class="org-src-container">
@@ -738,52 +743,52 @@ Snow covers Emacs
 
 
 
-                                                                      ..-    -...
-                                                            .   ...-m.-.% -- ..-.. .- .
-                                                       ....-m- -%+.*- %- .%*+%%++.-m+.  + ..
-                                                     .--.m.mm*+++###*### #m#m####m##+#..+%++. -
-                                                    - -+m-*+ #*########m*##*##########**mm*--mm--.
-                                                ---..%%**#%#####+%*#*%%+*mm+%-+-+m*m-#######*#*++-.
-                                                 .-+####%####-+mmm*--#% -+m--.. - %.#m-##+m####-%*
-                                             .-m.-*##-#*##m#%--+%%--.- .  m .-   +++- %.. +%*####m#*-+ .
-                                             %- %#-###+%m#+-+ ..                     .+- .m+*mm######+*..
-                                             -%###*##m*---  ..                 .-- .-     - -#m#+%###%-* .
-                                           .-#*#####m+-                     -.    .-.--.  - **####*####m*m.
-                                           --*##m#+m -. .                .m -m+.m.--m+..-..+mm###m#+#####-+
-                                          .mm####%--                    ++.m-%##%####*+ -- -+##-m%#-%%#mmm.-
-                                          . %###+-+..                .+mm-#####%-% m-.##m. - -#m+m+-+%##%#+      .   ...
-                                          .m##*%% .. .          ....+--######m +++.+.+m###+  .%%##.+m*####+m .. -. -. .--+-
-                                          .-%####m-.  % ..   .  . --*###+#m.#* ---  +.m+#%- + +++###*#%#%#+*--.-.--%-%-#-* -..%
-                                          mm%##*m+mm+.- m . +   +-+m*###m m-..-%.    +%###-- .-m-.--+-#####%mm.- +*#####*.*m#%.%.- --
-                                          .##%########m+%+-. -..#%*#%###m%.. -     -. .+#m-    . -+ --%######+-+#*#+##**+###m#*++- *+ .
-                                          -+m*#m###m#####-.-+*###-+-*###*%.+.m.  ....-%%mm%-     .  ---####- ++.m#m- %.-########*# %-....-
-                                         .m*-*#######*#+#m#+ ..mm   ---##-.+- -+  m.-%#%m+    -      .-+%%*#*+.-.  . m *+.mm#m*#####.%++-mm
-                                      --.. .%#####%#**m+m##%-+-- .. .+.-%%m#.+.+. %+.m+m*-            m.%#*#+. .     + ... +.--%mm%*-#.#*m-*.
-                                  .   --+.+###%#######+#*#*-          ....++.m .m -. ..               . - #m+.          ..- +-.%+m+--*-####m+..
-                                 +.m-m%#%#.m-m*mm**#+##mm#*m+        . -m..+- . -     .                ..m*..                  . +m m+-######%
-                              m ..-m####%-+m -m..m####%###%.             . m.  .  -                      -.-                      ..m-%*###%#%m.
-                             -.*%+m%%.+ m+  - . .--m###-##+..  ...             - .                                         . +.m-- .m-#######*m.
-                           .+.--%*+---. + .       --mm##*#m-  .-.-                                                  .. .... m .-.*.######%###%..
-                         .+...#%*% -  .           ..-.+%##-. .-                                                ...m    .-+-- .%###+%%m######**+-
-                        .-%-m%-mmm .               ..+ + +. .  %.%-                                        -.... . .. -#+m######mm%+**#####+-+
-                       ---.#mm#m +                   ...-+     ..                                   . . .-+++%%.m#m#-#######+++#+%%%*##+###m.+
-                       --+%m-.+--                     . .     .  .                           .. ..+--.m-m m+%-m##%#*##+#+%##m#+#+-+.+%#*mmm-
-                       -.##%. -                              .  .                      .  .m .++++-.**%-m#-m%###mm-%##%#*#%--*. +--*+#m++.
-                      .-*#**... .                                            .. .  .m+-.-.-+.+mmm -+*#####m*#+#m#m%#*++%+m-+m.m-.m-..-.--.
-                      - +##*m.. -    .-   -.. . m.   -- . .       .   . .--m+% +%-+.. +%.-+-%-#*######-##%##+*--+m#+-..m+% +m##mmm-...
-                      -.m%##*+.+  ..+..+..m..- -.*...-+-+... m... ..-- *.*mm#.*-.m+.m- %#+#%#***#m####*+%+-*m+.+ .+%-%++ .#+#*+.%* -
-                       -m##%##%-. -.+m-.--m.-.m+*m-m.-#.%-+.+..- ---m-*+%#m++######m*#.-+%  m.++#%-.. m.--m+m.-%-+%--m###m.mm% .--.
-                      . -m#m#+m####m+#%#%.%##%m%#-##%#*m%#+m%#m +%#%##+##%#####-m-.m---+- ... .+ ++.......+.+....-*-#+%*-m- -..
-                      --.-###** .-%...m+m.#+.-%--+.m . --.+. .+...--m#++-m+%m%-..-+.-. ++.   . . - -. -.+ -%+%%m**#+-#*-+-..+
-                         .++*#m*+----+...-. . -...+ +. . .m.-..- ..+ ++..m#+. - . - -          -..  ..--m.-#*%%+++% %- .-..
-                         . .-*#%*+mm++++-. .   ....+ -.+ . .  .. +   .-. ++. .  --+. +. . -.-.. +-m. +++#*#+.%-....  .
-                          . .+#**#m +.+. .. -+..   . . -   .- .- -.-...  .- +  - -.+.-.-+.+-+*++-m*m*#*--..m --.
-                            -++-m#+#m+.-m+. .-.-.--% .+.. ... -. m+  -.--.- ...+-.-m. -+ m+####%% .+ * -%+. - ..
-                            .---m%m.m#%#+*+--+++m.-+- . m++. .+*-. --.mm..-.-. %*###**##%%#% + +-+ . .-....
-                               .. -.--m+-%%###%##%#*####*#mm#%m%#m#m-****##%m####-.-- .%-.%-+m.+.. - . .
-                                . .... m+ .--%.-.-++%.-+-..%+--+.m-+%-+-...* mm-m.-++-.--+  -. .
-                                        .+.+ . ..+. . . --.-.+.-..+--m -.--..---   .-. --  ..
-                                           .-.  + -. ..+  - ....--   -. .--.....
+                                                ..-    -...
+                                      . ...-m.-.% -- ..-.. .- .
+                                 ....-m- -%+.*- %- .%*+%%++.-m+.        + ..
+                               .--.m.mm*+++###*### #m#m####m##+#..+%++. -
+                              - -+m-*+ #*########m*##*##########**mm*--mm--.
+                          ---..%%**#%#####+%*#*%%+*mm+%-+-+m*m-#######*#*++-.
+                           .-+####%####-+mmm*--#%       -+m--.. - %.#m-##+m####-%*
+                       .-m.-*##-#*##m#%--+%%--.- .  m .-         +++- %.. +%*####m#*-+ .
+                       %-       %#-###+%m#+-+ ..                     .+- .m+*mm######+*..
+                       -%###*##m*---  ..                       .-- .-     - -#m#+%###%-* .
+                     .-#*#####m+-                           -.    .-.--.  - **####*####m*m.
+                     --*##m#+m -.       .                .m -m+.m.--m+..-..+mm###m#+#####-+
+                    .mm####%--                  ++.m-%##%####*+ -- -+##-m%#-%%#mmm.-
+                    . %###+-+..              .+mm-#####%-% m-.##m. - -#m+m+-+%##%#+      .   ...
+                    .m##*%% .. .                ....+--######m +++.+.+m###+  .%%##.+m*####+m .. -. -. .--+-
+                    .-%####m-.  %       ..   .  . --*###+#m.#* ---  +.m+#%- + +++###*#%#%#+*--.-.--%-%-#-* -..%
+                    mm%##*m+mm+.-       m . +   +-+m*###m m-..-%.    +%###-- .-m-.--+-#####%mm.- +*#####*.*m#%.%.- --
+                    .##%########m+%+-. -..#%*#%###m%.. -           -. .+#m-    . -+ --%######+-+#*#+##**+###m#*++- *+ .
+                    -+m*#m###m#####-.-+*###-+-*###*%.+.m.        ....-%%mm%-     .  ---####- ++.m#m- %.-########*# %-....-
+                   .m*-*#######*#+#m#+ ..mm   ---##-.+- -+  m.-%#%m+    -            .-+%%*#*+.-.  . m *+.mm#m*#####.%++-mm
+                --.. .%#####%#**m+m##%-+-- .. .+.-%%m#.+.+. %+.m+m*-          m.%#*#+. .     + ... +.--%mm%*-#.#*m-*.
+            .   --+.+###%#######+#*#*-        ....++.m .m -. ..               . - #m+.          ..- +-.%+m+--*-####m+..
+           +.m-m%#%#.m-m*mm**#+##mm#*m+      . -m..+- . -     .                ..m*..                  . +m m+-######%
+        m       ..-m####%-+m -m..m####%###%.             . m.  .  -                      -.-                      ..m-%*###%#%m.
+       -.*%+m%%.+       m+  - . .--m###-##+..  ...             - .                                         . +.m-- .m-#######*m.
+     .+.--%*+---.       + .       --mm##*#m-  .-.-                                                  .. .... m .-.*.######%###%..
+   .+...#%*% -  .                 ..-.+%##-. .-                                                ...m    .-+-- .%###+%%m######**+-
+  .-%-m%-mmm .             ..+ + +. .  %.%-                                        -.... . .. -#+m######mm%+**#####+-+
+ ---.#mm#m +                 ...-+     ..                                   . . .-+++%%.m#m#-#######+++#+%%%*##+###m.+
+ --+%m-.+--                   . .     .  .                           .. ..+--.m-m m+%-m##%#*##+#+%##m#+#+-+.+%#*mmm-
+ -.##%. -                                    .  .                      .  .m .++++-.**%-m#-m%###mm-%##%#*#%--*. +--*+#m++.
+.-*#**...       .                                            .. .  .m+-.-.-+.+mmm -+*#####m*#+#m#m%#*++%+m-+m.m-.m-..-.--.
+-       +##*m.. -    .-   -.. . m.   -- . .       .   . .--m+% +%-+.. +%.-+-%-#*######-##%##+*--+m#+-..m+% +m##mmm-...
+-.m%##*+.+  ..+..+..m..- -.*...-+-+... m... ..-- *.*mm#.*-.m+.m- %#+#%#***#m####*+%+-*m+.+ .+%-%++ .#+#*+.%* -
+ -m##%##%-. -.+m-.--m.-.m+*m-m.-#.%-+.+..- ---m-*+%#m++######m*#.-+%  m.++#%-.. m.--m+m.-%-+%--m###m.mm% .--.
+.       -m#m#+m####m+#%#%.%##%m%#-##%#*m%#+m%#m +%#%##+##%#####-m-.m---+- ... .+ ++.......+.+....-*-#+%*-m- -..
+--.-###**       .-%...m+m.#+.-%--+.m . --.+. .+...--m#++-m+%m%-..-+.-. ++.   . . - -. -.+ -%+%%m**#+-#*-+-..+
+   .++*#m*+----+...-. . -...+ +. . .m.-..- ..+ ++..m#+. -       . - -          -..  ..--m.-#*%%+++% %- .-..
+   . .-*#%*+mm++++-. .   ....+ -.+ . .  .. +   .-. ++. .        --+. +. . -.-.. +-m. +++#*#+.%-....  .
+    . .+#**#m +.+. .. -+..   . . -   .- .- -.-...        .- +  - -.+.-.-+.+-+*++-m*m*#*--..m --.
+      -++-m#+#m+.-m+. .-.-.--% .+.. ... -. m+  -.--.- ...+-.-m. -+ m+####%% .+ * -%+. - ..
+      .---m%m.m#%#+*+--+++m.-+- .       m++. .+*-. --.mm..-.-. %*###**##%%#% + +-+ . .-....
+         .. -.--m+-%%###%##%#*####*#mm#%m%#m#m-****##%m####-.-- .%-.%-+m.+.. - . .
+          . .... m+ .--%.-.-++%.-+-..%+--+.m-+%-+-...* mm-m.-++-.--+  -. .
+                  .+.+ . ..+. . .       --.-.+.-..+--m -.--..---   .-. --  ..
+                     .-.        + -. ..+  - ....--   -. .--.....
 </pre>
 </div>
 </div>
@@ -791,7 +796,7 @@ Snow covers Emacs
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yaroshevskiy Ilya</p>
-<p class="date">Created: 2021-03-03 Wed 15:23</p>
+<p class="date">Created: 2021-04-22 Thu 15:21</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
