@@ -2,293 +2,34 @@
 
 #+SETUPFILE: ../../setup.org
 
-Playing with Org mode
+Playing with Org mode. I realy should make some cool examples. Org is
+the greatest invention of humanity, realy.
 
-
-* Code example
-#+begin_src C++ -n -r :exports both
-#include <iostream>
-
-int main() {
-        std::cout << "Hello World!" << std::endl; (ref:sc)
-        return 0
-}
-#+end_src
-
-Test reference [[(sc)]]
-
-Inline code: =cmake ..=
-
-Using codeblocks result:
-
-#+name: test-python
-#+BEGIN_SRC python :results value
-return "Test"
-#+END_SRC
-
-#+BEGIN_SRC python :var s=test-python :results value
-return "Wow it's: {}".format(s)
-#+END_SRC
-
-* $\LaTeX$ examples
-\[ e^{ix} = \cos x + i \sin x \]
-\[ \begin{vmatrix} 1 & 1 \\ 1 & 0 \end{vmatrix}^2 = \begin{vmatrix} 2 & 1 \\ 1 & 1 \end{vmatrix} \]
-
-Test latex classes: $\R$
-
-#+begin_theorem org
-Some cool theorem
+* Org sepcial blocks
+I implement some js to enumarate in web blocks such as theorems,
+definitions, etc. It works for both: \(\LaTeX\) and html export
+** Examples
+#+begin_example
+#+begin_theorem
+Some realy cool theorem
 #+end_theorem
-#+begin_proof org
-Some cool proof of some cool theorem
+#+begin_proof
+The proof of some realy cool theorem
 #+end_proof
-#+begin_theorem org
-Another cool theorem
+
+#+begin_theorem
+Some other cool theorem
 #+end_theorem
-* Quote example
-#+begin_quote
-Great clouds overhead
-Tiny black birds rise and fall
-Snow covers Emacs
+#+end_example
 
-   ---AlexSchroeder
-#+end_quote
-* Dot graph
-#+BEGIN_SRC dot :file TMP.png :cmdline -Kdot -Tpng :exports both
-  digraph {
-      a -> b [color=blue, label="test"];
-      b -> c;
-      b -> d;
-      d -> e;
-      d -> f;
-  }
-#+END_SRC
-* Gnuplot example
+#+begin_theorem
+Some realy cool theorem
+#+end_theorem
+#+begin_proof
+The proof of some realy cool theorem
+#+end_proof
 
-#+BEGIN_SRC gnuplot :file plot1.png :exports both
-reset
-
-set title "Putting it All Together"
-
-set xlabel "X"
-set xrange [-8:8]
-set xtics -8,2,8
-
-
-set ylabel "Y"
-set yrange [-20:70]
-set ytics -20,10,70
-
-f(x) = x**2
-g(x) = x**3
-h(x) = 10*sqrt(abs(x))
-
-plot f(x) w lp lw 1, g(x) w p lw 2, h(x) w l lw 3
-#+END_SRC
-* Python example
-
-#+BEGIN_SRC python :results file :exports both
-  import matplotlib
-  matplotlib.use('Agg')
-  import matplotlib.pyplot as plt
-  filename = '13_2.png'
-  plt.plot([0, 1, 1, 2], [1, 1, 0, 0])
-  plt.ylabel("$hash(s[i : k]) = hash(j : k)$")
-  plt.xlabel("$s_i$")
-  plt.yticks([0, 1])
-  plt.xticks([0, 1, 2])
-  plt.savefig(filename)
-  return filename
-#+END_SRC
-
-#+RESULTS:
-[[file:13_2.png]]
-
-* Python & Gnuplot example
-
-#+TBLNAME: test-table
-#+BEGIN_SRC python :results value :exports both
-import math
-import numpy as np
-y = lambda x: x**2
-X = list(np.arange(-10, 10, 0.25))
-Y = []
-for x in X:
-    Y += [y(x)]
-return list(zip(X, Y))
-#+END_SRC
-
-#+RESULTS: test-table
-| -10.0 |   100.0 |
-| -9.75 | 95.0625 |
-|  -9.5 |   90.25 |
-| -9.25 | 85.5625 |
-|  -9.0 |    81.0 |
-| -8.75 | 76.5625 |
-|  -8.5 |   72.25 |
-| -8.25 | 68.0625 |
-|  -8.0 |    64.0 |
-| -7.75 | 60.0625 |
-|  -7.5 |   56.25 |
-| -7.25 | 52.5625 |
-|  -7.0 |    49.0 |
-| -6.75 | 45.5625 |
-|  -6.5 |   42.25 |
-| -6.25 | 39.0625 |
-|  -6.0 |    36.0 |
-| -5.75 | 33.0625 |
-|  -5.5 |   30.25 |
-| -5.25 | 27.5625 |
-|  -5.0 |    25.0 |
-| -4.75 | 22.5625 |
-|  -4.5 |   20.25 |
-| -4.25 | 18.0625 |
-|  -4.0 |    16.0 |
-| -3.75 | 14.0625 |
-|  -3.5 |   12.25 |
-| -3.25 | 10.5625 |
-|  -3.0 |     9.0 |
-| -2.75 |  7.5625 |
-|  -2.5 |    6.25 |
-| -2.25 |  5.0625 |
-|  -2.0 |     4.0 |
-| -1.75 |  3.0625 |
-|  -1.5 |    2.25 |
-| -1.25 |  1.5625 |
-|  -1.0 |     1.0 |
-| -0.75 |  0.5625 |
-|  -0.5 |    0.25 |
-| -0.25 |  0.0625 |
-|   0.0 |     0.0 |
-|  0.25 |  0.0625 |
-|   0.5 |    0.25 |
-|  0.75 |  0.5625 |
-|   1.0 |     1.0 |
-|  1.25 |  1.5625 |
-|   1.5 |    2.25 |
-|  1.75 |  3.0625 |
-|   2.0 |     4.0 |
-|  2.25 |  5.0625 |
-|   2.5 |    6.25 |
-|  2.75 |  7.5625 |
-|   3.0 |     9.0 |
-|  3.25 | 10.5625 |
-|   3.5 |   12.25 |
-|  3.75 | 14.0625 |
-|   4.0 |    16.0 |
-|  4.25 | 18.0625 |
-|   4.5 |   20.25 |
-|  4.75 | 22.5625 |
-|   5.0 |    25.0 |
-|  5.25 | 27.5625 |
-|   5.5 |   30.25 |
-|  5.75 | 33.0625 |
-|   6.0 |    36.0 |
-|  6.25 | 39.0625 |
-|   6.5 |   42.25 |
-|  6.75 | 45.5625 |
-|   7.0 |    49.0 |
-|  7.25 | 52.5625 |
-|   7.5 |   56.25 |
-|  7.75 | 60.0625 |
-|   8.0 |    64.0 |
-|  8.25 | 68.0625 |
-|   8.5 |   72.25 |
-|  8.75 | 76.5625 |
-|   9.0 |    81.0 |
-|  9.25 | 85.5625 |
-|   9.5 |   90.25 |
-|  9.75 | 95.0625 |
-
-#+BEGIN_SRC gnuplot :var data=test-table :file plot2.png :exports both
-plot data
-#+END_SRC
-
-#+RESULTS:
-[[file:plot2.png]]
-
-#+BEGIN_SRC python :var data=test-table :exports borh
-return data[1]
-#+END_SRC
-
-#+RESULTS:
-| -9.75 | 95.0625 |
-
-* Test export
-#+begin_export html
-<div> Test div </div>
-#+end_export
-* Drawing???
-#+begin_src artist
-																  ..
-								   .			   .			      .	  .........	       ...........
-					      .	    ..		  ...			  .. .			     ..........		       .. .    ....
-			       . .	     ..	     ..		   ..		       . ......			 .........				...
-			       ...	    ..	     ..		   ...		       ....  ...	      ..........			       ....
-	    .		       ...	    ..	     ..		    ..		       ....  .....	    ......    ..			      .....
-	   ..		       ...	   ..	     ..		     ..		      ....    .. ..	     .	       ..			   ... ...
-	   ...		      ....	   ..	     ...	  .....		      ...      ......			..			  .. ...
-	   ....		      ....	  ..	      ..    ............	      ...	 .....			...			 .. ...
-	   ....		     ..	 ..	  ..	      ...........     ...	      ..	  .....			 ...			.....
-	    .....	    ...	 ..	 ...	     ......	      ...	      ..     ...........		  ...		       ....
-	      .	.	    ...	 ...	...	      ...	       ...	     ..............  ....		   ...		       ...
-	       . .	   ...	  ..   ...	      ...	       ...	     .......	      ....		    ...		       ...
-		...	  ...	  ... ...	       ..		..	    ....	       ...		     ..			...
-		 ...	 ....	  ......	       ..		...	    ...								  ...
-		  ...	 ...	   ....		       ...		 .	     ..
-		   ...	...				..
-	       	    ......     	       	       	       	 .     	       	       	       	       madness 						  ..
-		     ....															 ...
-#+end_src
-#+BEGIN_SRC  artist
-
-
-
-
-								      ..-    -...
-							    .	...-m.-.% -- ..-.. .- .
-						       ....-m- -%+.*- %- .%*+%%++.-m+.	+ ..
-						     .--.m.mm*+++###*### #m#m####m##+#..+%++. -
-						    - -+m-*+ #*########m*##*##########**mm*--mm--.
-						---..%%**#%#####+%*#*%%+*mm+%-+-+m*m-#######*#*++-.
-						 .-+####%####-+mmm*--#%	-+m--..	- %.#m-##+m####-%*
-					     .-m.-*##-#*##m#%--+%%--.- .  m .-	 +++- %.. +%*####m#*-+ .
-					     %-	%#-###+%m#+-+ ..		     .+- .m+*mm######+*..
-					     -%###*##m*---  ..		       .-- .-	  - -#m#+%###%-* .
-					   .-#*#####m+-			    -.	  .-.--.  - **####*####m*m.
-					   --*##m#+m -.	.		 .m -m+.m.--m+..-..+mm###m#+#####-+
-					  .mm####%--			++.m-%##%####*+	-- -+##-m%#-%%#mmm.-
-					  . %###+-+..		     .+mm-#####%-% m-.##m. - -#m+m+-+%##%#+	 .   ...
-					  .m##*%% .. .		....+--######m +++.+.+m###+  .%%##.+m*####+m ..	-. -. .--+-
-					  .-%####m-.  %	..   .	. --*###+#m.#* ---  +.m+#%- + +++###*#%#%#+*--.-.--%-%-#-* -..%
-					  mm%##*m+mm+.-	m . +	+-+m*###m m-..-%.    +%###-- .-m-.--+-#####%mm.- +*#####*.*m#%.%.- --
-					  .##%########m+%+-. -..#%*#%###m%.. -	   -. .+#m-    . -+ --%######+-+#*#+##**+###m#*++- *+ .
-					  -+m*#m###m#####-.-+*###-+-*###*%.+.m.	 ....-%%mm%-	 .  ---####- ++.m#m- %.-########*# %-....-
-					 .m*-*#######*#+#m#+ ..mm   ---##-.+- -+  m.-%#%m+    -	     .-+%%*#*+.-.  . m *+.mm#m*#####.%++-mm
-				      --.. .%#####%#**m+m##%-+-- .. .+.-%%m#.+.+. %+.m+m*-	      m.%#*#+. .     + ... +.--%mm%*-#.#*m-*.
-				  .   --+.+###%#######+#*#*-	      ....++.m .m -. ..		      .	- #m+.		..- +-.%+m+--*-####m+..
-				 +.m-m%#%#.m-m*mm**#+##mm#*m+	     . -m..+- .	-     .		       ..m*..		       . +m m+-######%
-			      m	..-m####%-+m -m..m####%###%.		 . m.  .  -			 -.-			  ..m-%*###%#%m.
-			     -.*%+m%%.+	m+  - .	.--m###-##+..  ...	       - .					   . +.m-- .m-#######*m.
-			   .+.--%*+---.	+ .	  --mm##*#m-  .-.-						    .. .... m .-.*.######%###%..
-			 .+...#%*% -  .		  ..-.+%##-. .-						       ...m    .-+-- .%###+%%m######**+-
-			.-%-m%-mmm .		   ..+ + +. .  %.%-					   -.... . .. -#+m######mm%+**#####+-+
-		       ---.#mm#m +		     ...-+     ..				    . .	.-+++%%.m#m#-#######+++#+%%%*##+###m.+
-		       --+%m-.+--		      .	.     .	 .			     ..	..+--.m-m m+%-m##%#*##+#+%##m#+#+-+.+%#*mmm-
-		       -.##%. -				     .	.		       .  .m .++++-.**%-m#-m%###mm-%##%#*#%--*.	+--*+#m++.
-		      .-*#**...	.					     ..	.  .m+-.-.-+.+mmm -+*#####m*#+#m#m%#*++%+m-+m.m-.m-..-.--.
-		      -	+##*m..	-    .-	  -.. .	m.   --	. .	  .   .	.--m+% +%-+.. +%.-+-%-#*######-##%##+*--+m#+-..m+% +m##mmm-...
-		      -.m%##*+.+  ..+..+..m..- -.*...-+-+... m... ..-- *.*mm#.*-.m+.m- %#+#%#***#m####*+%+-*m+.+ .+%-%++ .#+#*+.%* -
-		       -m##%##%-. -.+m-.--m.-.m+*m-m.-#.%-+.+..- ---m-*+%#m++######m*#.-+%  m.++#%-.. m.--m+m.-%-+%--m###m.mm% .--.
-		      .	-m#m#+m####m+#%#%.%##%m%#-##%#*m%#+m%#m	+%#%##+##%#####-m-.m---+- ... .+ ++.......+.+....-*-#+%*-m- -..
-		      --.-###**	.-%...m+m.#+.-%--+.m . --.+. .+...--m#++-m+%m%-..-+.-. ++.   . . - -. -.+ -%+%%m**#+-#*-+-..+
-			 .++*#m*+----+...-. . -...+ +. . .m.-..- ..+ ++..m#+. -	. - -	       -..  ..--m.-#*%%+++% %- .-..
-			 . .-*#%*+mm++++-. .   ....+ -.+ . .  .. +   .-. ++. .	--+. +.	. -.-..	+-m. +++#*#+.%-....  .
-			  . .+#**#m +.+. .. -+..   . . -   .- .- -.-...	 .- +  - -.+.-.-+.+-+*++-m*m*#*--..m --.
-			    -++-m#+#m+.-m+. .-.-.--% .+.. ... -. m+  -.--.- ...+-.-m. -+ m+####%% .+ * -%+. - ..
-			    .---m%m.m#%#+*+--+++m.-+- .	m++. .+*-. --.mm..-.-. %*###**##%%#% + +-+ . .-....
-			       .. -.--m+-%%###%##%#*####*#mm#%m%#m#m-****##%m####-.-- .%-.%-+m.+.. - . .
-				. .... m+ .--%.-.-++%.-+-..%+--+.m-+%-+-...* mm-m.-++-.--+  -. .
-					.+.+ . ..+. . .	--.-.+.-..+--m -.--..---   .-. --  ..
-					   .-.	+ -. ..+  - ....--   -.	.--.....
-#+END_SRC
+#+begin_theorem
+Some other cool theorem
+#+end_theorem
+* TODO Emacs config

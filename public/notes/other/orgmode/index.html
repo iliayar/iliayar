@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-04-22 Thu 15:21 -->
+<!-- 2021-04-24 Sat 00:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org mode</title>
@@ -64,739 +64,73 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb9bf5d8">1. Code example</a></li>
-<li><a href="#org4cc5a59">2. \(\LaTeX\) examples</a></li>
-<li><a href="#org711df88">3. Quote example</a></li>
-<li><a href="#org633c351">4. Dot graph</a></li>
-<li><a href="#org2621b06">5. Gnuplot example</a></li>
-<li><a href="#org207a158">6. Python example</a></li>
-<li><a href="#org2d212c7">7. Python &amp; Gnuplot example</a></li>
-<li><a href="#orgfb17f0a">8. Test export</a></li>
-<li><a href="#org5138ca5">9. Drawing???</a></li>
+<li><a href="#orgb41e6ca">1. Org sepcial blocks</a>
+<ul>
+<li><a href="#org00bd2d9">1.1. Examples</a></li>
+</ul>
+</li>
+<li><a href="#org1505e8b">2. <span class="todo TODO">TODO</span> Emacs config</a></li>
 </ul>
 </div>
 </div>
 <p>
-Playing with Org mode
+Playing with Org mode. I realy should make some cool examples. Org is
+the greatest invention of humanity, realy.
 </p>
 
-
-<div id="outline-container-orgb9bf5d8" class="outline-2">
-<h2 id="orgb9bf5d8"><span class="section-number-2">1</span> Code example</h2>
+<div id="outline-container-orgb41e6ca" class="outline-2">
+<h2 id="orgb41e6ca"><span class="section-number-2">1</span> Org sepcial blocks</h2>
 <div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-<pre class="src src-C++"><span class="linenr">1: </span><span style="color: #F92660; font-weight: bold;">#include</span> <span style="color: #F92660;">&lt;</span><span style="color: #E6DB74;">iostream</span><span style="color: #F92660;">&gt;</span>
-<span class="linenr">2: </span>
-<span class="linenr">3: </span><span style="color: #66D9EF; font-style: italic;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #F92660;">()</span> <span style="color: #F92660;">{</span>
-<span id="coderef-sc" class="coderef-off"><span class="linenr">4: </span>        <span style="color: #9C91E4;">std</span>::cout &lt;&lt; <span style="color: #E6DB74;">"Hello World!"</span> &lt;&lt; <span style="color: #9C91E4;">std</span>::endl;</span>
-<span class="linenr">5: </span>        <span style="color: #F92660;">return</span> 0
-<span class="linenr">6: </span><span style="color: #F92660;">}</span>
-</pre>
-</div>
-
 <p>
-Test reference <a href="#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');">4</a>
+I implement some js to enumarate in web blocks such as theorems,
+definitions, etc. It works for both: \(\LaTeX\) and html export
 </p>
+</div>
+<div id="outline-container-org00bd2d9" class="outline-3">
+<h3 id="org00bd2d9"><span class="section-number-3">1.1</span> Examples</h3>
+<div class="outline-text-3" id="text-1-1">
+<pre class="example" id="orge3105b3">
+#+begin_theorem
+Some realy cool theorem
+#+end_theorem
+#+begin_proof
+The proof of some realy cool theorem
+#+end_proof
 
+#+begin_theorem
+Some other cool theorem
+#+end_theorem
+</pre>
+
+<div class="theorem" id="orgf6b9fe4">
 <p>
-Inline code: <code>cmake ..</code>
+Some realy cool theorem
 </p>
 
+</div>
+<div class="proof" id="org87c728d">
 <p>
-Using codeblocks result:
+The proof of some realy cool theorem
 </p>
 
-<div class="org-src-container">
-<pre class="src src-python" id="org4d18a85"><span style="color: #F92660;">return</span> <span style="color: #E6DB74;">"Test"</span>
-</pre>
 </div>
 
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #F92660;">return</span> <span style="color: #E6DB74;">"Wow it's: {}"</span>.<span style="color: #FD971F;">format</span><span style="color: #F92660;">(</span>s<span style="color: #F92660;">)</span>
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org4cc5a59" class="outline-2">
-<h2 id="org4cc5a59"><span class="section-number-2">2</span> \(\LaTeX\) examples</h2>
-<div class="outline-text-2" id="text-2">
+<div class="theorem" id="org1ebce96">
 <p>
-\[ e^{ix} = \cos x + i \sin x \]
-\[ \begin{vmatrix} 1 & 1 \\ 1 & 0 \end{vmatrix}^2 = \begin{vmatrix} 2 & 1 \\ 1 & 1 \end{vmatrix} \]
-</p>
-
-<p>
-Test latex classes: \(\R\)
-</p>
-
-<div class="theorem" id="orgd87473e">
-<p>
-Some cool theorem
-</p>
-
-</div>
-<div class="proof" id="orgc5c2940">
-<p>
-Some cool proof of some cool theorem
-</p>
-
-</div>
-<div class="theorem" id="org55a412b">
-<p>
-Another cool theorem
+Some other cool theorem
 </p>
 
 </div>
 </div>
 </div>
-<div id="outline-container-org711df88" class="outline-2">
-<h2 id="org711df88"><span class="section-number-2">3</span> Quote example</h2>
-<div class="outline-text-2" id="text-3">
-<blockquote>
-<p>
-Great clouds overhead
-Tiny black birds rise and fall
-Snow covers Emacs
-</p>
-
-<p>
-&#x2014;AlexSchroeder
-</p>
-</blockquote>
 </div>
-</div>
-<div id="outline-container-org633c351" class="outline-2">
-<h2 id="org633c351"><span class="section-number-2">4</span> Dot graph</h2>
-<div class="outline-text-2" id="text-4">
-<div class="org-src-container">
-<pre class="src src-dot"><span style="color: #F92660;">digraph</span> <span style="color: #F92660;">{</span>
-    a -&gt; b <span style="color: #FD971F;">[</span><span style="color: #F8F8F2;">color=</span><span style="color: #E6DB74;">blue</span>, <span style="color: #F8F8F2;">label=</span><span style="color: #E6DB74;">"test"</span><span style="color: #FD971F;">]</span>;
-    b -&gt; c;
-    b -&gt; d;
-    d -&gt; e;
-    d -&gt; f;
-<span style="color: #F92660;">}</span>
-</pre>
-</div>
-
-
-<div id="org9e631bf" class="figure">
-<p><img src="TMP.png" alt="TMP.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org2621b06" class="outline-2">
-<h2 id="org2621b06"><span class="section-number-2">5</span> Gnuplot example</h2>
-<div class="outline-text-2" id="text-5">
-<div class="org-src-container">
-<pre class="src src-gnuplot"><span style="color: #9C91E4;">reset</span>
-
-<span style="color: #9C91E4;">set</span> <span style="color: #66D9EF; font-style: italic;">title</span> <span style="color: #E6DB74;">"Putting it All Together"</span>
-
-<span style="color: #9C91E4;">set</span> xlabel <span style="color: #E6DB74;">"X"</span>
-<span style="color: #9C91E4;">set</span> xrange [<span style="color: #9C91E4;">-8:8</span>]
-<span style="color: #9C91E4;">set</span> xtics -8,2,8
-
-
-<span style="color: #9C91E4;">set</span> ylabel <span style="color: #E6DB74;">"Y"</span>
-<span style="color: #9C91E4;">set</span> yrange [<span style="color: #9C91E4;">-20:70</span>]
-<span style="color: #9C91E4;">set</span> ytics -20,10,70
-
-<span style="color: #F8F8F2;">f(x) =</span> x**2
-<span style="color: #F8F8F2;">g(x) =</span> x**3
-<span style="color: #F8F8F2;">h(x) =</span> 10*<span style="color: #A6E22E;">sqrt</span>(<span style="color: #A6E22E;">abs</span>(x))
-
-<span style="color: #F92660;">plot</span> f(x) w lp <span style="color: #66D9EF; font-style: italic;">lw</span> 1, g(x) w p <span style="color: #66D9EF; font-style: italic;">lw</span> 2, h(x) w l <span style="color: #66D9EF; font-style: italic;">lw</span> 3
-</pre>
-</div>
-
-
-<div id="org2839d4c" class="figure">
-<p><img src="plot1.png" alt="plot1.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org207a158" class="outline-2">
-<h2 id="org207a158"><span class="section-number-2">6</span> Python example</h2>
-<div class="outline-text-2" id="text-6">
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #F92660;">import</span> matplotlib
-matplotlib.use<span style="color: #F92660;">(</span><span style="color: #E6DB74;">'Agg'</span><span style="color: #F92660;">)</span>
-<span style="color: #F92660;">import</span> matplotlib.pyplot <span style="color: #F92660;">as</span> plt
-<span style="color: #F8F8F2;">filename</span> = <span style="color: #E6DB74;">'13_2.png'</span>
-plt.plot<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 1, 2<span style="color: #FD971F;">]</span>, <span style="color: #FD971F;">[</span>1, 1, 0, 0<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-plt.ylabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$hash(s[i : k]) = hash(j : k)$"</span><span style="color: #F92660;">)</span>
-plt.xlabel<span style="color: #F92660;">(</span><span style="color: #E6DB74;">"$s_i$"</span><span style="color: #F92660;">)</span>
-plt.yticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-plt.xticks<span style="color: #F92660;">(</span><span style="color: #FD971F;">[</span>0, 1, 2<span style="color: #FD971F;">]</span><span style="color: #F92660;">)</span>
-plt.savefig<span style="color: #F92660;">(</span>filename<span style="color: #F92660;">)</span>
-<span style="color: #F92660;">return</span> filename
-</pre>
-</div>
-
-
-<div id="org1fd1605" class="figure">
-<p><img src="13_2.png" alt="13_2.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org2d212c7" class="outline-2">
-<h2 id="org2d212c7"><span class="section-number-2">7</span> Python &amp; Gnuplot example</h2>
-<div class="outline-text-2" id="text-7">
-<div class="org-src-container">
-<pre class="src src-python" id="org666fc28"><span style="color: #F92660;">import</span> math
-<span style="color: #F92660;">import</span> numpy <span style="color: #F92660;">as</span> np
-<span style="color: #F8F8F2;">y</span> = <span style="color: #F92660;">lambda</span> x: x**2
-<span style="color: #F8F8F2;">X</span> = <span style="color: #FD971F;">list</span><span style="color: #F92660;">(</span>np.arange<span style="color: #FD971F;">(</span>-10, 10, 0.25<span style="color: #FD971F;">)</span><span style="color: #F92660;">)</span>
-<span style="color: #F8F8F2;">Y</span> = <span style="color: #F92660;">[]</span>
-<span style="color: #F92660;">for</span> x <span style="color: #F92660;">in</span> <span style="color: #F8F8F2;">X</span>:
-    Y += <span style="color: #F92660;">[</span>y<span style="color: #FD971F;">(</span>x<span style="color: #FD971F;">)</span><span style="color: #F92660;">]</span>
-<span style="color: #F92660;">return</span> <span style="color: #FD971F;">list</span><span style="color: #F92660;">(</span><span style="color: #FD971F;">zip</span><span style="color: #FD971F;">(</span>X, Y<span style="color: #FD971F;">)</span><span style="color: #F92660;">)</span>
-</pre>
-</div>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-right">-10.0</td>
-<td class="org-right">100.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-9.75</td>
-<td class="org-right">95.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-9.5</td>
-<td class="org-right">90.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-9.25</td>
-<td class="org-right">85.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-9.0</td>
-<td class="org-right">81.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-8.75</td>
-<td class="org-right">76.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-8.5</td>
-<td class="org-right">72.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-8.25</td>
-<td class="org-right">68.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-8.0</td>
-<td class="org-right">64.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-7.75</td>
-<td class="org-right">60.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-7.5</td>
-<td class="org-right">56.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-7.25</td>
-<td class="org-right">52.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-7.0</td>
-<td class="org-right">49.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-6.75</td>
-<td class="org-right">45.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-6.5</td>
-<td class="org-right">42.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-6.25</td>
-<td class="org-right">39.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-6.0</td>
-<td class="org-right">36.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-5.75</td>
-<td class="org-right">33.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-5.5</td>
-<td class="org-right">30.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-5.25</td>
-<td class="org-right">27.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-5.0</td>
-<td class="org-right">25.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-4.75</td>
-<td class="org-right">22.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-4.5</td>
-<td class="org-right">20.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-4.25</td>
-<td class="org-right">18.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-4.0</td>
-<td class="org-right">16.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-3.75</td>
-<td class="org-right">14.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-3.5</td>
-<td class="org-right">12.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-3.25</td>
-<td class="org-right">10.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-3.0</td>
-<td class="org-right">9.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-2.75</td>
-<td class="org-right">7.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-2.5</td>
-<td class="org-right">6.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-2.25</td>
-<td class="org-right">5.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-2.0</td>
-<td class="org-right">4.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-1.75</td>
-<td class="org-right">3.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">-1.5</td>
-<td class="org-right">2.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-1.25</td>
-<td class="org-right">1.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-1.0</td>
-<td class="org-right">1.0</td>
-</tr>
-
-<tr>
-<td class="org-right">-0.75</td>
-<td class="org-right">0.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">-0.5</td>
-<td class="org-right">0.25</td>
-</tr>
-
-<tr>
-<td class="org-right">-0.25</td>
-<td class="org-right">0.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">0.0</td>
-<td class="org-right">0.0</td>
-</tr>
-
-<tr>
-<td class="org-right">0.25</td>
-<td class="org-right">0.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">0.5</td>
-<td class="org-right">0.25</td>
-</tr>
-
-<tr>
-<td class="org-right">0.75</td>
-<td class="org-right">0.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">1.0</td>
-<td class="org-right">1.0</td>
-</tr>
-
-<tr>
-<td class="org-right">1.25</td>
-<td class="org-right">1.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">1.5</td>
-<td class="org-right">2.25</td>
-</tr>
-
-<tr>
-<td class="org-right">1.75</td>
-<td class="org-right">3.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">2.0</td>
-<td class="org-right">4.0</td>
-</tr>
-
-<tr>
-<td class="org-right">2.25</td>
-<td class="org-right">5.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">2.5</td>
-<td class="org-right">6.25</td>
-</tr>
-
-<tr>
-<td class="org-right">2.75</td>
-<td class="org-right">7.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">3.0</td>
-<td class="org-right">9.0</td>
-</tr>
-
-<tr>
-<td class="org-right">3.25</td>
-<td class="org-right">10.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">3.5</td>
-<td class="org-right">12.25</td>
-</tr>
-
-<tr>
-<td class="org-right">3.75</td>
-<td class="org-right">14.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">4.0</td>
-<td class="org-right">16.0</td>
-</tr>
-
-<tr>
-<td class="org-right">4.25</td>
-<td class="org-right">18.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">4.5</td>
-<td class="org-right">20.25</td>
-</tr>
-
-<tr>
-<td class="org-right">4.75</td>
-<td class="org-right">22.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">5.0</td>
-<td class="org-right">25.0</td>
-</tr>
-
-<tr>
-<td class="org-right">5.25</td>
-<td class="org-right">27.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">5.5</td>
-<td class="org-right">30.25</td>
-</tr>
-
-<tr>
-<td class="org-right">5.75</td>
-<td class="org-right">33.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">6.0</td>
-<td class="org-right">36.0</td>
-</tr>
-
-<tr>
-<td class="org-right">6.25</td>
-<td class="org-right">39.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">6.5</td>
-<td class="org-right">42.25</td>
-</tr>
-
-<tr>
-<td class="org-right">6.75</td>
-<td class="org-right">45.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">7.0</td>
-<td class="org-right">49.0</td>
-</tr>
-
-<tr>
-<td class="org-right">7.25</td>
-<td class="org-right">52.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">7.5</td>
-<td class="org-right">56.25</td>
-</tr>
-
-<tr>
-<td class="org-right">7.75</td>
-<td class="org-right">60.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">8.0</td>
-<td class="org-right">64.0</td>
-</tr>
-
-<tr>
-<td class="org-right">8.25</td>
-<td class="org-right">68.0625</td>
-</tr>
-
-<tr>
-<td class="org-right">8.5</td>
-<td class="org-right">72.25</td>
-</tr>
-
-<tr>
-<td class="org-right">8.75</td>
-<td class="org-right">76.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">9.0</td>
-<td class="org-right">81.0</td>
-</tr>
-
-<tr>
-<td class="org-right">9.25</td>
-<td class="org-right">85.5625</td>
-</tr>
-
-<tr>
-<td class="org-right">9.5</td>
-<td class="org-right">90.25</td>
-</tr>
-
-<tr>
-<td class="org-right">9.75</td>
-<td class="org-right">95.0625</td>
-</tr>
-</tbody>
-</table>
-
-<div class="org-src-container">
-<pre class="src src-gnuplot"><span style="color: #F92660;">plot</span> data
-</pre>
-</div>
-
-
-<div id="org3ca853e" class="figure">
-<p><img src="plot2.png" alt="plot2.png" />
-</p>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #F92660;">return</span> data<span style="color: #F92660;">[</span>1<span style="color: #F92660;">]</span>
-</pre>
-</div>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-right">-9.75</td>
-<td class="org-right">95.0625</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-orgfb17f0a" class="outline-2">
-<h2 id="orgfb17f0a"><span class="section-number-2">8</span> Test export</h2>
-<div class="outline-text-2" id="text-8">
-<div> Test div </div>
-</div>
-</div>
-<div id="outline-container-org5138ca5" class="outline-2">
-<h2 id="org5138ca5"><span class="section-number-2">9</span> Drawing???</h2>
-<div class="outline-text-2" id="text-9">
-<div class="org-src-container">
-<pre class="src src-artist">                                                                                                                       ..
-                                                        .                          .                          .   .........            ...........
-                                   .        ..            ...                     .. .                       ..........                .. .    ....
-                    . .      ..      ..            ..                  . ......                  .........                              ...
-                    ...     ..       ..            ...                 ....  ...              ..........                               ....
- .                     ...          ..       ..             ..                 ....  .....          ......    ..                              .....
-..                     ...         ..        ..              ..               ....    .. ..          .         ..                          ... ...
-...                   ....         ..        ...          .....               ...      ......                   ..                        .. ...
-....                  ....        ..          ..    ............              ...        .....                  ...                      .. ...
-....                 ..  ..       ..          ...........     ...             ..          .....                  ...                    .....
- .....      ...  ..      ...         ......           ...             ..     ...........                  ...                  ....
-   .    .           ...  ...    ...           ...              ...           ..............  ....                  ...                 ...
-    . .    ...    ..   ...            ...              ...           .......          ....                  ...                ...
-     ...          ...     ... ...              ..               ..          ....               ...                   ..                 ...
-      ...        ....     ......               ..               ...         ...                                                           ...
-       ...       ...       ....                ...               .           ..
-        ...     ...                             ..
-         ......                                  .                                     madness                                            ..
-          ....                                                                                                                   ...
-</pre>
-</div>
-<div class="org-src-container">
-<pre class="src src-artist">
-
-
-
-                                                ..-    -...
-                                      . ...-m.-.% -- ..-.. .- .
-                                 ....-m- -%+.*- %- .%*+%%++.-m+.        + ..
-                               .--.m.mm*+++###*### #m#m####m##+#..+%++. -
-                              - -+m-*+ #*########m*##*##########**mm*--mm--.
-                          ---..%%**#%#####+%*#*%%+*mm+%-+-+m*m-#######*#*++-.
-                           .-+####%####-+mmm*--#%       -+m--.. - %.#m-##+m####-%*
-                       .-m.-*##-#*##m#%--+%%--.- .  m .-         +++- %.. +%*####m#*-+ .
-                       %-       %#-###+%m#+-+ ..                     .+- .m+*mm######+*..
-                       -%###*##m*---  ..                       .-- .-     - -#m#+%###%-* .
-                     .-#*#####m+-                           -.    .-.--.  - **####*####m*m.
-                     --*##m#+m -.       .                .m -m+.m.--m+..-..+mm###m#+#####-+
-                    .mm####%--                  ++.m-%##%####*+ -- -+##-m%#-%%#mmm.-
-                    . %###+-+..              .+mm-#####%-% m-.##m. - -#m+m+-+%##%#+      .   ...
-                    .m##*%% .. .                ....+--######m +++.+.+m###+  .%%##.+m*####+m .. -. -. .--+-
-                    .-%####m-.  %       ..   .  . --*###+#m.#* ---  +.m+#%- + +++###*#%#%#+*--.-.--%-%-#-* -..%
-                    mm%##*m+mm+.-       m . +   +-+m*###m m-..-%.    +%###-- .-m-.--+-#####%mm.- +*#####*.*m#%.%.- --
-                    .##%########m+%+-. -..#%*#%###m%.. -           -. .+#m-    . -+ --%######+-+#*#+##**+###m#*++- *+ .
-                    -+m*#m###m#####-.-+*###-+-*###*%.+.m.        ....-%%mm%-     .  ---####- ++.m#m- %.-########*# %-....-
-                   .m*-*#######*#+#m#+ ..mm   ---##-.+- -+  m.-%#%m+    -            .-+%%*#*+.-.  . m *+.mm#m*#####.%++-mm
-                --.. .%#####%#**m+m##%-+-- .. .+.-%%m#.+.+. %+.m+m*-          m.%#*#+. .     + ... +.--%mm%*-#.#*m-*.
-            .   --+.+###%#######+#*#*-        ....++.m .m -. ..               . - #m+.          ..- +-.%+m+--*-####m+..
-           +.m-m%#%#.m-m*mm**#+##mm#*m+      . -m..+- . -     .                ..m*..                  . +m m+-######%
-        m       ..-m####%-+m -m..m####%###%.             . m.  .  -                      -.-                      ..m-%*###%#%m.
-       -.*%+m%%.+       m+  - . .--m###-##+..  ...             - .                                         . +.m-- .m-#######*m.
-     .+.--%*+---.       + .       --mm##*#m-  .-.-                                                  .. .... m .-.*.######%###%..
-   .+...#%*% -  .                 ..-.+%##-. .-                                                ...m    .-+-- .%###+%%m######**+-
-  .-%-m%-mmm .             ..+ + +. .  %.%-                                        -.... . .. -#+m######mm%+**#####+-+
- ---.#mm#m +                 ...-+     ..                                   . . .-+++%%.m#m#-#######+++#+%%%*##+###m.+
- --+%m-.+--                   . .     .  .                           .. ..+--.m-m m+%-m##%#*##+#+%##m#+#+-+.+%#*mmm-
- -.##%. -                                    .  .                      .  .m .++++-.**%-m#-m%###mm-%##%#*#%--*. +--*+#m++.
-.-*#**...       .                                            .. .  .m+-.-.-+.+mmm -+*#####m*#+#m#m%#*++%+m-+m.m-.m-..-.--.
--       +##*m.. -    .-   -.. . m.   -- . .       .   . .--m+% +%-+.. +%.-+-%-#*######-##%##+*--+m#+-..m+% +m##mmm-...
--.m%##*+.+  ..+..+..m..- -.*...-+-+... m... ..-- *.*mm#.*-.m+.m- %#+#%#***#m####*+%+-*m+.+ .+%-%++ .#+#*+.%* -
- -m##%##%-. -.+m-.--m.-.m+*m-m.-#.%-+.+..- ---m-*+%#m++######m*#.-+%  m.++#%-.. m.--m+m.-%-+%--m###m.mm% .--.
-.       -m#m#+m####m+#%#%.%##%m%#-##%#*m%#+m%#m +%#%##+##%#####-m-.m---+- ... .+ ++.......+.+....-*-#+%*-m- -..
---.-###**       .-%...m+m.#+.-%--+.m . --.+. .+...--m#++-m+%m%-..-+.-. ++.   . . - -. -.+ -%+%%m**#+-#*-+-..+
-   .++*#m*+----+...-. . -...+ +. . .m.-..- ..+ ++..m#+. -       . - -          -..  ..--m.-#*%%+++% %- .-..
-   . .-*#%*+mm++++-. .   ....+ -.+ . .  .. +   .-. ++. .        --+. +. . -.-.. +-m. +++#*#+.%-....  .
-    . .+#**#m +.+. .. -+..   . . -   .- .- -.-...        .- +  - -.+.-.-+.+-+*++-m*m*#*--..m --.
-      -++-m#+#m+.-m+. .-.-.--% .+.. ... -. m+  -.--.- ...+-.-m. -+ m+####%% .+ * -%+. - ..
-      .---m%m.m#%#+*+--+++m.-+- .       m++. .+*-. --.mm..-.-. %*###**##%%#% + +-+ . .-....
-         .. -.--m+-%%###%##%#*####*#mm#%m%#m#m-****##%m####-.-- .%-.%-+m.+.. - . .
-          . .... m+ .--%.-.-++%.-+-..%+--+.m-+%-+-...* mm-m.-++-.--+  -. .
-                  .+.+ . ..+. . .       --.-.+.-..+--m -.--..---   .-. --  ..
-                     .-.        + -. ..+  - ....--   -. .--.....
-</pre>
-</div>
-</div>
+<div id="outline-container-org1505e8b" class="outline-2">
+<h2 id="org1505e8b"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> Emacs config</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yaroshevskiy Ilya</p>
-<p class="date">Created: 2021-04-22 Thu 15:21</p>
+<p class="date">Created: 2021-04-24 Sat 00:21</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
