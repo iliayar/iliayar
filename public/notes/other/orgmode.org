@@ -1,6 +1,6 @@
 #+TITLE: Org mode
 
-#+SETUPFILE: ../../setup.org
+#+SETUPFILE: ../level-1.org
 
 Playing with Org mode. I realy should make some cool examples. Org is
 the greatest invention of humanity, realy.

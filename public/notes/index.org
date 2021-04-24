@@ -1,7 +1,7 @@
 #+TITLE: Archive
 
-#+HTML_HEAD: <link id="style" rel="stylesheet" type="text/css" href="index-style.css"/>
-#+HTML_HEAD_EXTRA: <script type="text/javascript" src="script.js"></script>
+#+HTML_HEAD: <link id="style" rel="stylesheet" type="text/css" href="css/index-style.css"/>
+#+HTML_HEAD_EXTRA: <script type="text/javascript" src="js/script.js"></script>
 #+HTML_HEAD_EXTRA: <script type="text/javascript" src="../js/main.js"></script>
 #+PROPERTY: header-args :eval never-export
 #+EMAIL: iliayar3@gmail.com
@@ -12,7 +12,7 @@ Some random stuff. These pages are created using only Org mode and
 some shitty styles.
 
 * Projects
-[[file:projects/ImageStorage][Image Storage]]
+[[file:projects/image-storage.org][Image Storage]]
 * Other
-[[file:other/oldsite][Old Site]] \\
-[[file:other/orgmode][Org mode]]
+[[file:other/oldsite.org][Old Site]] \\
+[[file:other/orgmode.org][Org mode]]
