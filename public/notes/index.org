@@ -9,3 +9,5 @@ some shitty styles.
 * Other
 [[file:other/oldsite.org][Old Site]] \\
 [[file:other/orgmode.org][Org mode]]
+* Studing
+- [[https://iliayar.ru/public-notes/conspects/README.html][Conspects]] from university in russian
