@@ -3,6 +3,3 @@
 #+HTML_HEAD_EXTRA: <script type="text/javascript" src="../../js/main.js"></script>
 #+EMAIL: iliayar3@gmail.com
 #+AUTHOR: Yaroshevskiy Ilya
-
-* Home
-[[file:index.html][Home]]
