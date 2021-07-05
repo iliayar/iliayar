@@ -1,0 +1,53 @@
+#+SETUPFILE: ../level-1.org
+
+* Ctf tools
+My list of usefull ctf tools
+** VMs
+- *Blackarch Live*
+- Some virtual box hints
+  - create vmdk from usb drive
+    =VBoxManage internalcommands createrawvmdk -filename <RESULT_FILE> -rawdisk <DEVICE>=
+** Networking
+- *impacket*  
+  Python lib for networking [[https://github.com/SecureAuthCorp/impacket][GitHub]]
+- *rustscan*
+  Faster nmap /AUR/
+** Forensic
+- *binwalk*
+  Detect magicks in file \\
+  /pacman/
+- *wireshark*
+  Analyze traffic \\
+  /wireshark-qt pacman/
+** Reverse
+- *apktool*
+  Reverse apks \\
+  AUR: /android-apktool/
+- *dex2jar*
+  Apk to jar
+  /AUR/
+- *jd-gui*
+  Reverse jar
+  AUR: /jd-gui-bin/
+- *jadx*
+  Reverse apk gui
+  /Pacman/
+** Web
+- *dirb*
+  Scan directories on host \\
+  /AUR/
+** Common
+- *SecList*
+  Lists for fuzzing \\
+  [[https://github.com/danielmiessler/SecLists.git][GitHub]]
+- *FuzzDB*
+  One more repository of lists
+  [[https://github.com/fuzzdb-project/fuzzdb][GitHub]]
+  
+  
+** Pwn
+- *pwnscrpits*
+  Usefull script
+  [[https://github.com/152334H/pwnscripts][Github]]
+  Examples:
+  - [[https://ctftime.org/writeup/23458][Format string]]

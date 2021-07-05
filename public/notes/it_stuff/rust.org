@@ -1,0 +1,21 @@
+#+SETUPFILE: ../level-1.org
+
+* Mutability
+#+begin_src rust -n -r
+fn dfs1(u: usize, day: usize, n: usize, path: &mut Vec<(usize, usize)>, state: &mut State) {
+    if u == state.t {
+	return;
+    }
+    for i in state.g[u].iter().cloned() {
+	let e: Edge = state.edges[i];
+	// println!("{} -> {} f = {}", e.from, e.to, e.f);
+	if e.f >= 1 {
+	    state.edges[i].f -= 1;
+	    path.push((e.from - day*n, e.to - (day + 1)*n));
+	    dfs1(e.to, day + 1, n, path, state);
+	    return; (ref:ret)
+	}
+    }
+}
+#+end_src
+This code wont compile if you remove line [[(ret)]]
