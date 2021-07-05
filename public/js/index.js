@@ -27,4 +27,29 @@
 
     cursorHide();
 
+    let active_cursor = '<div class="cmd" id="cursor">&#x2588;</div>'
+    let active_line = '<div id="active-line"><div class="tilde cmd">~</div> <div class="lambda cmd">λ</div> <div class="cmd" id="active-cmd"></div></div>'
+    let regular_line = text => `<br><div class="tilde cmd">~</div> <div class="lambda cmd">λ</div> <div class = "arbitrary-cmd">${text}</div></div>`
+
+    document.addEventListener('keypress', e => {
+	if(e.key == 'Enter') {
+	    text = document.querySelector('#active-cmd').innerHTML
+	    document.querySelector('#cursor').outerHTML = ''
+	    document.querySelector('#active-line').outerHTML = ''
+	    document.querySelector('.content .center-block').innerHTML += regular_line(text)
+	    document.querySelector('.content .center-block').innerHTML += active_line
+	    document.querySelector('#active-line').innerHTML += active_cursor
+	    cursor = document.querySelector('#cursor')
+	} else  {
+	    document.querySelector('#active-cmd').append(e.key)
+	}
+    });
+
+    document.addEventListener('keydown', e => {
+	if(e.keyCode == 8) {
+	    text = document.querySelector('#active-cmd').innerHTML
+	    document.querySelector('#active-cmd').innerHTML = text.substr(0, text.length - 1)
+	}
+    })
+    
 })();

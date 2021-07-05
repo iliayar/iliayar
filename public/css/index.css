@@ -61,6 +61,17 @@
     font-size: 25px;
     text-align: left;
     color: #000000;
+    white-space: nowrap;
+}
+
+.arbitrary-cmd {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    display: inline;
+}
+#active-cmd {
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .lambda {
