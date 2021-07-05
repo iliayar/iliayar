@@ -2,6 +2,5 @@
 
 #+SETUPFILE: level-0.org
 
-* Projects
-- [[file:projects/image-storage.org][Image Storage]]
-
+* [[file:cv/cv.pdf][CV]]
+* TODO More
