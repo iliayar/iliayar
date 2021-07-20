@@ -1,0 +1,13 @@
+#+TITLE: Raytracer
+#+SETUPFILE: ../level-1.org
+
+Simple raytracer written in Rust. \\
+Github: ...
+
+* Demo
+Focus by clicking at picture. Use =w=, =a=, =s=, =d= to move camera, and arrows to rotate camera.
+#+begin_export html
+<div id="raytracer-container" style="text-align: center"></div>
+<script src="./bootstrap.js"></script>
+#+end_export
+

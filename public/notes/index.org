@@ -5,11 +5,13 @@ Some random stuff. These pages are created using only Org mode and
 some shitty styles. 
 
 * [[file:about.org][About]]
+* Studing
+- [[https://iliayar.ru/public-notes/conspects/README.html][Conspects]] from university in Russian
+* IT stuff
+- [[file:it_stuff/ctftools.org][Ctf Tools]]
+- [[file:other/orgmode.org][Org mode]]
+** Projects
+- [[file:projects/raytracer.org][Raytracer]]
+- [[file:projects/image-storage.org][Image storage]]
 * Other
 - [[file:other/oldsite.org][Old Site]]
-- [[file:other/orgmode.org][Org mode]]
-* Studing
-- [[https://iliayar.ru/public-notes/conspects/README.html][Conspects]] from university in russian
-* IT stuff
-- [[file:it_stuff/rust.org][Rust adventure]]
-- [[file:it_stuff/ctftools.org][Ctf Tools]]
