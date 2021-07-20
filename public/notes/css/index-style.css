@@ -8,7 +8,6 @@
 span.tag { display: none; }
 
 #text-table-of-contents  li {
-    border: solid 1px var(--foreground);
     margin: 0.3em;
     padding: 0.1em;
     border-radius: 0.2em;
