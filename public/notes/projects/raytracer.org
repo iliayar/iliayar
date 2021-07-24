@@ -2,8 +2,7 @@
 #+SETUPFILE: ../level-1.org
 
 Simple raytracer written in Rust. \\
-Github: ...
-
+Github: https://github.com/iliayar/raytracer
 * Demo
 Focus by clicking at picture. Use =w=, =a=, =s=, =d= to move camera, and arrows to rotate camera.
 #+begin_export html

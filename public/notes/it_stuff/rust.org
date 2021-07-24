@@ -1,6 +1,7 @@
 #+SETUPFILE: ../level-1.org
+#+NAME: Rust
 
-* Mutability
+* Borrow checker jokes
 #+begin_src rust -n -r
 fn dfs1(u: usize, day: usize, n: usize, path: &mut Vec<(usize, usize)>, state: &mut State) {
     if u == state.t {

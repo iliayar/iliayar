@@ -1,0 +1,9 @@
+#+TITLE: Blog
+#+SETUPFILE: level-0.org
+
+* Raytracer Demo
+:PROPERTIES:
+:ID:       869de904-f8d0-456f-8bb5-04fafe9ea1e0
+:PUBDATE:  <2021-07-24 Sat 22:38>
+:END:
+Publish [[file:projects/raytracer.org][demo]] for rayracer project
