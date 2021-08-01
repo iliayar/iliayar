@@ -1,5 +1,4 @@
 #+HTML_HEAD: <link id="style" rel="stylesheet" type="text/css" href="../css/style.css"/>
-#+HTML_HEAD: <link id="style" rel="stylesheet" type="text/css" href="/css/fa.css"/>
 #+HTML_HEAD_EXTRA: <script src="../js/script.js"></script>
 #+HTML_HEAD_EXTRA: <script src="../../js/main.js"></script>
 #+EMAIL: iliayar3@gmail.com
