@@ -71,6 +71,10 @@ h1, h2, h3 {
     color: var(--orange)
 }
 
+pre {
+    margin: 8px;
+}
+
 #table-of-contents h2 {
     margin-bottom: 0em;
 }
