@@ -1,6 +1,6 @@
 
 docker run \
-    -it \
+    -i \
     --rm \
     -v "${WORKSPACE}/public/notes:/publish/input" \
     -v "/var/www/mainsite/public/public-notes:/publish/output" \
