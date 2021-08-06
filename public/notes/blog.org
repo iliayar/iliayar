@@ -2,6 +2,10 @@
 #+SETUPFILE: level-0.org
 
 * Automatic Publishing Posts
+  :PROPERTIES:
+  :ID:       35a31b59-91e1-4dec-a255-a0465444b021
+  :PUBDATE:  <2021-08-06 Fri 13:52>
+  :END:
 Now the repository https://github.com/iliayar/iliayar has CI to publish here
 * Emacs config
 :PROPERTIES:
