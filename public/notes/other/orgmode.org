@@ -33,5 +33,5 @@ The proof of some realy cool theorem
 #+begin_theorem
 Some other cool theorem
 #+end_theorem
-* Emacs config
-#+include: "~/.emacs.d/config.org"
+* COMMENT Emacs config
+#+include: "~/.emacs.d/config.org" 

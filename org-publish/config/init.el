@@ -27,7 +27,7 @@
         ("org-mainsite"
          :base-directory "/publish/input"
          :base-extension "org"
-         :exclude "level-[0-9]*.org"
+         :exclude "level-[0-9]*.org\\|other/orgmode.org"
          :publishing-directory "/publish/output"
          :html-html5-fancy t
          :html-validation-link nil

@@ -1,6 +1,8 @@
 #+TITLE: Blog
 #+SETUPFILE: level-0.org
 
+* Automatic Publishing Posts
+Now the repository https://github.com/iliayar/iliayar has CI to publish here
 * Emacs config
 :PROPERTIES:
 :ID:       43285399-0669-4198-ba42-9b839d091219
