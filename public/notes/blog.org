@@ -1,6 +1,12 @@
 #+TITLE: Blog
 #+SETUPFILE: level-0.org
 
+* Emacs config
+:PROPERTIES:
+:ID:       43285399-0669-4198-ba42-9b839d091219
+:PUBDATE:  <2021-08-03 Tue 05:36>
+:END:
+Add [[file:other/orgmode.org::*Emacs config][Emacs config]] to [[file:other/orgmode.org][Org mode page]]
 * Raytracer Demo
 :PROPERTIES:
 :ID:       869de904-f8d0-456f-8bb5-04fafe9ea1e0

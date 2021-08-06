@@ -1,3 +1,4 @@
+#+MANUAL: t
 #+TITLE: Org mode
 
 #+SETUPFILE: ../level-1.org
@@ -32,4 +33,5 @@ The proof of some realy cool theorem
 #+begin_theorem
 Some other cool theorem
 #+end_theorem
-* TODO Emacs config
+* Emacs config
+#+include: "~/.emacs.d/config.org"
