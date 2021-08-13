@@ -1,9 +1,9 @@
 pipeline {
-    properties {
+    options {
 	githubProjectUrl("https://github.com/iliayar/iliayar.git")
     }
 
-    trigger {
+    triggers {
 	gitHub()
     }
 
