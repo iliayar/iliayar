@@ -50,13 +50,14 @@ pipeline {
 		script {
 		    setPendingStatus("Org Publish")
 		    sh "echo AYAYAYAYAYY"
+		    sh "false"
 		}
 	    }
 	}
 	stage("Commit Status") {
 	    steps {
 		script {
-		    setBuildStatus("Org Publish", "Build #${currentBuild.number} successful in ${currentBuild.durationString}", "SUCCESS")
+		    setBuildStatus("Org Publish", "Build #${currentBuild.number} successful in ${currentBuild.duration}", "SUCCESS")
 		}
 	    }
 	}
