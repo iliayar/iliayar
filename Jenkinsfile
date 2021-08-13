@@ -24,18 +24,15 @@ void setBuildStatus(String context, String message, String state) {
 		$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"
 	    ]
 	],
-	// statusResultSource: [
-	//     $class: "ConditionalStatusResultSource",
-	//     results: [
-	// 	[
-	// 	    $class: "AnyBuildResult",
-	// 	    state: state,
-	// 	    message: message
-	// 	]
-	//     ]
-	// ]
 	statusResultSource: [
-	    $class: "DefaultStatusResultSource"
+	    $class: "ConditionalStatusResultSource",
+	    results: [
+		[
+		    $class: "AnyBuildResult",
+		    state: state,
+		    message: message
+		]
+	    ]
 	]
     ]);
 }
@@ -59,7 +56,7 @@ pipeline {
 	stage("Commit Status") {
 	    steps {
 		script {
-		    setBuildStatus("Org Publish", "", "SUCCESS")
+		    setBuildStatus("Org Publish", "Build #${currentBuild.number} successful in ${currentBuild.durationString}", "SUCCESS")
 		}
 	    }
 	}
