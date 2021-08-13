@@ -57,10 +57,8 @@ pipeline {
 		script {
 		    sh "git checkout master"
 
-		    sh "cd org-publish"
-		    sh "docker build . -t org-publish"
-		    sh "./run.sh"
-		    sh "cd ../"
+		    sh "docker build org-publish/ -t org-publish"
+		    sh "org-publish/run.sh"
 
 		    sh "git add public/notes/blog.org"
 		    sh "git diff --quiet && git diff --staged --quiet || git commit -m 'Update blog.org with new IDs'"
