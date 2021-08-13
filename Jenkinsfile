@@ -10,7 +10,7 @@ void setPendingStatus(String message) {
     ]);
 }
 
-void setBuildStatus(String message /*, String state */) {
+void setBuildStatus(String message, String state) {
     step([
 	$class: "GitHubCommitStatusSetter",
 	reposSource: [
@@ -29,6 +29,7 @@ void setBuildStatus(String message /*, String state */) {
 	    results: [
 		[
 		    $class: "AnyBuildResult"
+		    state: state
 		]
 	    ]
 	]
@@ -64,7 +65,7 @@ pipeline {
 	stage("Commit Status") {
 	    steps {
 		script {
-		    setBuildStatus("Org Publish")
+		    setBuildStatus("Org Publish", "SUCCESS")
 		}
 	    }
 	}
