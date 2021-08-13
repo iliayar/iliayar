@@ -28,7 +28,7 @@ void setBuildStatus(String message, String state) {
 	    $class: "ConditionalStatusResultSource",
 	    results: [
 		[
-		    $class: "AnyBuildResult"
+		    $class: "AnyBuildResult",
 		    state: state
 		]
 	    ]
