@@ -57,12 +57,10 @@ pipeline {
     }
     post {
 	always {
-	    if (currentBuild.result == "SUCCESS") {
-		script {
+	    script {
+		if (currentBuild.result == "SUCCESS") {
 		    setBuildStatus("Org Publish", "Build #${currentBuild.number} successful in ${currentBuild.duration}", "SUCCESS")
-		}
-	    } else {
-		script {
+		} else {
 		    setBuildStatus("Org Publish", "Build #${currentBuild.number} failed in ${currentBuild.duration}", "FAILURE")
 		}
 	    }
