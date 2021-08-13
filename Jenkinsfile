@@ -45,11 +45,17 @@ pipeline {
     }
 
     stages {
-	stage("Test") {
+	stage("Publishing") {
 	    steps {
 		script {
 		    setPendingStatus()
 		    sh "echo AYAYAYAYAYY"
+		}
+	    }
+	}
+	stage("Commit Status") {
+	    steps {
+		script {
 		    setBuildStatus("Org Publish")
 		}
 	    }
