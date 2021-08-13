@@ -45,13 +45,6 @@ pipeline {
     }
 
     stages {
-	stage("Clone") {
-	    steps {
-		git url: "ssh://git@github.com/iliayar/iliayar.git",
-		    credentialsId: 'iliayar',
-		    branch: master
-	    }
-	}
 	stage("Set pending status") {
 	    steps {
 		script {
