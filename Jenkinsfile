@@ -1,12 +1,8 @@
 pipeline {
     agent any
 
-    options {
-	githubProjectUrl("https://github.com/iliayar/iliayar.git")
-    }
-
     triggers {
-	gitHub()
+	githubPush()
     }
 
     stages {
