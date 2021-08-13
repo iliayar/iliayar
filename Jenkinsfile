@@ -50,7 +50,6 @@ pipeline {
 		script {
 		    setPendingStatus("Org Publish")
 		    sh "echo AYAYAYAYAYY"
-		    sh "false"
 		}
 	    }
 	}
