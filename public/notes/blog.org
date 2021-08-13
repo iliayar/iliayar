@@ -2,6 +2,10 @@
 #+SETUPFILE: level-0.org
 
 * Automatic Publishing Posts
+  :PROPERTIES:
+  :ID:       5d853cf0-7f32-4737-85ad-ee53452598e7
+  :PUBDATE:  <2021-08-13 Fri 21:23>
+  :END:
 Now the repository https://github.com/iliayar/iliayar has CI to publish here. Now with ~Jenkinsfile~
 * Emacs config
 :PROPERTIES:
