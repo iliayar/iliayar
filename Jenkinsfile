@@ -55,6 +55,8 @@ pipeline {
 	stage("Publishing") {
 	    steps {
 		script {
+		    sh "git config user.name 'iliayar'"
+		    sh "git config user.email 'iliayar3@gmail.com'"
 		    sh "git checkout master"
 
 		    sh "docker build org-publish/ -t org-publish"
