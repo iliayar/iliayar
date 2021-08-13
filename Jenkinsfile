@@ -70,6 +70,7 @@ pipeline {
 	stage("Pushing IDs") {
 	    steps {
 		sshagent(["iliayar"]) {
+		    sh('git pull --rebase origin master')
 		    sh("git push origin master")
 		}
 	    }
