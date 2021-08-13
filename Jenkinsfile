@@ -1,12 +1,14 @@
-properties {
-    githubProjectUrl("https://github.com/iliayar/iliayar.git")
-}
-
-trigger {
-    gitHub()
-}
-
 pipeline {
+    properties {
+	githubProjectUrl("https://github.com/iliayar/iliayar.git")
+    }
+
+    trigger {
+	gitHub()
+    }
+
+    agent any
+
     stages {
 	stage {
 	    steps {
