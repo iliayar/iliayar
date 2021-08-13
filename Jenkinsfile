@@ -25,10 +25,10 @@ void setBuildStatus(String message /*, String state */) {
 	    ]
 	],
 	statusResultSource: [
-	    $class: "ConditionalStatusResultSource"
+	    $class: "ConditionalStatusResultSource",
 	    results: [
 		[
-		    $class: "AnyBuildResult",
+		    $class: "AnyBuildResult"
 		]
 	    ]
 	]
