@@ -68,8 +68,10 @@ pipeline {
 	    }
 	}
 	stage("Pushing IDs") {
-	    sshagent(["iliayar"]) {
-		sh("git push origin master")
+	    steps {
+		sshagent(["iliayar"]) {
+		    sh("git push origin master")
+		}
 	    }
 	}
     }
