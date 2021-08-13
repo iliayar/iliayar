@@ -54,10 +54,16 @@ pipeline {
 		}
 	    }
 	}
-	stage("Commit Status") {
-	    steps {
-		script {
-		    setBuildStatus("Org Publish", "Build #${currentBuild.number} successful in ${currentBuild.duration}", "SUCCESS")
+	post {
+	    always {
+		if (currentBuild.result == "SUCCESS") {
+		    script {
+			setBuildStatus("Org Publish", "Build #${currentBuild.number} successful in ${currentBuild.duration}", "SUCCESS")
+		    }
+		} else {
+		    script {
+			setBuildStatus("Org Publish", "Build #${currentBuild.number} failed in ${currentBuild.duration}", "FAILURE")
+		    }
 		}
 	    }
 	}
