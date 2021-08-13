@@ -30,7 +30,7 @@ void setBuildStatus(String context, String message, String state) {
 		[
 		    $class: "AnyBuildResult",
 		    state: state,
-		    message: message
+		    message: "Build #${currentBuild.number} ${message} in ${currentBuild.durationString}"
 		]
 	    ]
 	]
@@ -59,9 +59,9 @@ pipeline {
 	always {
 	    script {
 		if (currentBuild.result == "SUCCESS") {
-		    setBuildStatus("Org Publish", "Build #${currentBuild.number} successful in ${currentBuild.duration}", "SUCCESS")
+		    setBuildStatus("Org Publish", "succeed", "SUCCESS")
 		} else {
-		    setBuildStatus("Org Publish", "Build #${currentBuild.number} failed in ${currentBuild.duration}", "FAILURE")
+		    setBuildStatus("Org Publish", "failed", "FAILURE")
 		}
 	    }
 	}
