@@ -21,7 +21,7 @@ void setBuildStatus(String context, String message, String state) {
 	],
 	errorHandlers: [
 	    [
-		$class: "ChangingBuildStatusErrorHandler", result: "FAILED"
+		$class: "ChangingBuildStatusErrorHandler", result: "FAILURE"
 	    ]
 	],
 	statusResultSource: [
