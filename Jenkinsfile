@@ -45,12 +45,31 @@ pipeline {
     }
 
     stages {
-	stage("Publishing") {
+	stage("Set pending status") {
 	    steps {
 		script {
 		    setPendingStatus("Org Publish")
-		    sh "echo AYAYAYAYAYY"
 		}
+	    }
+	}
+	stage("Publishing") {
+	    steps {
+		script {
+		    sh "git checkout master"
+
+		    sh "cd org-publish"
+		    sh "docker build . -t org-publish"
+		    sh "./run.sh"
+		    sh "cd ../"
+
+		    sh "git add public/notes/blog.org"
+		    sh "git diff --quiet && git diff --staged --quiet || git commit -m 'Update blog.org with new IDs'"
+		}
+	    }
+	}
+	stage("Pushing IDs") {
+	    sshagent(["iliayar"]) {
+		sh("git push origin master")
 	    }
 	}
     }
