@@ -45,6 +45,13 @@ pipeline {
     }
 
     stages {
+	stage("Clone") {
+	    steps {
+		git url: "ssh://git@github.com/iliayar/iliayar.git",
+		    credentialsId: 'iliayar',
+		    branch: master
+	    }
+	}
 	stage("Set pending status") {
 	    steps {
 		script {
@@ -64,14 +71,13 @@ pipeline {
 
 		    sh "git add public/notes/blog.org"
 		    sh "git diff --quiet && git diff --staged --quiet || git commit -m 'Update blog.org with new IDs'"
-		    sh "git remote add origin-ssh 'ssh://git@github.com/iliayar/iliayar'"
 		}
 	    }
 	}
 	stage("Pushing IDs") {
 	    steps {
 		sshagent(["iliayar"]) {
-		    sh("git push origin-ssh master")
+		    sh("git push origin master")
 		}
 	    }
 	}
