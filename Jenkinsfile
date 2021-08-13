@@ -1,8 +1,8 @@
-void setPendingStatus() {
+void setPendingStatus(String message) {
     step([
 	$class: "GitHubSetCommitStatusBuilder",
 	contextSource: [
-	    $class: "DefaultCommitContextSource"
+	    $class: "ManuallyEnteredCommitContextSource", context: message
 	],
 	statusMessage: [
 	    content: "Publishing Org files"
@@ -25,15 +25,23 @@ void setBuildStatus(String message /*, String state */) {
 	    ]
 	],
 	statusResultSource: [
-	    $class: "DefaultStatusResultSource"
-	    // results: [
-	    // 	[
-	    // 	    $class: "AnyBuildResult",
-	    // 	    message: message,
-	    // 	    state: state
-	    // 	]
-	    // ]
+	    $class: "ConditionalStatusResultSource"
+	    results: [
+		[
+		    $class: "AnyBuildResult",
+		]
+	    ]
 	]
+	// statusResultSource: [
+	//     $class: "DefaultStatusResultSource"
+	//     // results: [
+	//     // 	[
+	//     // 	    $class: "AnyBuildResult",
+	//     // 	    message: message,
+	//     // 	    state: state
+	//     // 	]
+	//     // ]
+	// ]
     ]);
 }
 
@@ -48,7 +56,7 @@ pipeline {
 	stage("Publishing") {
 	    steps {
 		script {
-		    setPendingStatus()
+		    setPendingStatus("Org Publish")
 		    sh "echo AYAYAYAYAYY"
 		}
 	    }
