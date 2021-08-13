@@ -1,4 +1,6 @@
 pipeline {
+    agent any
+
     options {
 	githubProjectUrl("https://github.com/iliayar/iliayar.git")
     }
@@ -7,10 +9,8 @@ pipeline {
 	gitHub()
     }
 
-    agent any
-
     stages {
-	stage {
+	stage("Test") {
 	    steps {
 		script {
 		    sh "echo AYAYAYAYAYY"
