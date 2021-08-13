@@ -10,39 +10,33 @@ void setPendingStatus(String message) {
     ]);
 }
 
-void setBuildStatus(String message, String state) {
+void setBuildStatus(String context, String message, String state) {
     step([
 	$class: "GitHubCommitStatusSetter",
 	reposSource: [
 	    $class: "AnyDefinedRepositorySource"
 	],
 	contextSource: [
-	    $class: "ManuallyEnteredCommitContextSource", context: message
+	    $class: "ManuallyEnteredCommitContextSource", context: context
 	],
 	errorHandlers: [
 	    [
 		$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"
 	    ]
 	],
-	statusResultSource: [
-	    $class: "ConditionalStatusResultSource",
-	    results: [
-		[
-		    $class: "AnyBuildResult",
-		    state: state
-		]
-	    ]
-	]
 	// statusResultSource: [
-	//     $class: "DefaultStatusResultSource"
-	//     // results: [
-	//     // 	[
-	//     // 	    $class: "AnyBuildResult",
-	//     // 	    message: message,
-	//     // 	    state: state
-	//     // 	]
-	//     // ]
+	//     $class: "ConditionalStatusResultSource",
+	//     results: [
+	// 	[
+	// 	    $class: "AnyBuildResult",
+	// 	    state: state,
+	// 	    message: message
+	// 	]
+	//     ]
 	// ]
+	statusResultSource: [
+	    $class: "DefaultStatusResultSource"
+	]
     ]);
 }
 
@@ -65,7 +59,7 @@ pipeline {
 	stage("Commit Status") {
 	    steps {
 		script {
-		    setBuildStatus("Org Publish", "SUCCESS")
+		    setBuildStatus("Org Publish", "", "SUCCESS")
 		}
 	    }
 	}
