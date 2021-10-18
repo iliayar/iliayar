@@ -5,6 +5,8 @@
 (require 'org)
 (require 'ox-rss)
 (require 'htmlize)
+(require 'doom-themes)
+(load-theme 'doom-molokai t)
 
 (org-reload)
 
