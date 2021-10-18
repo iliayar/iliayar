@@ -1,4 +1,27 @@
 #+SETUPFILE: ../../level-2.org
-#+NAME: Student CTF -> Shop
+#+TITLE: Student CTF -> Shop
 
-Another Test
+
+/I’ve created a custom shopping cart system. Can you get the flag?/ \\
+=nc 164.90.193.27 50009= \\
+[[https://student.ctf.su/files/shop_8059c17ac3.elf][shop.elf]]
+
+-----
+
+We get the binary ~shop_8059c17ac3.elf~ so lets open up decompiler and
+play with it a bit.
+
+* TODO Analysis
+What I've got during one hour:
+- Let's define the 2 structures program use for convenience: ~Item~ and ~Cart~
+  #+begin_center
+  [[./ida_struct1.png2021-10-19-003219_475x100_scrot.png]]
+  [[./ida_struct2.png2021-10-19-003301_547x128_scrot.png]]
+  #+end_center
+
+* TODO Exploitation
+#+include: shop.py :src python -n 13 :lines "13-18"
+
+
+
+Full [[https://github.com/iliayar/iliayar/blob/master/public/notes/ctf/student/shop.py][source code]]: 

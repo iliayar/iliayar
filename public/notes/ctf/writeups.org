@@ -1,5 +1,8 @@
 #+SETUPFILE: ../level-1.org
-#+NAME: CTF Writeups
+#+TITLE: CTF Writeups
+
+Some writeups ...
 
 * Student CTF
+Tasks: https://student.ctf.su/tasks
 - [[file:student/shop.org][Shop]]
