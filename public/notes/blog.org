@@ -1,6 +1,8 @@
 #+TITLE: Blog
 #+SETUPFILE: level-0.org
 
+* Enable code blocks highlighting
+Now codeblocks are prety
 * Automatic Publishing Posts
   :PROPERTIES:
   :ID:       5d853cf0-7f32-4737-85ad-ee53452598e7
