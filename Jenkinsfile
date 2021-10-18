@@ -52,6 +52,13 @@ pipeline {
 		}
 	    }
 	}
+	stage("Pull changes") {
+	    steps {
+		sshagent(["iliayar"]) {
+		    sh('git pull --rebase origin master')
+		}
+	    }
+	}
 	stage("Publishing") {
 	    steps {
 		script {
