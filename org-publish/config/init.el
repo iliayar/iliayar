@@ -6,7 +6,7 @@
 (require 'ox-rss)
 (require 'htmlize)
 (require 'doom-themes)
-(enable-theme 'doom-molokai t)
+(enable-theme 'doom-molokai)
 
 (org-reload)
 
