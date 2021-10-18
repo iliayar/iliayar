@@ -23,5 +23,4 @@ What I've got during one hour:
 #+include: shop.py :src python -n 13 :lines "13-18"
 
 
-
 Full [[https://github.com/iliayar/iliayar/blob/master/public/notes/ctf/student/shop.py][source code]]: 
