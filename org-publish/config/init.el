@@ -8,6 +8,8 @@
 
 (org-reload)
 
+(setq org-html-htmlize-output-type 'css)
+
 (defun org-publish-command () (org-publish-project "mainsite"))
 (defun my/org-publish (backend plist filename pub-dir)
   (with-temp-buffer 
