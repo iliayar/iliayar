@@ -10,8 +10,8 @@
 
 (org-reload)
 
-(setq org-html-htmlize-output-type 'css)
-(setq org-html-htmlize-font-prefix "org-")
+;; (setq org-html-htmlize-output-type 'css)
+;; (setq org-html-htmlize-font-prefix "org-")
 
 (defun org-publish-command () (org-publish-project "mainsite"))
 (defun my/org-publish (backend plist filename pub-dir)
