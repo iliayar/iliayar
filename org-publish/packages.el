@@ -3,6 +3,7 @@
  'package-archives
  '("melpa" . "https://melpa.org/packages/")
  t)
+
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
