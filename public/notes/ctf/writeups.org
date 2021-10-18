@@ -1,0 +1,5 @@
+#+SETUPFILE: ../level-1.org
+#+NAME: CTF Writeups
+
+* Student CTF
+- [[file:student/shop.org][Shop]]

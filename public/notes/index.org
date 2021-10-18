@@ -8,8 +8,10 @@ some shitty styles.
 * Studing
 - [[https://iliayar.ru/public-notes/conspects/README.html][Conspects]] from university in Russian
 * IT stuff
-- [[file:it_stuff/ctftools.org][Ctf Tools]]
 - [[file:other/orgmode.org][Org mode]]
+** CTF
+- [[file:ctf/tools.org][Tools]]
+- [[file:ctf/writeups.org][Writeups]]
 ** Projects
 - [[file:projects/raytracer.org][Raytracer]]
 - [[file:projects/image-storage.org][Image storage]]
