@@ -52,19 +52,13 @@ pipeline {
 		}
 	    }
 	}
-	stage("Pull changes") {
-	    steps {
-		sshagent(["iliayar"]) {
-		    sh('git pull --rebase origin master')
-		}
-	    }
-	}
 	stage("Publishing") {
 	    steps {
 		script {
 		    sh "git config user.name 'iliayar'"
 		    sh "git config user.email 'iliayar3@gmail.com'"
 		    sh "git checkout master"
+		    sh "git pull origin master"
 
 		    sh "docker build org-publish/ -t org-publish"
 		    sh "org-publish/run.sh"
