@@ -16,6 +16,10 @@
     --green: #c2d94c;
 }
 
+pre.src:before {
+    color: var(--code-background);
+    background-color: var(--code-foreground);
+}
 .src-artist {
     overflow: scroll;
 }

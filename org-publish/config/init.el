@@ -4,6 +4,7 @@
 
 (require 'org)
 (require 'ox-rss)
+(require 'python)
 
 (org-reload)
 
