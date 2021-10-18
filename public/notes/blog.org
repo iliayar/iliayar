@@ -2,6 +2,10 @@
 #+SETUPFILE: level-0.org
 
 * Enable code blocks highlighting
+  :PROPERTIES:
+  :ID:       c2cd6e13-a420-422e-b75c-ce40284de30f
+  :PUBDATE:  <2021-10-18 Mon 23:23>
+  :END:
 Now codeblocks are prety
 * Automatic Publishing Posts
   :PROPERTIES:
