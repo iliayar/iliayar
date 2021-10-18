@@ -1,4 +1,4 @@
-#+SETUPFILE: ../level-2.org
+#+SETUPFILE: ../../level-2.org
 #+NAME: Student CTF -> Shop
 
 Test
