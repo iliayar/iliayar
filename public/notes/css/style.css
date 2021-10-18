@@ -1,7 +1,7 @@
 /* This style sheet configures the style of Note */
 
 @import url("./note-default-style.css");
-
+@import url("./htmlize.css");
 /* Landscape */
 @media screen and (min-width: 1024px) {
     body {
