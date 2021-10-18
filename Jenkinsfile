@@ -58,7 +58,7 @@ pipeline {
 		    sh "git config user.name 'iliayar'"
 		    sh "git config user.email 'iliayar3@gmail.com'"
 		    sh "git checkout master"
-		    sh "git pull origin master"
+		    sh "git pull --rebase origin master"
 
 		    sh "docker build org-publish/ -t org-publish"
 		    sh "org-publish/run.sh"
@@ -71,7 +71,6 @@ pipeline {
 	stage("Pushing IDs") {
 	    steps {
 		sshagent(["iliayar"]) {
-		    sh('git pull --rebase origin master')
 		    sh("git push origin master")
 		}
 	    }
