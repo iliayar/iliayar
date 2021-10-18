@@ -1,6 +1,7 @@
 /* This style sheet configures the home page of Note */
 
 @import url("./style.css");
+@import url("./htmlize.css");
 /* Don't number each post header.  */
 .section-number-2 { display: none; }
 

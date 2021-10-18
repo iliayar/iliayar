@@ -14,7 +14,3 @@
 
 (use-package htmlize
   :ensure t)
-
-(use-package doom-themes
-  :ensure t
-  :init (load-theme 'doom-molokai t))
