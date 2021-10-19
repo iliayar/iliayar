@@ -1,6 +1,8 @@
 #+TITLE: Blog
 #+SETUPFILE: level-0.org
 
+* Student CTF Shop writeup
+[[file:ctf/student/shop.org][Writeup]]
 * Enable code blocks highlighting
   :PROPERTIES:
   :ID:       c2cd6e13-a420-422e-b75c-ce40284de30f
