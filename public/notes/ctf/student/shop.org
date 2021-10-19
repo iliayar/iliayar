@@ -12,12 +12,192 @@ We get the binary ~shop_8059c17ac3.elf~ so lets open up decompiler and
 play with it a bit.
 
 * TODO Analysis
+The programm opens port ~50009~ and wait for a connection:
+#+begin_src 
+$ nc localhost 50009
+Welcome to our password storage!
+1> Create New Session
+2> Work With Existing Session
+3> Exit
+1
+90495438b91bc707910561255b74c94c
+1> Add new item to shopping cart
+2> Delete item from shopping cart
+3> Reload shopping cart
+4> Print shopping cart
+5> Change amount
+6> Enter coupon to get gift
+7> Proceed
+8> Logout
+1
+Enter item name: My Item
+Enter item cost: 10
+Enter item amount: 1
+1> Add new item to shopping cart
+2> Delete item from shopping cart
+3> Reload shopping cart
+4> Print shopping cart
+5> Change amount
+6> Enter coupon to get gift
+7> Proceed
+8> Logout
+4
+Total: 10$
+Item:
+	Name: My Item
+	Price: 10$
+	Amount: 1
+1> Add new item to shopping cart
+2> Delete item from shopping cart
+3> Reload shopping cart
+4> Print shopping cart
+5> Change amount
+6> Enter coupon to get gift
+7> Proceed
+8> Logout
+#+end_src
+
 What I've got during one hour:
 - Let's define the 2 structures program use for convenience: ~Item~ and ~Cart~
   #+begin_center
-  [[./ida_struct1.png2021-10-19-003219_475x100_scrot.png]]
-  [[./ida_struct2.png2021-10-19-003301_547x128_scrot.png]]
+                [[./ida_struct1.png2021-10-19-003219_475x100_scrot.png]]
+                [[./ida_struct2.png2021-10-19-003301_547x128_scrot.png]]
   #+end_center
+  We'll get to the ~MUST_BE_NON_ZERO~ field later
+- Take a closer look on function for variant ~7> Proceed~ of the second menu.
+  #+begin_src c 
+int __fastcall proceed(unsigned int fd, Cart *items, const char *session)
+{
+	char command[1024]; // [rsp+20h] [rbp-420h] BYREF
+	Item *ptr; // [rsp+420h] [rbp-20h]
+	Item *item; // [rsp+428h] [rbp-18h]
+	char *secret; // [rsp+430h] [rbp-10h]
+	int empty_item; // [rsp+438h] [rbp-8h]
+	int i; // [rsp+43Ch] [rbp-4h]
+
+	if ( items->MUST_BE_NON_ZERO )
+	{
+		empty_item = find_empty_item(items);
+		if ( empty_item != -1 )
+		{
+			secret = getenv("SECRET");
+			item = (Item *)malloc(0x10uLL);
+			item->name = strdup(secret);
+			item->cost = 1290;
+			item->amount = 331;
+			items->items[empty_item] = item;
+		}
+	}
+	print_cart(fd, items);
+	items->sum_cost = 0LL;
+	items->MUST_BE_NON_ZERO = 0LL;
+	for ( i = 0; i <= 31; ++i )
+	{
+		ptr = items->items[i];
+		if ( ptr )
+		{
+			free(ptr->name);
+			free(ptr);
+			items->items[i] = 0LL;
+		}
+	}
+	sprintf(command, "rm -rf %s", session);
+	return system(command);
+}
+  #+end_src
+  So obviously we need to set ~MUST_BE_NON_ZERO~ to non zero value and
+  then type ~Proceed~. Mention that =Cart *items= is created when client
+  establish connection, and all operations will be performed
+  precisely with this instsance.
+- The function corresponding to ~5> Change amount~:
+  #+begin_src c -n -r
+void __fastcall change_amount(int fd, Cart *items, const char *session)
+{
+	char item_name[256]; // [rsp+20h] [rbp-120h] BYREF
+	Item *ptr; // [rsp+120h] [rbp-20h]
+	int item_or_empty; // [rsp+12Ch] [rbp-14h]
+	char *path; // [rsp+130h] [rbp-10h]
+	int path_length; // [rsp+13Ch] [rbp-4h]
+
+	send(fd, "Enter item name: ", 0x11uLL, 0);
+	read_line(fd, item_name, 128);
+	path_length = snprintf(0LL, 0LL, "%s/%s", session, item_name);
+	path = (char *)malloc(path_length + 1);
+	sprintf(path, "%s/%s", session, item_name);
+	if ( contains_item(items, item_name) )
+	{
+		item_or_empty = find_item_or_empty(items, item_name, path); (ref:critical)
+		if ( item_or_empty == -1 )
+			send(fd, "No such item!\n", 0xEuLL, 0);
+		ptr = items->items[item_or_empty];
+		if ( ptr )
+		{
+			free(ptr->name);
+                        free(ptr);
+                }
+                ptr = input_item(fd, item_name);
+                items->items[item_or_empty] = ptr;
+        }
+        free(path);
+}
+  #+end_src
+  ~find_item_or_empty~:
+  #+begin_src c
+__int64 __fastcall find_item_or_empty(Cart *items, const char *item_name, const char *path)
+{
+        unsigned int empty_item; // [rsp+2Ch] [rbp-14h]
+        Item *v6; // [rsp+30h] [rbp-10h]
+        int i; // [rsp+38h] [rbp-8h]
+        unsigned int v8; // [rsp+3Ch] [rbp-4h]
+
+        v8 = -1;
+        for ( i = 0; i <= 31; ++i )
+        {
+                v6 = items->items[i];
+                if ( v6 && !strcmp(v6->name, item_name) )
+                {
+                        v8 = i;
+                        break;
+                }
+        }
+        if ( access(path, 0) == -1 )
+                return 0xFFFFFFFELL;
+        if ( v8 != -1 )
+                return v8;
+        empty_item = find_empty_item(items);
+        if ( empty_item == -1 )
+                return 0xFFFFFFFFLL;
+        else
+                return empty_item;
+}
+  #+end_src
+  ~contains_item~:
+  #+begin_src c
+int __fastcall contains_item(Cart *items, const char *item_name)
+{
+        Item *v3; // [rsp+10h] [rbp-10h]
+        int i; // [rsp+1Ch] [rbp-4h]
+
+        for ( i = 0; i <= 31; ++i )
+        {
+                v3 = items->items[i];
+                if ( v3 && !strcmp(v3->name, item_name) )
+                        return 1;
+        }
+        return 0;
+}
+  #+end_src
+  The ~contains_item~ function only checks if the items is
+  presented in the cart, but ~find_item_or_empty~ try to
+  access the corresponding file, and if it's, for
+  example, deleted returns ~-2~.
+
+
+              
+So now we just want the call on [[(critical)]] line to return ~-2~, and the
+~items[-2]~ is exactle ~NEED_TO_BE_NON_ZERO~ field, which we then sets to
+non zero value.
+
 
 * TODO Exploitation
 #+include: shop.py :src python -n 13 :lines "13-18"

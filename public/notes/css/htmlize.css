@@ -46,3 +46,7 @@
     /* font-lock-variable-name-face */
     color: #fd971f;
 }
+.org-type {
+    /* font-lock-type-face */
+    color: #66d9ef;
+}
