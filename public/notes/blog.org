@@ -2,6 +2,10 @@
 #+SETUPFILE: level-0.org
 
 * Student CTF Shop writeup
+  :PROPERTIES:
+  :ID:       35c2e4ae-ac14-45af-ba55-b87b291a0990
+  :PUBDATE:  <2021-10-19 Tue 11:55>
+  :END:
 [[file:ctf/student/shop.org][Writeup]]
 * Enable code blocks highlighting
   :PROPERTIES:
