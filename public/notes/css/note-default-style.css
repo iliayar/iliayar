@@ -133,7 +133,7 @@ code, .src, pre, code:lang(zh), .src:lang(zh), pre:lang(zh) {
 }
 
 code, .example, .src {
-    overflow-x: scroll;
+    overflow: auto !important;
     padding: 2px;
     background-color: var(--code-background);
     border-radius: 3px;
