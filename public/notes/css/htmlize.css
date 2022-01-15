@@ -50,3 +50,27 @@
     /* font-lock-type-face */
     color: #66d9ef;
 }
+.org-haskell-constructor {
+  /* haskell-constructor-face */
+  color: #92a65e;
+  font-weight: bold;
+}
+.org-haskell-definition {
+  /* haskell-definition-face */
+  color: #cae682;
+}
+.org-haskell-keyword {
+  /* haskell-keyword-face */
+  color: #8ac6f2;
+  font-weight: bold;
+}
+.org-haskell-operator {
+  /* haskell-operator-face */
+  color: #cae682;
+}
+.org-haskell-type {
+  /* haskell-type-face */
+  color: #92a65e;
+  font-weight: bold;
+}
+
