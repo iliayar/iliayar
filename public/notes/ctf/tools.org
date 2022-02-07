@@ -52,3 +52,14 @@ My list of usefull ctf tools
   [[https://github.com/152334H/pwnscripts][Github]]
   Examples:
   - [[https://ctftime.org/writeup/23458][Format string]]
+
+* Other notes
+Converting string into integers in BigEndian
+#+begin_src python
+def str_to_ints(s, size=64):
+    N = size // 8
+    s = s.encode()
+    s = s.ljust((len(s) + N - 1) // N * N, b'\x00')
+    s = [bytes(reversed(s[i:i+N])).hex() for i in range(0, len(s), N)]
+    return s
+#+end_src
