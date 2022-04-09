@@ -7,8 +7,3 @@ WORKDIR /publish
 
 COPY packages.el packages.el
 RUN emacs --batch -l /publish/packages.el
-
-COPY entrypoint.sh entrypoint.sh
-RUN chmod +x entrypoint.sh
-
-ENTRYPOINT /publish/entrypoint.sh
