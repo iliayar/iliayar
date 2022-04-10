@@ -2,6 +2,10 @@
 #+SETUPFILE: level-0.org
 
 * On k8s now!
+  :PROPERTIES:
+  :ID:       280ca5a1-adfd-44b3-9dfe-63e0c9119d09
+  :PUBDATE:  <2022-04-10 Sun 15:42>
+  :END:
   Migrate to kubernetes
 * Student CTF Shop writeup
   :PROPERTIES:
