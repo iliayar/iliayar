@@ -1,6 +1,8 @@
 #+TITLE: Blog
 #+SETUPFILE: level-0.org
 
+* On k8s now!
+  Migrate to kubernetes
 * Student CTF Shop writeup
   :PROPERTIES:
   :ID:       35c2e4ae-ac14-45af-ba55-b87b291a0990
