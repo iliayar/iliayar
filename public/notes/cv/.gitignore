@@ -1,0 +1,7 @@
+*.aux
+*.bcf
+*.fdb_latexmk
+*.fls
+*.out
+*.run.xml
+*.xmpi
