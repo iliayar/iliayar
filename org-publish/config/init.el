@@ -156,6 +156,13 @@
          :publishing-function org-publish-attachment
          )
         ("mainsite" :components ("org-mainsite" "rss-mainsite" "static-mainsite"))
+        ("static-conspects"
+         :base-directory "/publish/input"
+         :base-extension "png\\|jpg\\|gif\\|pdf\\|svg"
+         :publishing-directory "/publish/output"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
         ("org-conspects"
          :base-directory "/publish/input"
          :exclude ".*[^E].org"
@@ -173,5 +180,5 @@
          :recursive t
          :publishing-function my/org-latex-publish-to-pdf
          )
-        ("conspects" :components ("org-conspects" "pdfs-conspects"))
+        ("conspects" :components ("static-conspects" "org-conspects" "pdfs-conspects"))
         ))
