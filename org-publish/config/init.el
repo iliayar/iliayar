@@ -150,7 +150,7 @@
          )
         ("static-mainsite"
          :base-directory "/publish/input"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|pdf"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|pdf\\|jpeg"
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function org-publish-attachment
@@ -158,7 +158,7 @@
         ("mainsite" :components ("org-mainsite" "rss-mainsite" "static-mainsite"))
         ("static-conspects"
          :base-directory "/publish/input"
-         :base-extension "png\\|jpg\\|gif\\|pdf\\|svg"
+         :base-extension "png\\|jpg\\|gif\\|pdf\\|svg\\|jpeg"
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function org-publish-attachment
