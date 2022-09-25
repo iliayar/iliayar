@@ -1,7 +1,7 @@
 # `\begin{flex}`
 <div align="center" >
 <img width="49%" src="https://github-readme-stats.vercel.app/api?username=iliayar&show_icons=true&theme=radical" />
-<img width="41%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iliayar&layout=compact&theme=radical&hide=Jupyter Notebook" />
+<img width="41%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iliayar&layout=compact&theme=radical&hide=Jupyter%20Notebook" />
 </div>
 
 <div align="center" >
