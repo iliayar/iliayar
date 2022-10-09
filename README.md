@@ -17,5 +17,5 @@
 # `\end{flex}`
 
 <div align="center">
-Checkout <a href="https://iliayar.ru">this page</a> and <a href="https://iliayar.ru/public-notes/cv/cv.pdf">my CV</a>
+Checkout <a href="https://iliayar.ru">this page</a> and <a href="https://github.com/iliayar/iliayar/blob/master/public/notes/cv/cv.pdf">my CV</a>
 </div>
