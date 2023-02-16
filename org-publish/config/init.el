@@ -168,7 +168,7 @@
          :exclude ".*[^E].org"
          :publishing-directory "/publish/output"
          :recursive t
-         :html-postamble "<hr><a href=\"https://ilyay.space\">Home Page</a><span style=\"float: right\"><a href=\"https://t.me/iliayar\"><i class=\"fab fa-telegram-plane\"></i></a> <a href=\"https://github.com/iliayar/ITMO\"><i class=\"fab fa-github\"></i></a></span><br><a href=\"conspects.ilyay.space/README.html\">Conspects Home Page</a>"
+         :html-postamble "<hr><a href=\"https://ilyay.space\">Home Page</a><span style=\"float: right\"><a href=\"https://t.me/iliayar\"><i class=\"fab fa-telegram-plane\"></i></a> <a href=\"https://github.com/iliayar/ITMO\"><i class=\"fab fa-github\"></i></a></span><br><a href=\"https://conspects.ilyay.space/README.html\">Conspects Home Page</a>"
          :publishing-function my/org-html-publish-to-html
          :headline-levels 4
          ) 
