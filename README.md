@@ -9,7 +9,7 @@
 </div>
 <!--
 <div align="center" >
-<img src="https://codestats-readme.vercel.app/api/history/?username=iliayar&theme=radical&card_width=500&hide=org,Terminal (Zsh)" />
+<img src="https://codestats-readme.avior.me/api/history?username=iliayar&theme=radical&card_width=500&hide=org,Terminal%20(Zsh)" />
 </div>
 --!>
 
