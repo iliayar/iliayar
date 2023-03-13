@@ -5,7 +5,7 @@
 </div>
 
 <div align="center" >
-<a href="https://codestats.net/users/iliayar"><img width="500px" src="https://codestats-readme.vercel.app/api?username=iliayar&theme=radical" /></a>
+<a href="https://codestats.net/users/iliayar"><img width="500px" src="https://codestats-readme.avior.me/api?username=iliayar&theme=radical&card_width=500" /></a>
 </div>
 <!--
 <div align="center" >
