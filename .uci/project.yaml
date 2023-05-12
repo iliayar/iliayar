@@ -1,0 +1,9 @@
+caddy:
+  hostnames:
+    'iliayar.ru': |
+      redir https://ilyay.space{uri}
+
+    # FIXME: Move to main site repo
+    'ilyay.space': |
+      file_server
+      root * ${project.repos.main.path}/public/stub
