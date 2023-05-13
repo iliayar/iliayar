@@ -1,0 +1,3 @@
+pipelines:
+  publish-conspects:
+    path: ${project.repos.conspects.path}/.uci/publish_pipeline.yaml
