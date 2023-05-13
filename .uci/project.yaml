@@ -1,9 +1,3 @@
-bind9:
-  zones:
-    'ilyay.space':
-      cnames:
-        - 'conspects'
-
 caddy:
   hostnames:
     'iliayar.ru': |
@@ -13,18 +7,3 @@ caddy:
     'ilyay.space': |
       file_server
       root * ${project.repos.main.path}/public/stub
-
-    'conspects.ilyay.space': |
-      file_server
-      root * ${project.data.path}/gen-conspects
-  
-      route / {
-          redir https://conspects.ilyay.space/README.html
-      }
-  
-      handle_errors {
-          @404 expression `{err.status_code} in [404]`
-          handle @404 {
-              redir https://github.com/iliayar/ITMO/tree/master{uri}
-          }
-      }
