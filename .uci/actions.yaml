@@ -9,6 +9,9 @@ actions:
     - on: changed
       run_pipelines:
         - publish-conspects
+      repo_id: conspects
+      changes:
+        - '^.*'
       params:
         build-org-publish-image: false
 
