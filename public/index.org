@@ -1,0 +1,29 @@
+#+OPTIONS: toc:nil
+
+* TODO About
+** Test MathJax
+\[\frac{1}{2}\]
+** Test mermaid
+#+begin_mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+#+end_mermaid
+
+** Test code
+
+#+begin_src shell
+  $ ls
+  file1
+  file2
+#+end_src
+
+#+begin_src python
+  def main():
+      print("Hello world")
+#+end_src
+
+#+ATTR_FILENAME: test.py
+#+include: "test.py" src python

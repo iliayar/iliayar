@@ -7,6 +7,7 @@
 (require 'ox-rss)
 (require 'htmlize)
 (require 'haskell-mode)
+(require 'ox-tailwind)
 
 (org-reload)
 
@@ -120,7 +121,7 @@
 
 (setq org-publish-project-alist
       '(
-        ("org-mainsite"
+        ("org-mainsite-old"
          :base-directory "/publish/input"
          :base-extension "org"
          :exclude "level-[0-9]*.org\\|other/orgmode.org"
@@ -133,7 +134,7 @@
          :headline-levels 4             ; Just the default for this project.
          :auto-preamble t
          )
-        ("rss-mainsite"
+        ("rss-mainsite-old"
          :base-directory "/publish/input"
          :base-extension "org"
          :exclude ".*"
@@ -148,14 +149,30 @@
          :recursive nil
          :publishing-function org-rss-publish-to-rss
          )
-        ("static-mainsite"
+        ("static-mainsite-old"
          :base-directory "/publish/input"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|pdf\\|jpeg"
+         :base-extension "css\\|mjs\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|pdf\\|jpeg"
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function org-publish-attachment
          )
-        ("mainsite" :components ("org-mainsite" "rss-mainsite" "static-mainsite"))
+        ("mainsite-old" :components ("org-mainsite" "rss-mainsite" "static-mainsite"))
+
+        ("org-mainsite"
+         :base-directory "/publish/input"
+         :base-extension "org"
+         :publishing-directory "/publish/output"
+         :publishing-function org-tailwind-publish-to-html-without-toc
+         )
+        ("static-mainsite"
+         :base-directory "/publish/input"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|svg\\|mp3\\|ogg\\|swf\\|pdf\\|jpeg"
+         :publishing-directory "/publish/output"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("mainsite" :components ("static-mainsite" "org-mainsite"))
+
         ("static-conspects"
          :base-directory "/publish/input"
          :base-extension "png\\|jpg\\|gif\\|pdf\\|svg\\|jpeg"

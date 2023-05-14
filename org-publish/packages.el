@@ -16,3 +16,7 @@
   :ensure t)
 (use-package htmlize
   :ensure t)
+(use-package s
+  :ensure t)
+(use-package dash
+  :ensure t)

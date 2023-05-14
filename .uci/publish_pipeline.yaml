@@ -1,0 +1,74 @@
+jobs:
+  build-image:
+    type: build
+    image: main-org-publish
+    dockerfile: with-js.Dockerfile
+    path: ${project.repos.main.path}/org-publish
+    enabled: ${params.build-org-publish-image}
+
+  # FIXME: redunant?
+  _init_gen_dir:
+    type: script
+    env:
+      DATA_DIR: ${project.data.path}/gen-main
+    script: |
+      mkdir -p ${DATA_DIR} || echo "Already exists"
+
+  publish:
+    needs:
+      - build-image
+      - _init_gen_dir
+    stage: publish
+
+    type: script
+    image: main-org-publish
+    interpreter: ['/bin/sh', '-c']
+    volumes:
+      # '/root/.org-timestamps': main-org-publish-cache
+      '/publish/input': ${project.repos.main.path}/public
+      '/publish/config': ${project.repos.main.path}/org-publish/config
+      '/publish/output': ${project.data.path}/gen-main
+    script: |
+      set -e
+
+      # Remove lock files
+      rm -Rf /root/.org-timestamps/.#*
+
+      emacs --batch -l /publish/config/init.el --eval '(org-publish-project "mainsite")'
+
+      rm -Rf /publish/output/js/mathjax || echo "Already cleaned"
+      rm -Rf /publish/output/js/mermaid || echo "Already cleaned"
+      rm -Rf /publish/output/css/tailwind.css || echo "Already cleaned"
+
+      rm -Rf /publish/output/css/highlight.css || echo "Already cleaned"
+      rm -Rf /publish/output/js/highlight.js || echo "Already cleaned"
+
+      echo "Building tailwind"
+      npx tailwindcss -c /publish/input/other/tailwind/tailwind.config.js \
+        -i /publish/input/other/tailwind/input.css \
+        -o /publish/output/css/tailwind.css \
+        -m
+
+      echo "Installing Mermaid"
+      mkdir mermaid
+      tar -xvf mermaid.tgz -C mermaid/
+      mv mermaid/package/dist /publish/output/js/mermaid
+
+      echo "Installing MathJax"
+      mkdir mathjax
+      unzip mathjax.zip -d mathjax
+      mv mathjax/MathJax-master/es5 /publish/output/js/mathjax
+
+      echo "Installing highlight.js"
+      mv highlight.js/build/highlight.js /publish/output/js/highlight.js
+      mv highlight.js/src/styles/default.css /publish/output/css/highlight.css
+
+stages:
+  publish:
+    on_overlap: cancel
+
+# integrations:
+#   github:
+#     token: ${project.secrets.github_token}
+#     repo: 'iliayar/ITMO'
+#     rev: ${project.repos.conspects.rev}
