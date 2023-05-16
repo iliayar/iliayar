@@ -7,7 +7,7 @@
 (require 'ox-rss)
 (require 'htmlize)
 (require 'haskell-mode)
-(require 'ox-tailwind)
+(require 'ox-iliayar-html)
 
 (org-reload)
 
@@ -162,7 +162,7 @@
          :base-directory "/publish/input"
          :base-extension "org"
          :publishing-directory "/publish/output"
-         :publishing-function org-tailwind-publish-to-html-without-toc
+         :publishing-function iliayar/org-publish-to-html
          )
         ("static-mainsite"
          :base-directory "/publish/input"

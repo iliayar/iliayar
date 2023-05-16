@@ -1,0 +1,13 @@
+<div class="flex w-full">
+  {% if toc %}
+  <div class="bg-yellow-500 basis-1/4">
+    {{ toc }}
+  </div>
+  {% endif %}
+  <div class="flex justify-center basis-3/4 grow">
+    <div class="bg-blue-500 max-w-5xl grow">
+      {{ contents|safe }}
+    </div>
+  </div>
+</div>
+

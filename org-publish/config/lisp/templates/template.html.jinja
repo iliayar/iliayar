@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TITLE HERE</title>
+
+    <link href="css/tailwind.css" rel="stylesheet"/>
+    <link href="css/highlight.css" rel="stylesheet" />
+    <!-- <link href="css/style.css" rel="stylesheet" /> -->
+    <script id="MathJax-script" async src="./js/mathjax/tex-mml-chtml.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div id="header" class="w-full flex flex-row justify-between bg-red-500">
+      <span>SOME TEXT HERE</span>
+
+      <button id="toggle-light-btn" type="button" class="">
+	Toggle Dark mode
+      </button>
+
+    </div>
+
+    {{ contents }}
+
+    <script src="js/highlight.js"></script>
+    <script src="js/utils.js"></script>
+    <script type="module">
+      import mermaid from "./js/mermaid/mermaid.esm.min.mjs";
+    </script>
+  </body>
+</html>

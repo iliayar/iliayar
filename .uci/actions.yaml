@@ -6,20 +6,20 @@ actions:
       params:
         build-org-publish-image: true
 
-    - on: changed
-      run_pipelines:
-        - publish-main
-      repo_id: main
-      changes:
-        - '^.*'
-      params:
-        build-org-publish-image: false
+    # - on: changed
+    #   run_pipelines:
+    #     - publish-main
+    #   repo_id: main
+    #   changes:
+    #     - '^.*'
+    #   params:
+    #     build-org-publish-image: false
 
-    - on: changed
-      repo_id: main
-      changes:
-        - '^org-publish.*'
-      run_pipelines:
-        - publish-main
-      params:
-        build-org-publish-image: true
+    # - on: changed
+    #   repo_id: main
+    #   changes:
+    #     - '^org-publish.*'
+    #   run_pipelines:
+    #     - publish-main
+    #   params:
+    #     build-org-publish-image: true

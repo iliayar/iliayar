@@ -1,0 +1,11 @@
+{% if title %}
+{{title}}
+{% endif %}
+
+{% if childs %}
+<ul class="pl-3">
+  {% for child in childs %}
+  <li>{{child}}</li>
+  {% endfor %}
+</ul>
+{% endif %}

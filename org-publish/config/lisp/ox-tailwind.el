@@ -386,8 +386,7 @@ Use a single `\\' if you have line breaks in the string."
   :type '(string))
 
 (defcustom org-tailwind-class-mermaid-block
-  "mx-auto my-2 max-w-full max-h-full bg-white rounded border \
-  border-gray-500"
+  "mx-auto my-2 max-w-full max-h-full bg-white dark:bg-darkgray rounded border border-gray-500"
   "Tailwind.css classes for the HTML MERMAID block."
   :type '(string))
 
@@ -495,29 +494,6 @@ Use a single `\\' if you have line breaks in the string."
   "Tailwind.css classes for the HTML FOOTER."
   :type '(string))
 
-(defcustom org-tailwind-class-toggle-button
-  "float-right rounded px-4 py-1 border bg-black bg-gray-100 \
-  dark:bg-gray-300 dark:text-gray-700"
-  "Tailwind.css classes for the HTML go to Toggle dark-mode button.
-There are already some prefixed classes:
-  - p-2
-  - block
-  - mt-2
-  - ml-0"
-  :type '(string))
-
-(defcustom org-tailwind-class-top-button
-  "absolute right-0 bottom-0 mb-2 mr-8 z-50 bg-gray-500 \
-  bg-opacity-80 hover:bg-gray-700 text-white font-bold rounded \
-  h-10 w-16 flex items-center justify-center"
-  "Tailwind.css classes for the HTML go to TOP button.
-There are already some prefixed classes:
-  - p-2
-  - block
-  - mt-2
-  - ml-0"
-  :type '(string))
-
 (defcustom org-tailwind-class-search-bar
   "float-right mx-4 w-1/6 rounded px-4 py-1 border-solid \
   border border-gray-700 dark:border-gray-500 text-gray-400 \
@@ -598,7 +574,9 @@ Do not break the line with while inserting a `newline'.  Use `\' at
   </div>
   <div class=\"block flex-grow lg:flex lg:items-center lg:w-auto\">
   <div class=\"text-sm lg:flex-grow\">
-  <a href=\"#top\" class=\"%s\">
+  <a id=\"top-button\" href=\"#top\" class=\"absolute right-0 bottom-0 mb-2 mr-8 z-50 bg-gray-500
+  bg-opacity-80 hover:bg-gray-700 text-white font-bold rounded
+  h-10 w-16 flex items-center justify-center\">
   Top
   </a>
   <input id=\"search-bar\" onkeyup=\"search()\"
@@ -606,7 +584,8 @@ Do not break the line with while inserting a `newline'.  Use `\' at
   class=\"%s\" placeholder=\"Search...\"/>
   <ul id=\"search-bar-results\"
   class=\"%s\" style=\"display: none;\"></ul>
-  <button type=\"button\" class=\"%s\" onclick=\"toggleLight()\">Toggle dark-mode</button>
+  <button id=\"toggle-light-btn\" type=\"button\" class=\"float-right rounded px-4 py-1 border bg-black bg-gray-100
+  dark:bg-gray-300 dark:text-gray-700\">Toggle dark-mode</button>
   </div>
   </div>
   </nav>"
@@ -637,247 +616,9 @@ Do not break the line with while inserting a `newline'.  Use `\' at
   "The level of the headlines to be included in the toc."
   :type '(string))
 
-(defcustom org-tailwind-javascript
-  "function getElementsByTagNames(list,obj) {
-	if (!obj) var obj = document;
-	var tagNames = list.split(',');
-	var resultArray = new Array();
-	for (var i=0;i < tagNames.length;i++) {
-		var tags = obj.getElementsByTagName(tagNames[i]);
-		for (var j=0;j < tags.length;j++) {
-			resultArray.push(tags[j]);
-		}
-	}
-	var testNode = resultArray[0];
-	if (!testNode) return [];
-	if (testNode.sourceIndex) {
-		resultArray.sort(function (a,b) {
-				return a.sourceIndex - b.sourceIndex;
-		});
-	}
-	else if (testNode.compareDocumentPosition) {
-		resultArray.sort(function (a,b) {
-				return 3 - (a.compareDocumentPosition(b) & 6);
-		});
-	}
-	return resultArray;
-}
-
-function createTOC() {
-	// Add go to top button
-	let top = document.createElement('a');
-	top.innerHTML = 'Top';
-	top.href = '#top';
-	top.className += 'top %s';
-
-    // The tags with the headlines
-	let headlines = getElementsByTagNames('%s');
-
-	if (headlines.length < 2) return false;
-
-    // Populate the #toc div
-	let toc = document.getElementById('toc');
-
-    // The title
-	// let title = document.getElementById('toc-link-title');
-	// let tocTitle = document.createElement('a');
-	// tocTitle.className = 'px-2 py-1 ';
-
-    // Set the classes to be used by the title
-    let title_classes = ' %s %s';
-
-    // Header counts for numbering
-    let header_2 = 0;
-    let header_3 = 0;
-    let header_4 = 0;
-    let header_5 = 0;
-    let header_6 = 0;
-
-	for (var i=0;i < headlines.length;i++) {
-
-		let tocHeader = document.createElement('a');
-
-        // Tailwind.css classes
-		tocHeader.className = 'px-2 py-1';
-        tocHeader.className += ' %s';
-
-        // Add the header to the table of contents
-        toc.appendChild(tocHeader);
-
-        switch (headlines[i].nodeName) {
-          case 'H1':
-            tocHeader.className += title_classes;
-
-            break;
-          case 'H2':
-            tocHeader.className += ' block mt-2 ml-0';
-            header_2 += 1;
-            header_3 = 0;
-            header_4 = 0;
-            header_5 = 0;
-            header_6 = 0;
-            header_7 = 0;
-
-          	// Numbering
-          	tocHeader.innerHTML += '<b>' + header_2 + '.</b> ';
-            
-            break;
-
-          case 'H3':
-            tocHeader.className += ' block ml-5';
-            header_3 += 1;
-            header_4 = 0;
-            header_5 = 0;
-            header_6 = 0;
-            header_7 = 0;
-
-          	// Numbering
-          	tocHeader.innerHTML += '<b>' + header_2 + '.' + header_3 + '.</b> ';
-            break;
-
-          case 'H4':
-            tocHeader.className += ' block ml-12';
-            header_4 += 1;
-            header_5 = 0;
-            header_6 = 0;
-            header_7 = 0;
-
-          	// Numbering
-          	tocHeader.innerHTML += '<b>' + header_2 + '.' + header_3 + '.' + header_4 + '.</b> ';
-            break;
-
-          case 'H5':
-            tocHeader.className += ' block ml-20';
-            header_5 += 1;
-            header_6 = 0;
-            header_7 = 0;
-
-          	// Numbering
-          	tocHeader.innerHTML += '<b>' + header_2 + '.' + header_3 + '.' + header_4 + '.' + header_5 + '.</b> ';
-            break;
-
-          case 'H6':
-            tocHeader.className += ' block ml-32';
-            header_6 += 1;
-            header_7 = 0;
-
-          	// Numbering
-          	tocHeader.innerHTML += '<b>' + header_2 + '.' + header_3 + '.' + header_4 + '.' + header_5 + '.' + header_6 + '.</b> ';
-            break;
-
-          case 'H7':
-            tocHeader.className += ' block ml-48';
-            header_7 += 1;
-
-          	// Numbering
-          	tocHeader.innerHTML += '<b>' + header_2 + '.' + header_3 + '.' + header_4 + '.' + header_5 + '.' + header_6 + '.' + header_7 + '.</b> ';
-            break;
-        }
-        
-        // Header title
-        tocHeader.innerHTML += headlines[i].innerHTML;
-		
-        // Add a link to the header
-		let headerId = headlines[i].id || 'toc-link-' + i;
-		headlines[i].id = headerId;
-        tocHeader.id = \"goto-\" + headerId;
-		tocHeader.href = '#' + headerId;
-	}
-}
-
-createTOC();
-
-
-// Populate search bar
-let searchBar = document.getElementById('search-bar')
-let searchBarResults = document.getElementById('search-bar-results')
-for(let i = 0; i < tocTree.length; i++) {
-    let heading = tocTree[i]
-    let item = document.createElement('li')
-    let link = document.createElement('a')
-    link.href = heading.file + '#toc-link-' + heading.index
-    link.className = \"%s\"
-    link.style.display = 'none'
-
-    if (heading.name === heading.parent) {
-        link.innerText = heading.name
-    } else {
-        link.innerText = heading.name + ' > ' + heading.parent
-    }
-
-    item.appendChild(link)
-    searchBarResults.appendChild(item)
-}
-
-
-// Show results on search bar focus
-function showResults(){
-    searchBarResults.style.display = ''
-}
-
-
-function hideResults(){
-    searchBarResults.style.display = 'none'
-    searchBar.value = ''
-}
-
-
-// Search Bar
-function search(){
-    let searchBar = document.getElementById('search-bar')
-    let filter = searchBar.value.toUpperCase()
-    let count = 0
-
-    let searchResults = searchBarResults.getElementsByTagName('li')
-
-    for(let i = 0; i < searchResults.length; i++) {
-        let link = searchResults[i].getElementsByTagName('a')[0]
-        let txtValue = link.textContent || link.innerText
-
-        if (txtValue.toUpperCase().indexOf(filter) > -1 && count < 10) {
-            link.style.display = ''
-            count += 1
-        } else {
-            link.style.display = 'none'
-        }
-    }
-}
-
-
-// Check if an element is visible
-function isElementVisible (el, parent) {
-    let rect = el.getBoundingClientRect();
-
-    return (
-        rect.top >= parent.getBoundingClientRect().top &&
-        rect.left >= 0 &&
-        rect.bottom <= (parent.clientHeight + parent.getBoundingClientRect().top) &&
-        rect.right <= (parent.clientWidth)
-    );
-}
-
-
-DOMTokenList.prototype.addMany = function(classes) {
-    var array = classes.split(' ');
-    for (var i = 0, length = array.length; i < length; i++) {
-      this.add(array[i]);
-    }
-}
-
-
-DOMTokenList.prototype.removeMany = function(classes) {
-    var array = classes.split(' ');
-    for (var i = 0, length = array.length; i < length; i++) {
-      this.remove(array[i]);
-    }
-}
-"
-  "Javascript code needed in the HTML file."
-  :type '(string))
-
 (defcustom org-tailwind-html-template
   "<!doctype html>
-<html lang=\"en\">
+<html lang=\"en\" class=\"dark\">
 <head>
   <meta charset=\"utf-8\">
   <title>%s</title>
@@ -912,10 +653,6 @@ DOMTokenList.prototype.removeMany = function(classes) {
 <div id=\"footer\" class=\"%s\">
 %s
 </div>
-
-<script>
-%s
-</script>
 
 %s
 
@@ -972,10 +709,8 @@ By not doing anything to the contents, it exports the elements at the root level
           org-tailwind-class-body
           org-tailwind-class-header
           (format org-tailwind-header
-                  org-tailwind-class-top-button
                   org-tailwind-class-search-bar
-                  org-tailwind-class-search-bar-results-list
-                  org-tailwind-class-toggle-button)
+                  org-tailwind-class-search-bar-results-list)
           org-tailwind-class-content
           org-tailwind-class-sidebar
           org-tailwind-sidebar
@@ -990,15 +725,6 @@ By not doing anything to the contents, it exports the elements at the root level
           contents
           org-tailwind-class-footer
           org-tailwind-footer
-          ;; Generate TOC Javascript
-          (format org-tailwind-javascript
-                  org-tailwind-class-top-button
-                  org-tailwind-headlines
-                  org-tailwind-class-toc-title
-                  org-tailwind-class-current-toc
-                  org-tailwind-class-toc-items
-                  org-tailwind-class-search-bar-results-item
-                  org-tailwind-class-current-toc)
           org-tailwind-bottom-files))
 
 
