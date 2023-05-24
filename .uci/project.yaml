@@ -1,5 +1,5 @@
 caddy:
-  enabled: false
+  enabled: true
   hostnames:
     'iliayar.ru': |
       redir https://ilyay.space{uri}
