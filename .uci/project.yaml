@@ -7,4 +7,4 @@ caddy:
     # FIXME: Move to main site repo
     'ilyay.space': |
       file_server
-      root * ${project.repos.main.path}/public/stub
+      root * ${project.data.path}/gen-main
