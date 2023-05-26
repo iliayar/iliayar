@@ -24,3 +24,6 @@
   :ensure t)
 (use-package templatel
   :ensure t)
+(use-package org-special-block-extras
+  :ensure t
+  :hook (org-mode . org-special-block-extras-mode))

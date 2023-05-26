@@ -61,14 +61,18 @@ jobs:
 
       echo "Installing highlight.js"
       mv highlight.js/build/highlight.js /publish/output/js/highlight.js
-      mv highlight.js/src/styles/default.css /publish/output/css/highlight.css
+      mv highlight.js/src/styles/base16/classic-light.css /publish/output/css/hljs-light.css
+      mv highlight.js/src/styles/base16/classic-dark.css /publish/output/css/hljs-dark.css
+
+      echo "Installing fonts"
+      unzip -o iosevka.zip -d /publish/output/fonts/
 
 stages:
   publish:
     on_overlap: cancel
 
-# integrations:
-#   github:
-#     token: ${project.secrets.github_token}
-#     repo: 'iliayar/ITMO'
-#     rev: ${project.repos.conspects.rev}
+integrations:
+  github:
+    token: ${project.secrets.github_token}
+    repo: 'iliayar/iliayar'
+    rev: ${project.repos.main.rev}

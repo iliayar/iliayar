@@ -2,6 +2,12 @@
     margin: auto;
 }
 
+.todo {
+    border: solid;
+    border-color: #ff0000;
+    border-width: 0.5;
+}
+
 /* .line-highlight { */
 /*     background: linear-gradient(to right, hsla(0, 0%, 100%, 0.1) 70%, hsla(180, 23.8%, 4.1%, 0.04)); */
 /* } */

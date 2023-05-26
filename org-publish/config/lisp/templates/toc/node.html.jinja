@@ -1,11 +1,10 @@
 {% if title %}
-{{title}}
+<a href="#{{ref}}" class="underline hover:no-underline hover:text-link-active text-link-inactive-light dark:text-link-inactive-dark">{{title}}</a>
 {% endif %}
-
 {% if childs %}
-<ul class="pl-3">
+<ul class="pl-3 list-outside list-['-']">
   {% for child in childs %}
-  <li>{{child}}</li>
+  <li class="ps-1">{{child}}</li>
   {% endfor %}
 </ul>
 {% endif %}
