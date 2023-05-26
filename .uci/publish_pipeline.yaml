@@ -24,7 +24,7 @@ jobs:
     image: main-org-publish
     interpreter: ['/bin/sh', '-c']
     volumes:
-      # '/root/.org-timestamps': main-org-publish-cache
+      '/root/.org-timestamps': main-org-publish-cache
       '/publish/input': ${project.repos.main.path}/public
       '/publish/config': ${project.repos.main.path}/org-publish/config
       '/publish/output': ${project.data.path}/gen-main
