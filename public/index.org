@@ -1,3 +1,6 @@
 #+OPTIONS: toc:nil
 
 * TODO about
+
+* other stuff
+- conspects and hws from uni [[https://conspects.ilyay.space][here]]
