@@ -111,11 +111,11 @@
         (cond ((string-equal "ignore" (org-element-property :value elem))
                (princ (concat filename " manually published")))
               ((string-equal "html" (org-element-property :value elem))
-               (org-html-publish-to-html plist filename pub-dir)))
+               (iliayar/org-publish-to-html plist filename pub-dir)))
         (funcall backend plist filename pub-dir)))))
 
 (defun my/org-html-publish-to-html (plist filename pub-dir)
-  (my/org-publish 'org-html-publish-to-html plist filename pub-dir))
+  (my/org-publish 'iliayar/org-publish-to-html plist filename pub-dir))
 (defun my/org-latex-publish-to-pdf (plist filename pub-dir)
   (my/org-publish 'org-latex-publish-to-pdf plist filename pub-dir))
 
@@ -181,6 +181,14 @@
          :publishing-function org-publish-attachment
          )
         ("org-conspects"
+         :base-directory "/publish/input"
+         :exclude ".*[^E].org"
+         :publishing-directory "/publish/output"
+         :recursive t
+         :publishing-function my/org-html-publish-to-html
+         :headline-levels 4
+         )
+        ("org-conspects-old"
          :base-directory "/publish/input"
          :exclude ".*[^E].org"
          :publishing-directory "/publish/output"
