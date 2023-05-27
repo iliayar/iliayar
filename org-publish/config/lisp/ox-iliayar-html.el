@@ -247,7 +247,7 @@
   (use-template "superscript" `(("contents" . ,contents))))
 
 (defun iliayar/org-center-block (center-block contents info)
-  (use-template "todo" `(("contents" . ,contents))))
+  (use-template "center" `(("contents" . ,contents))))
 
 (defun iliayar/org-dynamic-block (dynamic-block contents info)
   (use-template "todo" `(("contents" . ,contents))))
