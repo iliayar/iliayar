@@ -151,8 +151,16 @@
 		    ("todo_keyword" . ,todo-content)))))
 
 (defun iliayar/org-template (contents info)
-  (use-template "template"
-		`(("contents" . ,contents))))
+  (let* ((title (org-export-data (plist-get info :title) info))
+	 (base-url (plist-get info :html-base-url))
+	 (res-base-url (plist-get info :html-res-base-url))
+	 (base-title (plist-get info :html-base-title)))
+    (use-template "template"
+		  `(("contents" . ,contents)
+		    ("title" . ,title)
+		    ("base_url" . ,base-url)
+		    ("res_base_url" . ,res-base-url)
+		    ("base_title" . ,base-title)))))
 
 (defun iliayar/make-toc-rec (node info)
   (let* ((headline (plist-get node :headline))
@@ -173,10 +181,14 @@
 
 (defun iliayar/org-inner-template (contents info)
   (let* ((depth (plist-get info :with-toc))
-	 (toc (if depth (iliayar/make-toc info depth))))
+	 (toc (if depth (iliayar/make-toc info depth)))
+	 (base-url (plist-get info :html-base-url))
+	 (base-title (plist-get info :html-base-title)))
     (use-template "inner-template"
 		  `(("contents" . ,contents)
-		    ("toc" . ,toc)))))
+		    ("toc" . ,toc)
+		    ("base_url" . ,base-url)
+		    ("base_title" . ,base-title)))))
 
 (defun iliayar/org-bold (bold contents info)
   (use-template "bold" `(("contents" . ,contents))))
@@ -363,6 +375,18 @@
 				  "html"))
 		      plist pub-dir))
 
+(defcustom iliayar/org-base-url
+  "https://ilyay.space"
+  :type '(string))
+
+(defcustom iliayar/org-res-base-url
+  "https://ilyay.space"
+  :type '(string))
+
+(defcustom iliayar/org-base-title
+  "ilyay.space"
+  :type '(string))
+
 ;; NOTE: List of entities taken from
 ;; https://github.com/yyr/org-mode/blob/master/lisp/ox-html.el
 (org-export-define-derived-backend
@@ -415,5 +439,9 @@
 		    (subscript . iliayar/org-subscript)
 		    (superscript . iliayar/org-superscript)
 		    (latex-enironment . iliayar/org-latex-environment)
-		    (latex-fragment . iliayar/org-latex-fragment)))
+		    (latex-fragment . iliayar/org-latex-fragment))
+  :options-alist
+  '((:html-base-url nil nil iliayar/org-base-url)
+    (:html-base-title nil nil iliayar/org-base-title)
+    (:html-res-base-url nil nil iliayar/org-res-base-url)))
 

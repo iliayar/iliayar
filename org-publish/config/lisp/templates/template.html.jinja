@@ -2,22 +2,24 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="utf-8">
-    <link href="https://ilyay.space/css/tailwind.css" rel="stylesheet"/>
-    <link href="https://ilyay.space/css/hljs-light.css" rel="alternate stylesheet" title="hljs-light" disabled="disabled"/>
-    <link href="https://ilyay.space/css/hljs-dark.css" rel="alternate stylesheet" title="hljs-dark" disabled="disabled"/>
-    <link href="https://ilyay.space/css/style.css" rel="stylesheet"/>
+    <link href="{{res_base_url}}/css/tailwind.css" rel="stylesheet"/>
+    <link href="{{res_base_url}}/css/hljs-light.css" rel="alternate stylesheet" title="hljs-light" disabled="disabled"/>
+    <link href="{{res_base_url}}/css/hljs-dark.css" rel="alternate stylesheet" title="hljs-dark" disabled="disabled"/>
+    <link href="{{res_base_url}}/css/style.css" rel="stylesheet"/>
 
-    <link href="https://ilyay.space/fonts/iosevka.css" rel="stylesheet"/>
+    <link href="{{res_base_url}}/fonts/iosevka.css" rel="stylesheet"/>
 
-    <script id="MathJax-script" async src="https://ilyay.space/js/mathjax/tex-mml-chtml.js"></script>
-    <script src="https://ilyay.space/js/highlight.js"></script>
+    <script id="MathJax-script" async src="{{res_base_url}}/js/mathjax/tex-mml-chtml.js"></script>
+    <script src="{{res_base_url}}/js/highlight.js"></script>
     <script>hljs.highlightAll({showLanguageLabel: true})</script>
+
+    <title>{% if title %}{{title}} | {% endif %}{{base_title}}</title>
   </head>
   <body class="scrollbar dark:scrollbar-dark ">
     {{contents}}
-    <script src="https://ilyay.space/js/utils.js"></script>
+    <script src="{{res_base_url}}/js/utils.js"></script>
     <script type="module">
-      import mermaid from "https://ilyay.space/js/mermaid/mermaid.esm.min.mjs";
+      import mermaid from "{{res_base_url}}/js/mermaid/mermaid.esm.min.mjs";
     </script>
   </body>
 </html>
