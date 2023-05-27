@@ -188,6 +188,8 @@
          :recursive t
          :publishing-function my/org-html-publish-to-html
          :headline-levels 4
+	 :html-base-url "https://conspects.ilyay.space"
+	 :html-base-title "conspects.ilyay.space"
          )
         ("org-conspects-old"
          :base-directory "/publish/input"
