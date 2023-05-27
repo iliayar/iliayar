@@ -9,7 +9,6 @@
 
 We get the binary ~shop_8059c17ac3.elf~ so lets open up decompiler and
 play with it a bit.
-
 * Analysis
 The programm opens port ~50009~ and wait for a connection:
 #+begin_src shell

@@ -151,7 +151,8 @@
 		    ("todo_keyword" . ,todo-content)))))
 
 (defun iliayar/org-template (contents info)
-  (let* ((title (org-export-data (plist-get info :title) info))
+  (let* ((title-raw (plist-get info :title))
+	 (title (if title-raw (org-export-data title-raw info)))
 	 (base-url (plist-get info :html-base-url))
 	 (res-base-url (plist-get info :html-res-base-url))
 	 (base-title (plist-get info :html-base-title)))
