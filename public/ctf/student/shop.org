@@ -1,6 +1,5 @@
-#+SETUPFILE: ../../level-2.org
 #+TITLE: Student CTF -> Shop
-
+#+OPTIONS: toc:nil
 
 /I’ve created a custom shopping cart system. Can you get the flag?/ \\
 =nc 164.90.193.27 50009= \\
@@ -13,7 +12,7 @@ play with it a bit.
 
 * Analysis
 The programm opens port ~50009~ and wait for a connection:
-#+begin_src 
+#+begin_src shell
 $ nc localhost 50009
 Welcome to our password storage!
 1> Create New Session
