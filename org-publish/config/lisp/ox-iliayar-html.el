@@ -377,14 +377,17 @@
 
 (defcustom iliayar/org-base-url
   "https://ilyay.space"
+  "Home page"
   :type '(string))
 
 (defcustom iliayar/org-res-base-url
   "https://ilyay.space"
+  "URL of resources"
   :type '(string))
 
 (defcustom iliayar/org-base-title
   "ilyay.space"
+  "Title"
   :type '(string))
 
 ;; NOTE: List of entities taken from
