@@ -77,12 +77,17 @@
 	 (checkbox-html (if checkbox (iliayar/org-checkbox checkbox)))
 	 (list (org-export-get-parent item))
 	 (type (org-element-property :type list))
+	 (tag (let ((tag (org-element-property :tag item)))
+		(if tag (org-export-data tag info))))
+	 (counter (org-element-property :counter item))
+	 (tag-html (or tag counter))
 	 (template (pcase type
 		     ('ordered "list/item-ordered")
 		     ('unordered "list/item-unordered")
 		     ('descriptive "list/item-descriptive"))))
     (use-template template `(("contents" . ,contents)
-			     ("checkbox" . ,checkbox-html)))))
+			     ("checkbox" . ,checkbox-html)
+			     ("tag" . ,tag-html)))))
 
 (defun iliayar/org-plain-list (plain-list contents info)
   (pcase (org-element-property :type plain-list)
@@ -153,7 +158,7 @@
   (let* ((headline (plist-get node :headline))
 	 (reference (org-export-get-reference headline info))
 	 (childs (reverse (plist-get node :childs)))
-	 (title (org-element-property :raw-value headline))
+	 (title (org-export-data (org-element-property :title headline) info))
 	 (rendered-childs (mapcar (lambda (node) (iliayar/make-toc-rec node info)) childs)))
     (use-template "toc/node"
 		  `(("title" . ,title)

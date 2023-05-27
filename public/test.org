@@ -61,6 +61,10 @@ graph TD;
   - [ ] 3
 
 
+- AA :: 1
+- AB :: 2
+
+
 -------
 
 
@@ -76,7 +80,7 @@ graph TD;
 | A | BO | BA  |
 | A | MO | GUS |
 
-*** TODO Any other?
+*** TODO Any other? ~123~
 [[https://orgmode.org/resources/img/org-mode-unicorn.svg]]
 [[https://upload.wikimedia.org/wikipedia/commons/6/6a/PNG_Test.png]]
 [[https://uci.ilyay.space/badge/ghlike.svg?project_id=personal-site&pipeline_id=publish-conspects&job_id=publish]]
