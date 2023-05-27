@@ -1,6 +1,0 @@
-#+TITLE: About
-
-#+SETUPFILE: level-0.org
-
-* [[file:cv/cv.pdf][CV]]
-* TODO More

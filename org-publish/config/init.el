@@ -4,7 +4,6 @@
 
 (require 'org)
 (require 'ox-latex)
-(require 'ox-rss)
 (require 'htmlize)
 (require 'haskell-mode)
 (require 'ox-iliayar-html)
@@ -121,43 +120,6 @@
 
 (setq org-publish-project-alist
       '(
-        ("org-mainsite-old"
-         :base-directory "/publish/input"
-         :base-extension "org"
-         :exclude "level-[0-9]*.org\\|other/orgmode.org"
-         :publishing-directory "/publish/output"
-         :html-html5-fancy t
-         :html-validation-link nil
-         :html-postamble "<hr><a href=\"/public-notes/index.html\">Home Page</a><span style=\"float: right\"><a href=\"/public-notes/blog.xml\"><i class=\"fas fa-rss\"></i></a> <a href=\"https://github.com/iliayar/iliayar\"><i class=\"fab fa-github\"></i></a></span>"
-         :recursive t
-         :publishing-function my/org-html-publish-to-html
-         :headline-levels 4             ; Just the default for this project.
-         :auto-preamble t
-         )
-        ("rss-mainsite-old"
-         :base-directory "/publish/input"
-         :base-extension "org"
-         :exclude ".*"
-         :include ("blog.org")
-         :publishing-directory "/publish/output"
-         :rss-extension "xml"
-         :section-numbers nil
-         :html-link-home "https://iliayar.ru/public-notes/"
-         :html-link-use-abs-url t
-         :html-link-org-files-as-html t
-         :output-file "rss"
-         :recursive nil
-         :publishing-function org-rss-publish-to-rss
-         )
-        ("static-mainsite-old"
-         :base-directory "/publish/input"
-         :base-extension "css\\|mjs\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|pdf\\|jpeg"
-         :publishing-directory "/publish/output"
-         :recursive t
-         :publishing-function org-publish-attachment
-         )
-        ("mainsite-old" :components ("org-mainsite" "rss-mainsite" "static-mainsite"))
-
         ("org-mainsite"
          :base-directory "/publish/input"
          :base-extension "org"
@@ -167,7 +129,7 @@
          )
         ("static-mainsite"
          :base-directory "/publish/input"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|svg\\|mp3\\|ogg\\|swf\\|pdf\\|jpeg"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|svg\\|mp3\\|ogg\\|swf\\|pdf\\|jpeg\\|ico"
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function org-publish-attachment
@@ -191,15 +153,6 @@
 	 :html-base-url "https://conspects.ilyay.space"
 	 :html-base-title "conspects.ilyay.space"
          )
-        ("org-conspects-old"
-         :base-directory "/publish/input"
-         :exclude ".*[^E].org"
-         :publishing-directory "/publish/output"
-         :recursive t
-         :html-postamble "<hr><a href=\"https://ilyay.space\">Home Page</a><span style=\"float: right\"><a href=\"https://t.me/iliayar\"><i class=\"fab fa-telegram-plane\"></i></a> <a href=\"https://github.com/iliayar/ITMO\"><i class=\"fab fa-github\"></i></a></span><br><a href=\"https://conspects.ilyay.space/README.html\">Conspects Home Page</a>"
-         :publishing-function my/org-html-publish-to-html
-         :headline-levels 4
-         ) 
         ("pdfs-conspects"
          :base-directory "/publish/input"
          :base-extension "org"

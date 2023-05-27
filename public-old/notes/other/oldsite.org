@@ -1,4 +1,0 @@
-#+TITLE: Old Site
-#+SETUPFILE: ../level-1.org
-
-I dont know why it here: [[https://iliayar.ru/old][old site]]
