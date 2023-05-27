@@ -1,6 +1,8 @@
 #+OPTIONS: toc:nil
 
 * TODO about
-
+cv avaliable [[file:other/cv/cv.pdf][here]]
+** contacts
+- github: [[https://github.com/iliayar][iliayar]]
 * other stuff
 - conspects and hws from uni [[https://conspects.ilyay.space][here]]
