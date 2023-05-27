@@ -201,8 +201,13 @@
 (defun iliayar/org-link (link contents info)
   (let* ((path (org-element-property :path link))
 	 (type (org-element-property :type link))
-	 (description (or (org-string-nw-p contents) path)))
+	 (description (or (org-string-nw-p contents) path))
+	 (extension (file-name-extension path))
+	 (is-image (or (string-prefix-p "svg" extension)
+		       (string-prefix-p "png" extension))))
     (cond
+     (is-image (use-template "image"
+			     `(("path" . ,path))))
      ((equal type "file")
       (let ((path (s-replace ".org" ".html" path)))
 	(use-template "link"
