@@ -183,7 +183,7 @@
         ("org-conspects"
          :base-directory "/publish/input"
          :exclude ".*"
-	 :include ".*README.org$"
+	 :include ".*README.org"
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function my/org-html-publish-to-html
