@@ -182,7 +182,7 @@
          )
         ("org-conspects"
          :base-directory "/publish/input"
-         :exclude ".*[^E].org"
+         :exclude ".*[^E].org\\|.*[^M]..org"
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function my/org-html-publish-to-html
