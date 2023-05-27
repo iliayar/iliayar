@@ -161,6 +161,7 @@
         ("org-mainsite"
          :base-directory "/publish/input"
          :base-extension "org"
+         :recursive t
          :publishing-directory "/publish/output"
          :publishing-function iliayar/org-publish-to-html
          )
