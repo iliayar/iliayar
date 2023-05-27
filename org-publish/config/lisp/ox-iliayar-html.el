@@ -133,7 +133,7 @@
 		      `(("keyword" . ,keyword))))))
 
 (defun iliayar/org-headline (headline contents info)
-  (let* ((title (org-element-property :raw-value headline))
+  (let* ((title (org-element-property :title headline))
 	 (reference (org-export-get-reference headline info))
 	 (prefix (s-repeat (org-element-property :level headline) "#"))
 	 (todo-keyword (org-element-property :todo-type headline))
