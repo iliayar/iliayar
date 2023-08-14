@@ -14,10 +14,26 @@ jobs:
     script: |
       mkdir -p ${DATA_DIR} || echo "Already exists"
 
+  clean_caches:
+    needs:
+      - _init_gen_dir
+    image: alpine
+    type: script
+    interpreter: ['/bin/sh', '-c']
+    volumes:
+      '/timestamps': main-org-publish-cache
+    script: |
+      set -e
+
+      files=$(find /timestamps -type f)
+      echo "Removing files:\n$files"
+      rm -Rf $files
+    enabled: ${params.clean-caches}
+
   publish:
     needs:
       - build-image
-      - _init_gen_dir
+      - clean_caches
     stage: publish
 
     type: script
@@ -72,7 +88,7 @@ stages:
     on_overlap: cancel
 
 integrations:
-  github:
-    token: ${project.secrets.github_token}
-    repo: 'iliayar/iliayar'
-    rev: ${project.repos.main.rev}
+  # github:
+  #   token: ${project.secrets.github_token}
+  #   repo: 'iliayar/iliayar'
+  #   rev: ${project.repos.main.rev}

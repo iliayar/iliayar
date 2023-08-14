@@ -4,6 +4,7 @@ let toggleLightBtn = document.querySelector('#toggle-light-btn')
 let hljsCssLight = document.querySelector(`link[title="hljs-light"]`)
 let hljsCssDark = document.querySelector(`link[title="hljs-dark"]`)
 
+
 function updateLightMode() {
     var is_dark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
 
@@ -33,4 +34,21 @@ toggleLightBtn.addEventListener('click', (event) => {
     }
 
     updateLightMode()
+})
+
+let toggleTocBtn = document.querySelector('#toggle-toc-btn')
+let toc = document.querySelector('#toc')
+
+function toggleToc() {
+    var enabled = !toc.hasAttribute('hidden')
+
+    if (enabled) {
+	toc.setAttribute('hidden', '')
+    } else {
+	toc.removeAttribute('hidden')
+    }
+}
+
+toggleTocBtn.addEventListener('click', (event) => {
+    toggleToc()
 })

@@ -73,6 +73,10 @@ module.exports = {
 		    dark: colors.neutral[600],
 		    light: colors.slate[400],
 		},
+		'code-secondary-fade': {
+		    light: colors.zinc[300],
+		    dark: colors.neutral[700],
+		},
 	    }),
 	    spacing: {
 		'header': '3rem',
