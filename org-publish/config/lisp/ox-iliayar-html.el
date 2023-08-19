@@ -1,5 +1,6 @@
 (require 'templatel)
 (require 's)
+(require 'cl)
 
 (defconst templates-dir (concat (file-name-directory load-file-name) "/templates"))
 
@@ -95,25 +96,50 @@
     (`unordered (use-template "list/unordered" `(("contents" . ,contents))))
     (`descriptive (use-template "list/descriptive" `(("contents" . ,contents))))))
 
+(defun iliayar/org-format-code (code refs num-start)
+  (let ((res '()))
+    (org-export-format-code
+     code
+     (lambda (loc line-num ref)
+       (push
+	`(("content" . ,loc)
+	  ("num" . ,line-num)
+	  ("ref" . ,ref))
+	res)
+       "")
+     num-start refs)
+    (reverse res)))
+
 (defun iliayar/org-src-block (src-block contents info)
   (let* ((language (org-element-property :language src-block))
-	 (code-text (org-remove-indentation
-		     (org-element-property :value src-block)))
-	 (safe-code-text (unhtml code-text)))
+	 (code-info (org-export-unravel-code src-block))
+	 (code (car code-info))
+	 (refs (cdr code-info))
+	 (safe-code (unhtml code))
+	 (number-lines (org-element-property :number-lines src-block))
+	 (number-lines-t (car number-lines))
+	 (number-lines-v (cdr number-lines))
+	 (num-start (case number-lines-t
+		      (continued (org-export-get-loc src-block info))
+		      (new number-lines-v)))
+	 (code-lines (iliayar/org-format-code safe-code refs num-start))
+	 (caption (org-export-get-caption src-block))
+	 (caption (when caption (org-trim (org-export-data caption info)))))
     (cond ((equal language "mermaid")
 	   (use-template "mermaid"
-			 `(("code" . ,safe-code-text))))
-	  (t (use-template "src-block"
-			   `(("code" . ,code-text)
-			     ("lang" . ,language)))))))
+			 `(("code" . ,safe-code))))
+	  (t (use-template "src-block-new"
+			   `(("code_lines" . ,code-lines)
+			     ("has_lines" . ,num-start)
+			     ("lang" . ,language)
+			     ("caption" . ,caption)))))))
 
 (defun iliayar/org-inline-src-block (inline-src-block contents info)
   (let* ((language (org-element-property :language inline-src-block))
 	 (code-text (org-element-property :value inline-src-block)))
     (use-template "inline-src-block" `(("code" . ,code-text)))))
 
-(defun iliayar/org-plain-text (contents info)
-  (use-template "plain-text" `(("contents" . ,contents))))
+(defun iliayar/org-plain-text (contents info) contents)
 
 (defun iliayar/org-section (section contents info)
   (let* ()
@@ -124,11 +150,14 @@
   (let* ((parent (org-export-get-parent paragraph))
 	 (parent-type (org-element-type parent))
 	 (item-parent (equal parent-type 'item))
-	 (list-paragraph (and item-parent
-			      (not (org-export-get-previous-element paragraph info)))))
-    (use-template "paragraph"
-		  `(("contents" . ,contents)
-		    ("list_paragraph" . ,list-paragraph)))))
+	 (footnote-parent (equal parent-type 'footnote-definition))
+	 (first? (not (org-export-get-previous-element paragraph info)))
+	 (list-paragraph (and item-parent first?))
+	 (footnote-paragraph (and footnote-parent first?))
+	 (not-paragraph? (or list-paragraph footnote-paragraph)))
+    (if not-paragraph? contents
+      (use-template "paragraph"
+		    `(("contents" . ,contents))))))
 
 (defun make-todo (todo-keyword)
   (let ((keyword (pcase todo-keyword
@@ -186,10 +215,12 @@
   (let* ((depth (plist-get info :with-toc))
 	 (toc (if depth (iliayar/make-toc info depth)))
 	 (base-url (plist-get info :html-base-url))
-	 (base-title (plist-get info :html-base-title)))
+	 (base-title (plist-get info :html-base-title))
+	 (footnotes (iliayar/org-footnote-section info)))
     (use-template "inner-template"
 		  `(("contents" . ,contents)
 		    ("toc" . ,toc)
+		    ("footnotes" . ,footnotes)
 		    ("base_url" . ,base-url)
 		    ("base_title" . ,base-title)))))
 
@@ -217,26 +248,38 @@
 (defun iliayar/org-verbatim (verbatim contents info)
   (iliayar/org-code verbatim contents info))
 
-;; TODO Image links
 (defun iliayar/org-link (link contents info)
   (let* ((path (org-element-property :path link))
 	 (type (org-element-property :type link))
 	 (description (or (org-string-nw-p contents) path))
 	 (extension (file-name-extension path))
+	 (path-with-type (concat type ":" path))
 	 (is-image (or (string-prefix-p "svg" extension)
 		       (string-prefix-p "png" extension))))
     (cond
-     (is-image (use-template "image"
-			     `(("path" . ,path))))
+     ((and is-image (equal type "file"))
+      (use-template "image"
+		    `(("path" . ,path))))
+
+     (is-image
+      (use-template "image"
+		    `(("path" . ,path))))
+
      ((equal type "file")
       (let ((path (s-replace ".org" ".html" path)))
 	(use-template "link"
 		      `(("contents" . ,description)
 			("path" . ,path)))))
 
+     ((equal type "coderef")
+      (let ((path (concat "#coderef-" path)))
+	(use-template "link"
+		      `(("contents" . ,description)
+			("path" . ,path)))))
+
      (t (use-template "link"
 		      `(("contents" . ,description)
-			("path" . ,path)))))))
+			("path" . ,path-with-type)))))))
 
 (defun iliayar/org-table (table contents info)
   (use-template "table/body" `(("contents" . ,contents))))
@@ -262,18 +305,15 @@
   (use-template "superscript" `(("contents" . ,contents))))
 
 (defun iliayar/org-center-block (center-block contents info)
-  (use-template "center" `(("contents" . ,contents))))
+  (let* ((caption (org-export-get-caption center-block))
+	 (caption (when caption (org-trim (org-export-data caption info)))))
+    (use-template "center" `(("contents" . ,contents)
+			     ("caption" . ,caption)))))
 
 (defun iliayar/org-dynamic-block (dynamic-block contents info)
   (use-template "todo" `(("contents" . ,contents))))
 
 (defun iliayar/org-fixed-width (fixed-width contents info)
-  (use-template "todo" `(("contents" . ,contents))))
-
-(defun iliayar/org-example-block (example-block contents info)
-  (use-template "todo" `(("contents" . ,contents))))
-
-(defun iliayar/org-example-block (example-block contents info)
   (use-template "todo" `(("contents" . ,contents))))
 
 (defun iliayar/org-example-block (example-block contents info)
@@ -310,11 +350,21 @@
 (defun iliayar/org-target (target contents info)
   (use-template "inline-todo" `(("entity_type" . "target"))))
 
-(defun iliayar/org-footnote-definition (target contents info)
-  (use-template "inline-todo" `(("entity_type" . "footnote-definition"))))
+(defun iliayar/org-footnote-section (info)
+  (let* ((fn-alist (org-export-collect-footnote-definitions info))
+	 (fn-alist
+	  (loop for (n type raw) in fn-alist collect
+		(let ((content (org-trim (org-export-data raw info))))
+		  `(("id" . ,n)
+		    ("content" . ,content))))))
+    (if (= 0 (length fn-alist))
+	nil
+      (use-template "footnote-section" `(("footnotes" . ,fn-alist)))
+      )))
 
-(defun iliayar/org-footnote-reference (target contents info)
-  (use-template "inline-todo" `(("entity_type" . "footnote-reference"))))
+(defun iliayar/org-footnote-reference (footnote-reference contents info)
+  (let ((n (org-export-get-footnote-number footnote-reference info)))
+    (use-template "footnote-reference" `(("id" . ,n)))))
 
 (defun iliayar/org-node-property (node-property contents info)
   (let* ((key (org-element-property :key node-property))
@@ -348,7 +398,7 @@
 
 (defun iliayar/org-keyword (keyword contents info)
   (let* ((key (org-element-property :key keyword))
-	(value (org-element-property :value keyword)))
+	 (value (org-element-property :value keyword)))
     (cond
      ;; NOTE: Can generate scoped TOC here. Need it?
      ((equal key "HTML") value))))
@@ -396,58 +446,57 @@
 ;; NOTE: List of entities taken from
 ;; https://github.com/yyr/org-mode/blob/master/lisp/ox-html.el
 (org-export-define-derived-backend
- 'iliayar-html 'html
- :translate-alist '((template . iliayar/org-template)
-		    (inner-template . iliayar/org-inner-template)
-		    (headline . iliayar/org-headline)
-		    (section . iliayar/org-section)
-		    (paragraph . iliayar/org-paragraph)
-		    (plain-text . iliayar/org-plain-text)
-		    (src-block . iliayar/org-src-block)
-		    (plain-list . iliayar/org-plain-list)
-		    (item . iliayar/org-item)
-		    (bold . iliayar/org-bold)
-		    (italic . iliayar/org-italic)
-		    (strike-through . iliayar/org-strike-through)
-		    (underline . iliayar/org-underline)
-		    (code . iliayar/org-code)
-		    (verbatim . iliayar/org-verbatim)
-		    (link . iliayar/org-link)
-		    (table . iliayar/org-table)
-		    (table-row . iliayar/org-table-row)
-		    (table-cell . iliayar/org-table-cell)
-		    (horizontal-rule . iliayar/org-horizontal-rule)
-		    (center-block . iliayar/org-center-block)
-		    (dynamic-block . iliayar/org-dynamic-block)
-		    (example-block . iliayar/org-example-block)
-		    (export-block . iliayar/org-export-block)
-		    (export-snippet . iliayar/org-export-snippet)
-		    (line-break . iliayar/org-line-break)
-		    (fixed-width . iliayar/org-fixed-width)
-		    (verse-block . iliayar/org-verse-block)
-		    (keyword . iliayar/org-keyword)
-		    (inlinetask . iliayar/org-inlinetask)
-		    (timestamp . iliayar/org-timestamp)
-		    (quote-block . iliayar/org-quote-block)
-		    (clock . iliayar/org-clock)
-		    (inline-src-block . iliayar/org-inline-src-block)
-		    (drawer . iliayar/org-drawer)
-		    (target . iliayar/org-target)
-		    (radio-target . iliayar/radio-target)
-		    (entity . iliayar/org-entity)
-		    (special-block . iliayar/org-special-block)
-		    (property-drawer . iliayar/org-property-drawer)
-		    (statistics-cookie . iliayar/org-statistics-cookie)
-		    (planning . iliayar/org-planning)
-		    (node-property . iliayar/org-node-property)
-		    (foonote-definition . iliayar/org-footnote-definition)
-		    (foonote-reference . iliayar/org-footnote-reference)
-		    (subscript . iliayar/org-subscript)
-		    (superscript . iliayar/org-superscript)
-		    (latex-enironment . iliayar/org-latex-environment)
-		    (latex-fragment . iliayar/org-latex-fragment))
+    'iliayar-html 'html
+  :translate-alist '((template . iliayar/org-template)
+		     (inner-template . iliayar/org-inner-template)
+		     (headline . iliayar/org-headline)
+		     (section . iliayar/org-section)
+		     (paragraph . iliayar/org-paragraph)
+		     (plain-text . iliayar/org-plain-text)
+		     (src-block . iliayar/org-src-block)
+		     (plain-list . iliayar/org-plain-list)
+		     (item . iliayar/org-item)
+		     (bold . iliayar/org-bold)
+		     (italic . iliayar/org-italic)
+		     (strike-through . iliayar/org-strike-through)
+		     (underline . iliayar/org-underline)
+		     (code . iliayar/org-code)
+		     (verbatim . iliayar/org-verbatim)
+		     (link . iliayar/org-link)
+		     (table . iliayar/org-table)
+		     (table-row . iliayar/org-table-row)
+		     (table-cell . iliayar/org-table-cell)
+		     (horizontal-rule . iliayar/org-horizontal-rule)
+		     (center-block . iliayar/org-center-block)
+		     (dynamic-block . iliayar/org-dynamic-block)
+		     (example-block . iliayar/org-example-block)
+		     (export-block . iliayar/org-export-block)
+		     (export-snippet . iliayar/org-export-snippet)
+		     (line-break . iliayar/org-line-break)
+		     (fixed-width . iliayar/org-fixed-width)
+		     (verse-block . iliayar/org-verse-block)
+		     (keyword . iliayar/org-keyword)
+		     (inlinetask . iliayar/org-inlinetask)
+		     (timestamp . iliayar/org-timestamp)
+		     (quote-block . iliayar/org-quote-block)
+		     (clock . iliayar/org-clock)
+		     (inline-src-block . iliayar/org-inline-src-block)
+		     (drawer . iliayar/org-drawer)
+		     (target . iliayar/org-target)
+		     (radio-target . iliayar/radio-target)
+		     (entity . iliayar/org-entity)
+		     (special-block . iliayar/org-special-block)
+		     (property-drawer . iliayar/org-property-drawer)
+		     (statistics-cookie . iliayar/org-statistics-cookie)
+		     (planning . iliayar/org-planning)
+		     (node-property . iliayar/org-node-property)
+		     (footnote-definition . iliayar/org-footnote-definition)
+		     (footnote-reference . iliayar/org-footnote-reference)
+		     (subscript . iliayar/org-subscript)
+		     (superscript . iliayar/org-superscript)
+		     (latex-enironment . iliayar/org-latex-environment)
+		     (latex-fragment . iliayar/org-latex-fragment))
   :options-alist
   '((:html-base-url nil nil iliayar/org-base-url)
     (:html-base-title nil nil iliayar/org-base-title)
     (:html-res-base-url nil nil iliayar/org-res-base-url)))
-

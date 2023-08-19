@@ -1,7 +1,7 @@
 {% if state == "on" %}
-<input type="checkbox" checked="checked" disabled>
+<label class="font-bold">[X]</label>
 {% elif state == "off" %}
-<input type="checkbox" class="todo" disabled>
+<label class="font-bold">[ ]</label>
 {% else %}
-<input type="checkbox" class="todo" disabled>
+<label class="font-bold">[-]</label>
 {% endif %}

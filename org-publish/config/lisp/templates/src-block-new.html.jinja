@@ -1,0 +1,13 @@
+<div class="flex flex-col my-3">
+  {% if caption %}
+  <div class="border border-b-0 border-code-secondary-fade-light dark:border-code-secondary-fade-dark text-center border-dashed bg-code-secondary-light dark:bg-code-secondary-dark">{{ caption }}</div>
+  {% endif %}
+  <div class="flex flex-row">
+    {% if has_lines %}
+    <pre class="!p-2 !pr-0 text-right font-['Iosevka_Web'] border-code-secondary-fade-light dark:border-code-secondary-fade-dark border no-highlight {% if has_lines %}border-r-0{% endif %}">{% for line in code_lines %}{% if line.ref %}<span id="coderef-{{ line.ref }}">*{{ line.num }}</span>{% else %}{{ line.num }}{% endif %}|
+{% endfor %}</pre>
+    {% endif %}
+    <pre class="w-full"><code class="!p-2 scrollbar dark:scrollbar-dark language-{{lang}} font-['Iosevka_Web'] border-code-secondary-fade-light dark:border-code-secondary-fade-dark border {% if has_lines %}border-l-0{% endif %}">{% for line in code_lines %}{{ line.content }}
+{% endfor %}</code></pre>
+  </div>
+</div>

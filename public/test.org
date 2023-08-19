@@ -5,6 +5,7 @@
 \[\frac{1}{2}\]
 Test inline latex: \(\forall \alpha. \alpha\)
 ** Test mermaid
+#+begin_center
 #+begin_src mermaid
 graph TD;
     A-->B;
@@ -12,6 +13,7 @@ graph TD;
     B-->D;
     C-->D;
 #+end_src
+#+end_center
 
 ** Test code
 
@@ -21,7 +23,7 @@ graph TD;
   file2
 #+end_src
 
-#+begin_src python
+#+begin_src python -n
   def main():
       print("Hello world")
 #+end_src
@@ -29,16 +31,57 @@ graph TD;
 #+ATTR_FILENAME: test.py
 #+include: "test.py" src python
 
+#+begin_export html
+<label style="color: #ff0000">Wow!!</label>
+#+end_export
+
+
+#+CAPTION: It's realy a lot of hellos
+#+begin_src python -n 420
+  def main():
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+      print("Hello world")
+#+end_src
+
 ** Test basic
 
-- *bold*
-- /italic/
+- *bold*[fn:1]
+- /italic/[fn:: Some other footnote]
 - +stikethrough+
 
-  Paragraph
+  Paragraph[fn:foo: Repeated footnote]
 
 - _underline_
-  - A
+  - A[fn:foo]
   - B
 
 - =verbatim=
@@ -82,7 +125,13 @@ graph TD;
 
 *** TODO Any other? ~123~
 [[https://orgmode.org/resources/img/org-mode-unicorn.svg]]
+
+#+CAPTION: Some randomg image
+#+begin_center org
+#+ATTR_HTML: :width 300px
 [[https://upload.wikimedia.org/wikipedia/commons/6/6a/PNG_Test.png]]
+#+end_center
+
 [[https://uci.ilyay.space/badge/ghlike.svg?project_id=personal-site&pipeline_id=publish-conspects&job_id=publish]]
 * Many text
 AMOGUS
@@ -253,3 +302,5 @@ AMOGUS
 * More headlines
 * More headlines
 * More headlines
+
+[fn:1] This is footnote

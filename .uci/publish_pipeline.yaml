@@ -83,6 +83,11 @@ jobs:
       echo "Installing fonts"
       unzip -o iosevka.zip -d /publish/output/fonts/
 
+      unzip -o fontawesome.zip
+      mv fontawesome*/css/brands.min.css /publish/output/fonts/fa-brands.css
+      mv fontawesome*/css/regular.min.css /publish/output/fonts/fa-regular.css
+      mv fontawesome*/css/solid.min.css /publish/output/fonts/fa-solid.css
+
 stages:
   publish:
     on_overlap: cancel

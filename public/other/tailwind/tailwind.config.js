@@ -77,6 +77,10 @@ module.exports = {
 		    light: colors.zinc[300],
 		    dark: colors.neutral[700],
 		},
+		'code-dim': {
+		    dark: colors.lime[500],
+		    light: colors.green[500],
+		},
 	    }),
 	    spacing: {
 		'header': '3rem',

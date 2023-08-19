@@ -1,1 +1,8 @@
-<div class="flex flex-row w-full justify-center">{{contents}}</div>
+<div class="flex flex-row w-full justify-center">
+  <div class="flex flex-col">
+    {{contents}}
+    {% if caption %}
+    <div class="text-center">{{ caption }}</div>
+    {% endif %}
+  </div>
+</div>
