@@ -20,7 +20,7 @@ RUN git clone https://github.com/highlightjs/highlight.js.git && \
     npm install
 
 RUN cd highlight.js && \
-    node tools/build.js -n python shell haskell c
+    node tools/build.js -n python shell haskell c rust nim
 
 COPY packages.el packages.el
 RUN emacs --batch -l /publish/packages.el

@@ -93,7 +93,7 @@ stages:
     on_overlap: cancel
 
 integrations:
-  github:
-    token: ${project.secrets.github_token}
-    repo: 'iliayar/iliayar'
-    rev: ${project.repos.main.rev}
+  # github:
+  #   token: ${project.secrets.github_token}
+  #   repo: 'iliayar/iliayar'
+  #   rev: ${project.repos.main.rev}
