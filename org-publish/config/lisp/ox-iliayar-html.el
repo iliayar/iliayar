@@ -255,7 +255,8 @@
 	 (extension (file-name-extension path))
 	 (path-with-type (concat type ":" path))
 	 (is-image (or (string-prefix-p "svg" extension)
-		       (string-prefix-p "png" extension))))
+		       (string-prefix-p "png" extension)
+		       (string-prefix-p "jpeg" extension))))
     (cond
      ((and is-image (equal type "file"))
       (use-template "image"

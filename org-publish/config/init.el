@@ -126,10 +126,10 @@
          :recursive t
          :publishing-directory "/publish/output"
          :publishing-function iliayar/org-publish-to-html
-	 ;; :html-res-base-url "http://localhost:8000"
-	 ;; :html-base-url "http://localhost:8000"
-	 :html-res-base-url "https://ilyay.space"
-	 :html-base-url "https://ilyay.space"
+	 :html-res-base-url "http://localhost:8000"
+	 :html-base-url "http://localhost:8000"
+	 ;; :html-res-base-url "https://ilyay.space"
+	 ;; :html-base-url "https://ilyay.space"
 	 :html-base-title "ilyay.space"
          )
         ("static-mainsite"
@@ -165,6 +165,9 @@
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function my/org-latex-publish-to-pdf
+	 ;; Also publish pdfs
+	 :html-base-url "https://conspects.ilyay.space"
+	 :html-base-title "conspects.ilyay.space"
          )
         ("conspects" :components ("static-conspects" "org-conspects" "pdfs-conspects"))
         ))
