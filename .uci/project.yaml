@@ -10,3 +10,12 @@ caddy:
       root * ${project.data.path}/gen-main
 
       header Access-Control-Allow-Origin https://conspects.ilyay.space
+
+docker:
+  volumes:
+    main-org-publish-cache:
+
+actions: ${${load(./actions.yaml)}.actions}
+
+pipelines:
+  publish-main: ${load(./publish_pipeline.yaml)}

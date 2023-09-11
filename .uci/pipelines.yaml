@@ -1,3 +1,0 @@
-pipelines:
-  publish-main:
-    path: publish_pipeline.yaml
