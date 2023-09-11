@@ -46,7 +46,7 @@ jobs:
         '/root/.org-timestamps': main-org-publish-cache
         '/publish/input': ${project.repos.main.path}/public
         '/publish/config': ${project.repos.main.path}/org-publish/config
-        '/publish/output': ${project.data.path}/gen-main
+        '/publish/output': ${project.data_path}/gen-main
       script: |
         set -e
 
