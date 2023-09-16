@@ -19,6 +19,11 @@ RUN git clone https://github.com/highlightjs/highlight.js.git && \
     cd highlight.js && \
     npm install
 
+RUN unzip fontawesome.zip
+RUN mkdir iosevka && unzip iosevka.zip -d iosevka
+RUN mkdir mermaid && tar -xvf mermaid.tgz -C mermaid
+RUN unzip mathjax.zip
+
 RUN cd highlight.js && \
     node tools/build.js -n python shell haskell c rust nim
 

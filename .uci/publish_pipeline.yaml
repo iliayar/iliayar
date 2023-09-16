@@ -69,14 +69,10 @@ jobs:
           -m
 
         echo "Installing Mermaid"
-        mkdir mermaid
-        tar -xvf mermaid.tgz -C mermaid/
-        mv mermaid/package/dist /publish/output/js/mermaid
+        cp -r mermaid/package/dist /publish/output/js/mermaid
 
         echo "Installing MathJax"
-        mkdir mathjax
-        unzip mathjax.zip -d mathjax
-        mv mathjax/MathJax-master/es5 /publish/output/js/mathjax
+        cp -r MathJax-master/es5 /publish/output/js/mathjax
 
         echo "Installing highlight.js"
         mv highlight.js/build/highlight.js /publish/output/js/highlight.js
@@ -84,12 +80,13 @@ jobs:
         mv highlight.js/src/styles/base16/classic-dark.css /publish/output/css/hljs-dark.css
 
         echo "Installing fonts"
-        unzip -o iosevka.zip -d /publish/output/fonts/
+        cp -r iosevka/* /publish/output/fonts/
 
-        unzip -o fontawesome.zip
         mv fontawesome*/css/brands.min.css /publish/output/fonts/fa-brands.css
         mv fontawesome*/css/regular.min.css /publish/output/fonts/fa-regular.css
         mv fontawesome*/css/solid.min.css /publish/output/fonts/fa-solid.css
+
+        echo "Done"
 
 stages:
   publish:

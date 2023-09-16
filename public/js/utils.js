@@ -49,6 +49,8 @@ function toggleToc() {
     }
 }
 
-toggleTocBtn.addEventListener('click', (event) => {
-    toggleToc()
-})
+if (toggleTocBtn) {
+    toggleTocBtn.addEventListener('click', (event) => {
+	toggleToc()
+    })
+}
