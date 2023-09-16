@@ -97,3 +97,4 @@ integrations:
     token: ${project.secrets.github_token}
     repo: 'iliayar/iliayar'
     rev: ${project.repos.main.rev}
+    ui_url: 'https://uci.ilyay.space'
