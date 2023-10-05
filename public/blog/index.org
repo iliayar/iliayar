@@ -1,0 +1,6 @@
+#+OPTIONS: toc:nil
+
+#+include: brief.org
+
+* posts
+#+include: posts.org::all :only-contents t

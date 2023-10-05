@@ -1,12 +1,16 @@
 #+OPTIONS: toc:nil
 
-* TODO about
-cv avaliable [[file:other/cv/cv.pdf][here]] \\
-playing ctf for [[https://wetox.team][wetox]]
+* hi
+#+include: about/brief.org
 
-** contacts
-- github: [[https://github.com/iliayar][iliayar]]
+[[file:about/][cv, links and more about...]]
+* other stuff on here
+I like playing ctfs, sometimes writing [[file:ctf/][writeups]]
 
-* other stuff
-- conspects and hws from uni [[https://conspects.ilyay.space][here]]
-- ctf writeups [[file:ctf/index.org][here]]
+during study has collected a lot of [[https://conspects.ilyay.space][notes and other stuff]]
+
+hope some day will try to write smth in [[file:blog/][blog]]
+
+* latest posts
+
+#+include: blog/posts.org::latest :only-contents t

@@ -105,11 +105,12 @@
   % Not all of these are required!
   \email{iliayar3@gmail.com}
   \location{Saint-Petersburg, Russia}
-  \homepage{ilyay.space}
   
   \linkedin{iliayar}
   \github{iliayar}
   \telegram{iliayar}
+
+  \homepage{ilyay.space/about}
   %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
   % \orcid{0000-0000-0000-0000}
   %% You can add your own arbtrary detail with
@@ -129,9 +130,9 @@
 
 \cvevent{Software Engineer}{Yandex}{November 2021 -- Ongoing}{Saint-Petersburg, Russia}
 \begin{itemize}
-    \item Working on several highload SaaS microservices solutions using \textit{userver} framework.
-    \item Introduce type system with inference to internal DSL for these SaaS.
-    \item Implement scripts, interfacing these services using Python
+  \item Developing and maintaining couple high load widely used infrastructure microservices, written in c++ using /userver/ framework.
+  \item Developed a type inference system for inernally used DSL, OpenAPI schemas generator and tooling around
+  \item Developed an infrastructure for using serverless cloud functions: ci/cd and tooling
 \end{itemize}
 \cvtag{C++}
 \cvtag{Python}
@@ -140,6 +141,8 @@
 \cvtag{Git}
 \cvtag{Unix/Linux}
 \cvtag{Userver}
+\cvtag{YDB}
+\cvtag{SQL}
 
 \cvsection{Projects}
 
@@ -151,8 +154,8 @@
 \cvevent{UPA CAN FLASH}{CAN bus device flashing util}{Febrauary 2021 -- September 2021 \github{iliayar/UPA_CAN_FLASH}}{}
 \begin{itemize}
 % \item An all-competitive-programming-purpose open source Discord bot, Discord to online judge integration, helps programmers practice
-\item Create a graphical user interface using Qt framework
-\item Implement binary communication protocol following ISO
+\item Create a graphical user interface, configurable from user configs
+\item Implement binary communication CAN protocol following ISO, using multithreading for creating synchronous-like interface to describe communication on higher level.
 \end{itemize}
 \cvtag{C++}
 \cvtag{Qt}
@@ -196,29 +199,30 @@
 %% \cvtag{Rust}
 %% \cvtag{Nix}
 
-\cvevent{\mu\,\textbf{CI}}{Easy to use CI/CD system}{April 2023 -- Ongoing \github{iliayar/uci}}{}
+\cvevent{\mu\,\textbf{CI}}{Easy to use CI/CD system}{April 2023 -- September 2023 \github{iliayar/uci}}{}
 \begin{itemize}
 \item Implement service for executing pipelines and manage docker container
-\item Made a CLI tool as interfrace
+\item Made a command line interface for interacting with service
+\item Made a Web app to display runs, logs, etc. and iteracting with service using reactive framework
 \end{itemize}
 \cvtag{Rust}
 \cvtag{Nix}
 \cvtag{Docker}
 \cvtag{Tokio}
+\cvtag{Leptos}
+\cvtag{Tailwind}
+\cvtag{HTML}
+\cvtag{JavaScript}
 
-\divider
+%% \divider
 
-\cvevent{ITMO University}{Different study assignments and projects}{September 2021 -- Ongoing \github{iliayar/ITMO}}{}
-\cvtag{Java}
-\cvtag{Haskell}
-\cvtag{Rust}
-\cvtag{C++}
-\cvtag{A\&Ds}
-\cvtag{\LaTeX}
-
-\cvsection{Other Experience}
-\cvevent{CTF}{Cyber-Security contests}{2018 -- Ongoing \printinfo{\faFlag}{CTF Time}[https://ctftime.org/user/70331]}{}
-Regular playing CTFs, proficient in binary exploitation and reverse engineering
+%% \cvevent{ITMO University}{Different study assignments and projects}{September 2021 -- Ongoing \github{iliayar/ITMO}}{}
+%% \cvtag{Java}
+%% \cvtag{Haskell}
+%% \cvtag{Rust}
+%% \cvtag{C++}
+%% \cvtag{A\&Ds}
+%% \cvtag{\LaTeX}
 
 % use ONLY \newpage if you want to force a page break for
 % ONLY the current column
@@ -242,13 +246,13 @@ Regular playing CTFs, proficient in binary exploitation and reverse engineering
 %% page if the content is too long.
 \switchcolumn
 
-\cvsection{Awards \& \newline \smallskip
-Achievements}
+%% \cvsection{Awards \& \newline \smallskip
+%% Achievements}
 
-\cvachievement{\faTrophy}{Students CTF 2020, Top 5 in student league}{}
-\cvachievement{\faTrophy}{Students CTF 2021, \(2^{\text{nd}}\) in open league}{Cyber-Security Contest for Saint-Petersburg students teams. Web exploitation, binary exploitation, reverse engineering}
+%% \cvachievement{\faTrophy}{Students CTF 2020, Top 5 in student league}{}
+%% \cvachievement{\faTrophy}{Students CTF 2021, \(2^{\text{nd}}\) in open league}{Cyber-Security Contest for Saint-Petersburg students teams. Web exploitation, binary exploitation, reverse engineering}
 
-\divider
+%% \divider
 
 \cvsection{Skills}
 
@@ -260,11 +264,13 @@ Proficient:
 \divider \\
 Intermediate:
 \cvtag{Bash}
+\cvtag{SQL}
 \cvtag{C}
 \cvtag{Haskell}
 \cvtag{Java} \\
 \divider \\
 Novice:
+\cvtag{Go}
 \cvtag{Kotlin}
 \cvtag{JavaScript}
 
@@ -275,6 +281,7 @@ Novice:
 \cvtag{Unix/Linux}
 \cvtag{Docker}
 \cvtag{Nix}
+\cvtag{HTML}
 
 \divider
 \cvevent{Frameworks \& Databases}{}{}{}
@@ -282,6 +289,10 @@ Novice:
 \cvtag{Qt}
 \cvtag{PostgreSQL}
 \cvtag{MongoDB}
+\cvtag{Userver}
+\cvtag{YDB}
+\cvtag{Tokio}
+\cvtag{Tailwind}
 
 \cvsection{Languages}
 \cvskill{Russian}{5}
@@ -289,16 +300,35 @@ Novice:
 
 \cvsection{Education}
 
-\cvevent{ITMO University}{Bachelor in Computer Science}{2019 -- 2023}{Saint-Petersburg, Russia}
+\cvevent{ITMO University}{Bachelor in Computer Science}{2019 -- 2025}{Saint-Petersburg, Russia}
 Cumulative GPA: 80.6/100.0
+ \github{iliayar/ITMO}
+\cvtag{Java}
+\cvtag{Haskell}
+\cvtag{Rust}
+\cvtag{Go}
+\cvtag{Python}
+\cvtag{C++}
+\cvtag{A\&Ds}
+\cvtag{\LaTeX}
 
-\divider
+%% \divider
 
-\cvevent{Lyceum 4}{Secondary School Diploma}{Graduated 2019}{Taganrog, Russia}
+%% \cvevent{Lyceum 4}{Secondary School Diploma}{Graduated 2019}{Taganrog, Russia}
 
-\divider
+%% \divider
 
-\cvevent{SIRIUS University}{Cyber-Security Program}{October 2019}{Sochi, Russia}
+%% \cvevent{SIRIUS University}{Cyber-Security Program}{October 2019}{Sochi, Russia}
+
+\cvsection{Other Experience}
+\cvevent{CTF}{Cyber-Security contests}{2018 -- Ongoing \printinfo{\faFlag}{CTF Time}[https://ctftime.org/user/70331]}{}
+Regular playing CTFs, proficient in binary exploitation and reverse engineering \\
+\cvtag{C}
+\cvtag{Assembly}
+\cvtag{Linux}
+\cvtag{JavaScript}
+\cvtag{Python}
+\cvtag{SQL}
 
 \end{paracol}
 

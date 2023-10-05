@@ -1,0 +1,10 @@
+#+OPTIONS: toc:nil
+
+* Hello, World :blog:
+  :PROPERTIES:
+  :ID:       ec056198-d98d-4b42-990a-28afef3ee591
+  :PUBDATE:  <2023-10-04 Wed 23:39>
+  :END:
+#+include: blog/00-hello/brief.org
+
+[[file:blog/00-hello/][read...]]

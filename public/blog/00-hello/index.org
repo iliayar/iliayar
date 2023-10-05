@@ -1,0 +1,6 @@
+#+OPTIONS: toc:nil
+
+#+include: brief.org
+
+* hello world
+just setting things up. I hope there will be more of these

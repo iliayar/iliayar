@@ -81,10 +81,8 @@ jobs:
 
         echo "Installing fonts"
         cp -r iosevka/* /publish/output/fonts/
-
-        mv fontawesome*/css/brands.min.css /publish/output/fonts/fa-brands.css
-        mv fontawesome*/css/regular.min.css /publish/output/fonts/fa-regular.css
-        mv fontawesome*/css/solid.min.css /publish/output/fonts/fa-solid.css
+        cp -r fontawesome*/css /publish/output/fonts/
+        cp -r fontawesome*/webfonts /publish/output/fonts/
 
         echo "Done"
 
@@ -93,11 +91,11 @@ stages:
     on_overlap: cancel
 
 integrations:
-  github:
-    token: ${project.secrets.github_token}
-    repo: 'iliayar/iliayar'
-    rev: ${project.repos.main.rev}
-    ui_url: 'https://uci.ilyay.space'
-    jobs_to_report:
-    - publish
-    - build-image
+  # github:
+  #   token: ${project.secrets.github_token}
+  #   repo: 'iliayar/iliayar'
+  #   rev: ${project.repos.main.rev}
+  #   ui_url: 'https://uci.ilyay.space'
+  #   jobs_to_report:
+  #   - publish
+  #   - build-image

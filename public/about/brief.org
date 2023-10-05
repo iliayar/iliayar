@@ -1,0 +1,10 @@
+i'm Ilya, software engineer at /big tech/, mostly writing
+c++/rust/python/wtv... 4^th year CS student interested in almost all
+kind of technologies and some fields of computer science. these are
+some of it:
+- sotware engineering (rust, c, haskell, python, ...)
+- languages, compiles development, ...
+- software security, reverse engineering, binary exploitation, ...
+- formal systems, theorem provers, ...
+spending free time doing small and not so projects and exploring weird
+stuff

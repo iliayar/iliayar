@@ -1,0 +1,63 @@
+#+OPTIONS: toc:nil
+
+#+include: brief.org
+
+[[file:../other/cv/cv.pdf][download cv]]
+
+* general
+21 y.o, located in Saint-Petersburg, Russia
+* education
+4^th year student at ITMO university at computer scienece
+department. I used to write conspects in \(\LaTeX\), all of this along
+with assignments is [[https://github.com/iliayar/ITMO][stored on github]]. conspects are auto built and
+published on [[https://conspects.ilyay.space/README.html][separate site]]
+
+* work experience
+- Sotware Engineer @ Yandex Go, <2021-11-24>- =now= \\
+  developing and maintaining couple high load widely used
+  infrastructure microservices, written in c++ using /userver/
+  framework.
+
+  developed a type inference system for inernally used DSL, OpenAPI
+  schemas generator and tooling around
+  
+  developed an infrastructure for using serverless cloud functions:
+  ci/cd and tooling
+* TODO projects
+- *uCI* 
+
+  ⚡blazingly fast⚡
+
+  completly [[https://github.com/iliayar/uci][opensource]]. simple and easy to use but at the same time
+  enough powefull ci/cd system, intendent to use as self-hosted.
+
+  some day I'll write post about it
+
+- *upa can flash*
+
+  partially [[https://github.com/iliayar/UPA_CAN_FLASH][opensource]]. cross-platform gui application for flashing
+  microcontrollers, that operates with ISO-14229. implement protocol
+  from scratch up to abstraction of application layer.
+
+- ...
+* TODO other interests
+like [[https://ctftime.org/user/70331][playing ctfs]] sometimes. last couple years stick with pwn and
+reverse, but used to other category, as was playing almost solo in the
+beginning.
+
+-----
+
+in the past enjoyed tinkering with my [[https://github.com/iliayar/dotfiles][desktop setup]]. now settle up
+with [[https://nixos.org/][nix]], as one of the most reproducible build systems, configuration
+language and ecosystem. now using it everywhere for setting up
+reproducible development evironment and system configuration.
+
+...
+* links
+github: [[https://github.com/iliayar][iliayar]] \\
+linkedin: [[https://linkedin.com/in/iliayar][iliayar]] \\
+telegram: [[https://t.me/iliayar][@iliayar]] \\
+email: [[mailto:iliayar3@gmail.com][iliayar3@gmail.com]]
+
+other fun links \\
+code::stats: [[https://codestats.net/users/iliayar][iliayar]]

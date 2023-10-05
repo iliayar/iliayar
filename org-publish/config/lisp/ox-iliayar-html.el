@@ -98,17 +98,17 @@
 
 (defun iliayar/org-format-code (code refs num-start)
   (let ((res '()))
-    (org-export-format-code
-     code
-     (lambda (loc line-num ref)
-       (push
-	`(("content" . ,loc)
-	  ("num" . ,line-num)
-	  ("ref" . ,ref))
-	res)
-       "")
-     num-start refs)
-    (reverse res)))
+	(org-export-format-code
+	 code
+	 (lambda (loc line-num ref)
+	   (push
+		`(("content" . ,loc)
+		  ("num" . ,line-num)
+		  ("ref" . ,ref))
+		res)
+	   "")
+	 num-start refs)
+	(reverse res)))
 
 (defun iliayar/org-src-block (src-block contents info)
   (let* ((language (org-element-property :language src-block))
@@ -144,7 +144,7 @@
 (defun iliayar/org-section (section contents info)
   (let* ()
     (use-template "section"
-		  `(("contents" . ,contents)))))
+				  `(("contents" . ,contents)))))
 
 (defun iliayar/org-paragraph (paragraph contents info)
   (let* ((parent (org-export-get-parent paragraph))
@@ -168,18 +168,23 @@
 
 (defun iliayar/org-headline (headline contents info)
   (let* ((title (org-export-data (org-element-property :title headline) info))
-	 (reference (org-export-get-reference headline info))
-	 (level (org-element-property :level headline))
-	 (prefix (s-repeat level "#"))
-	 (todo-keyword (org-element-property :todo-type headline))
-	 (todo-content (if todo-keyword (make-todo todo-keyword))))
-    (use-template "headline"
-		  `(("title" . ,title)
-		    ("ref" . ,reference)
-		    ("level" . ,level)
-		    ("contents" . ,contents)
-		    ("prefix" . ,prefix)
-		    ("todo_keyword" . ,todo-content)))))
+		 (reference (org-export-get-reference headline info))
+		 (level (org-element-property :level headline))
+		 (prefix (s-repeat level "#"))
+		 (todo-keyword (org-element-property :todo-type headline))
+		 (todo-content (if todo-keyword (make-todo todo-keyword)))
+		 (cut (org-element-property :CUT headline))
+		 (template-name
+		  (cond
+		   (cut "headline-cut")
+		   (t "headline"))))
+	(use-template template-name
+				  `(("title" . ,title)
+					("ref" . ,reference)
+					("level" . ,level)
+					("contents" . ,contents)
+					("prefix" . ,prefix)
+					("todo_keyword" . ,todo-content)))))
 
 (defun iliayar/org-template (contents info)
   (let* ((title-raw (plist-get info :title))
@@ -216,11 +221,14 @@
 	 (toc (if depth (iliayar/make-toc info depth)))
 	 (base-url (plist-get info :html-base-url))
 	 (base-title (plist-get info :html-base-title))
-	 (footnotes (iliayar/org-footnote-section info)))
+	 (footnotes (iliayar/org-footnote-section info))
+	 (links-template (plist-get info :html-links-template))
+	 (links (when links-template (use-template links-template '()))))
     (use-template "inner-template"
 		  `(("contents" . ,contents)
 		    ("toc" . ,toc)
 		    ("footnotes" . ,footnotes)
+		    ("links" . ,links)
 		    ("base_url" . ,base-url)
 		    ("base_title" . ,base-title)))))
 
@@ -444,6 +452,11 @@
   "Title"
   :type '(string))
 
+(defcustom iliayar/org-links-template
+  nil
+  "Template file with link in footer"
+  :type '(string))
+
 ;; NOTE: List of entities taken from
 ;; https://github.com/yyr/org-mode/blob/master/lisp/ox-html.el
 (org-export-define-derived-backend
@@ -500,4 +513,5 @@
   :options-alist
   '((:html-base-url nil nil iliayar/org-base-url)
     (:html-base-title nil nil iliayar/org-base-title)
-    (:html-res-base-url nil nil iliayar/org-res-base-url)))
+    (:html-res-base-url nil nil iliayar/org-res-base-url)
+    (:html-links-template nil nil iliayar/org-links-template)))

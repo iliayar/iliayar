@@ -11,11 +11,11 @@
     <header id="header" class="h-fit w-full flex flex-row flex-wrap justify-between bg-code-secondary-light dark:bg-code-secondary-dark">
       <div class="inline">
 	{% if toc %}
-	<button id="toggle-toc-btn" type="button" class="m-3 underline hover:no-underline hover:text-link-active text-link-inactive-light dark:text-link-inactive-dark">toggle toc</button>
+	<button id="toggle-toc-btn" type="button" class="m-3 underline hover:no-underline hover:text-link-active dark:hover:text-link-active text-link-inactive-light dark:text-link-inactive-dark">toggle toc</button>
 	{% endif %}
       </div>
-      <span class="m-3"><a href="{{base_url}}" class="underline hover:no-underline hover:text-link-active text-link-inactive-light dark:text-link-inactive-dark">{{base_title}}</a></span>
-      <button id="toggle-light-btn" type="button" class="m-3 underline hover:no-underline hover:text-link-active text-link-inactive-light dark:text-link-inactive-dark">toggle dark</button>
+      <span class="m-3"><a href="{{base_url}}" class="underline hover:no-underline hover:text-link-active dark:hover:text-link-active text-link-inactive-light dark:text-link-inactive-dark">{{base_title}}</a></span>
+      <button id="toggle-light-btn" type="button" class="m-3 underline hover:no-underline hover:text-link-active dark:hover:text-link-active  text-link-inactive-light dark:text-link-inactive-dark">toggle dark</button>
     </header>
     <div class="w-full flex flex-row justify-center p-3 grow">
       <div class="max-w-3xl grow overflow-auto">
@@ -25,10 +25,12 @@
 	{% endif %}
       </div>
     </div>
-    <div class="h-fit w-full p-3 flex justify-center bg-code-secondary-light dark:bg-code-secondary-dark">
+    <div class="h-fit w-full p-3 flex justify-between bg-code-secondary-light dark:bg-code-secondary-dark">
+	  <div></div>
       <div>
-	Made with <a href="https://orgmode.org" class="underline hover:no-underline hover:text-link-active text-link-inactive-light dark:text-link-inactive-dark">Org mode</a>, © 2023 - ∞ iliayar
+	Made with <a href="https://orgmode.org" class="underline hover:no-underline hover:text-link-active dark:hover:text-link-active text-link-inactive-light dark:text-link-inactive-dark">Org mode</a>, © 2023 - ∞ iliayar
       </div>
       <!-- Right: Github -->
+	  <div>{% if links %}{{ links }}{% endif %}</div>
     </div>
   </div>

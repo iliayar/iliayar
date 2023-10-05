@@ -7,6 +7,7 @@
 (require 'htmlize)
 (require 'haskell-mode)
 (require 'ox-iliayar-html)
+(require 'ox-rss)
 
 (org-reload)
 
@@ -52,7 +53,7 @@
                                  ("" "svg" t)
                                  ("" "capt-of" t)))
 (with-eval-after-load 'ox-latex
-  (progn 
+  (progn
     (add-to-list 'org-latex-classes
                  (list "general"
                        "
@@ -101,16 +102,16 @@
 
 
 (defun my/org-publish (backend plist filename pub-dir)
-  (with-temp-buffer 
+  (with-temp-buffer
     (insert-file-contents filename)
     (let
-      ((elem (org-element-context)))
+		((elem (org-element-context)))
       (if (and (eq 'keyword (org-element-type elem))
                (string-equal "PUBNOTE" (org-element-property :key elem)))
-        (cond ((string-equal "ignore" (org-element-property :value elem))
-               (princ (concat filename " manually published")))
-              ((string-equal "html" (org-element-property :value elem))
-               (iliayar/org-publish-to-html plist filename pub-dir)))
+          (cond ((string-equal "ignore" (org-element-property :value elem))
+				 (princ (concat filename " manually published")))
+				((string-equal "html" (org-element-property :value elem))
+				 (iliayar/org-publish-to-html plist filename pub-dir)))
         (funcall backend plist filename pub-dir)))))
 
 (defun my/org-html-publish-to-html (plist filename pub-dir)
@@ -118,19 +119,37 @@
 (defun my/org-latex-publish-to-pdf (plist filename pub-dir)
   (my/org-publish 'org-latex-publish-to-pdf plist filename pub-dir))
 
+(setq org-rss-use-entry-url-as-guid nil)
+
 (setq org-publish-project-alist
       '(
+        ("rss-mainsite"
+         :base-directory "/publish/input"
+         :base-extension "org"
+         :recursive t
+		 :html-link-home "https://ilyay.space"
+		 :html-link-use-abs-url t
+		 :rss-extension "xml"
+         :publishing-directory "/publish/output"
+         :publishing-function (org-rss-publish-to-rss)
+		 :section-number nil
+		 :exclude ".*"
+		 :include ("rss.org")
+		 :table-of-contents nil
+         )
+
         ("org-mainsite"
          :base-directory "/publish/input"
          :base-extension "org"
          :recursive t
          :publishing-directory "/publish/output"
          :publishing-function iliayar/org-publish-to-html
-	 ;; :html-res-base-url "http://localhost:8000"
-	 ;; :html-base-url "http://localhost:8000"
-	 :html-res-base-url "https://ilyay.space"
-	 :html-base-url "https://ilyay.space"
-	 :html-base-title "ilyay.space"
+		 :html-res-base-url "http://localhost:8000"
+		 :html-base-url "http://localhost:8000"
+		 :html-links-template "links/main"
+		 ;; :html-res-base-url "https://ilyay.space"
+		 ;; :html-base-url "https://ilyay.space"
+		 :html-base-title "ilyay.space"
          )
         ("static-mainsite"
          :base-directory "/publish/input"
@@ -139,7 +158,7 @@
          :recursive t
          :publishing-function org-publish-attachment
          )
-        ("mainsite" :components ("static-mainsite" "org-mainsite"))
+        ("mainsite" :components ("static-mainsite" "org-mainsite" "rss-mainsite"))
 
         ("static-conspects"
          :base-directory "/publish/input"
@@ -155,8 +174,8 @@
          :recursive t
          :publishing-function my/org-html-publish-to-html
          :headline-levels 4
-	 :html-base-url "https://conspects.ilyay.space"
-	 :html-base-title "conspects.ilyay.space"
+		 :html-base-url "https://conspects.ilyay.space"
+		 :html-base-title "conspects.ilyay.space"
          )
         ("pdfs-conspects"
          :base-directory "/publish/input"
@@ -165,9 +184,9 @@
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function my/org-latex-publish-to-pdf
-	 ;; Also publish pdfs
-	 :html-base-url "https://conspects.ilyay.space"
-	 :html-base-title "conspects.ilyay.space"
+		 ;; Also publish pdfs
+		 :html-base-url "https://conspects.ilyay.space"
+		 :html-base-title "conspects.ilyay.space"
          )
         ("conspects" :components ("static-conspects" "org-conspects" "pdfs-conspects"))
         ))
