@@ -48,9 +48,10 @@ beginning.
 -----
 
 in the past enjoyed tinkering with my [[https://github.com/iliayar/dotfiles][desktop setup]]. now settle up
-with [[https://nixos.org/][nix]], as one of the most reproducible build systems, configuration
-language and ecosystem. now using it everywhere for setting up
-reproducible development evironment and system configuration.
+with [[https://nixos.org/][nix]], as one of the most reproducible build system with wonderfull
+configuration language and rich ecosystem. now using it everywhere for
+setting up reproducible development evironment and system
+configuration.
 
 ...
 * links

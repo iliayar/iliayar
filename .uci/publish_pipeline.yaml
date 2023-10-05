@@ -91,11 +91,11 @@ stages:
     on_overlap: cancel
 
 integrations:
-  # github:
-  #   token: ${project.secrets.github_token}
-  #   repo: 'iliayar/iliayar'
-  #   rev: ${project.repos.main.rev}
-  #   ui_url: 'https://uci.ilyay.space'
-  #   jobs_to_report:
-  #   - publish
-  #   - build-image
+  github:
+    token: ${project.secrets.github_token}
+    repo: 'iliayar/iliayar'
+    rev: ${project.repos.main.rev}
+    ui_url: 'https://uci.ilyay.space'
+    jobs_to_report:
+    - publish
+    - build-image

@@ -144,11 +144,11 @@
          :recursive t
          :publishing-directory "/publish/output"
          :publishing-function iliayar/org-publish-to-html
-		 :html-res-base-url "http://localhost:8000"
-		 :html-base-url "http://localhost:8000"
+		 ;; :html-res-base-url "http://localhost:8000"
+		 ;; :html-base-url "http://localhost:8000"
 		 :html-links-template "links/main"
-		 ;; :html-res-base-url "https://ilyay.space"
-		 ;; :html-base-url "https://ilyay.space"
+		 :html-res-base-url "https://ilyay.space"
+		 :html-base-url "https://ilyay.space"
 		 :html-base-title "ilyay.space"
          )
         ("static-mainsite"
