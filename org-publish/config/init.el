@@ -132,7 +132,7 @@
 (setq conspects-matomo-host (getenv "CONSPECTS_MATOMO_HOST"))
 
 (setq org-publish-project-alist
-      '(
+      `(
         ("rss-mainsite"
          :base-directory "/publish/input"
          :base-extension "org"
@@ -155,10 +155,10 @@
          :publishing-directory "/publish/output"
          :publishing-function iliayar/org-publish-to-html
 		 :html-links-template "links/main"
-		 :html-res-base-url res-base-url
-		 :html-base-url base-url
-		 :html-base-title hostname
-		 :html-matomo-host matomo-host
+		 :html-res-base-url ,res-base-url
+		 :html-base-url ,base-url
+		 :html-base-title ,hostname
+		 :html-matomo-host ,matomo-host
          )
         ("static-mainsite"
          :base-directory "/publish/input"
@@ -183,10 +183,10 @@
          :recursive t
          :publishing-function my/org-html-publish-to-html
          :headline-levels 4
-		 :html-res-base-url conspects-res-base-url
-		 :html-base-url conspects-base-url
-		 :html-base-title conspects-hostname
-		 :html-matomo-host conspects-matomo-host
+		 :html-res-base-url ,conspects-res-base-url
+		 :html-base-url ,conspects-base-url
+		 :html-base-title ,conspects-hostname
+		 :html-matomo-host ,conspects-matomo-host
          )
         ("pdfs-conspects"
          :base-directory "/publish/input"
@@ -197,10 +197,10 @@
          :publishing-function my/org-latex-publish-to-pdf
 
 		 ;; Also publish htmls
-		 :html-res-base-url conspects-res-base-url
-		 :html-base-url conspects-base-url
-		 :html-base-title conspects-hostname
-		 :html-matomo-host conspects-matomo-host
+		 :html-res-base-url ,conspects-res-base-url
+		 :html-base-url ,conspects-base-url
+		 :html-base-title ,conspects-hostname
+		 :html-matomo-host ,conspects-matomo-host
          )
         ("conspects" :components ("static-conspects" "org-conspects" "pdfs-conspects"))
         ))
