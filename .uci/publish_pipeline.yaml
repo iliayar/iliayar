@@ -51,7 +51,7 @@ jobs:
         "MAINSITE_BASE_URL": "https://iliay.ar"
         "MAINSITE_RES_BASE_URL": "https://iliay.ar"
         "MAINSITE_HOSTNAME": "iliay.ar"
-        "MAINSITE_MATOMO_HOST": "matomo.ilyay.space"
+        "MAINSITE_MATOMO_HOST": "matomo.iliay.ar"
       script: |
         set -e
 
