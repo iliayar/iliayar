@@ -127,7 +127,7 @@
          :base-directory "/publish/input"
          :base-extension "org"
          :recursive t
-		 :html-link-home "https://ilyay.space"
+		 :html-link-home "https://iliay.ar"
 		 :html-link-use-abs-url t
 		 :rss-extension "xml"
          :publishing-directory "/publish/output"
@@ -147,9 +147,9 @@
 		 ;; :html-res-base-url "http://localhost:8000"
 		 ;; :html-base-url "http://localhost:8000"
 		 :html-links-template "links/main"
-		 :html-res-base-url "https://ilyay.space"
-		 :html-base-url "https://ilyay.space"
-		 :html-base-title "ilyay.space"
+		 :html-res-base-url "https://iliay.ar"
+		 :html-base-url "https://iliay.ar"
+		 :html-base-title "iliay.ar"
          )
         ("static-mainsite"
          :base-directory "/publish/input"
@@ -174,8 +174,8 @@
          :recursive t
          :publishing-function my/org-html-publish-to-html
          :headline-levels 4
-		 :html-base-url "https://conspects.ilyay.space"
-		 :html-base-title "conspects.ilyay.space"
+		 :html-base-url "https://conspects.iliay.ar"
+		 :html-base-title "conspects.iliay.ar"
          )
         ("pdfs-conspects"
          :base-directory "/publish/input"
@@ -185,8 +185,8 @@
          :recursive t
          :publishing-function my/org-latex-publish-to-pdf
 		 ;; Also publish pdfs
-		 :html-base-url "https://conspects.ilyay.space"
-		 :html-base-title "conspects.ilyay.space"
+		 :html-base-url "https://conspects.iliay.ar"
+		 :html-base-title "conspects.iliay.ar"
          )
         ("conspects" :components ("static-conspects" "org-conspects" "pdfs-conspects"))
         ))

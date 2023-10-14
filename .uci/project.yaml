@@ -2,14 +2,25 @@ caddy:
   enabled: true
   hostnames:
     'iliayar.ru': |
-      redir https://ilyay.space{uri}
+      redir https://iliay.ar{uri}
+
+    'ilyay.space': |
+      redir https://iliay.ar{uri}
 
     # FIXME: Move to main site repo
-    'ilyay.space': |
+    'iliay.ar': |
       file_server
       root * ${project.data_path}/gen-main
 
-      header Access-Control-Allow-Origin https://conspects.ilyay.space
+      @conspectsOldOrigin { 
+        header Origin https://conspects.ilyay.space
+      }
+      header @conspectsOldOrigin Access-Control-Allow-Origin https://conspects.ilyay.space
+
+      @conspectsOrigin { 
+        header Origin https://conspects.iliay.ar
+      }
+      header @conspectsOrigin Access-Control-Allow-Origin https://conspects.iliay.ar
 
 docker:
   volumes:
