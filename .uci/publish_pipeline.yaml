@@ -47,6 +47,11 @@ jobs:
         '/publish/input': ${project.repos.main.path}/public
         '/publish/config': ${project.repos.main.path}/org-publish/config
         '/publish/output': ${project.data_path}/gen-main
+      env:
+        "MAINSITE_BASE_URL": "https://iliay.ar"
+        "MAINSITE_RES_BASE_URL": "https://iliay.ar"
+        "MAINSITE_HOSTNAME": "iliay.ar"
+        "MAINSITE_MATOMO_HOST": "iliay.ar"
       script: |
         set -e
 

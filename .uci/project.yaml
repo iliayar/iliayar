@@ -7,7 +7,6 @@ caddy:
     'ilyay.space': |
       redir https://iliay.ar{uri}
 
-    # FIXME: Move to main site repo
     'iliay.ar': |
       file_server
       root * ${project.data_path}/gen-main

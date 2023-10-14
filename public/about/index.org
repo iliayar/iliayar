@@ -10,7 +10,7 @@
 4^th year student at ITMO university at computer scienece
 department. I used to write conspects in \(\LaTeX\), all of this along
 with assignments is [[https://github.com/iliayar/ITMO][stored on github]]. conspects are auto built and
-published on [[https://conspects.ilyay.space/README.html][separate site]]
+published on [[https://conspects.iliay.ar/README.html][separate site]]
 
 * work experience
 - Sotware Engineer @ Yandex Go, <2021-11-24>- =now= \\

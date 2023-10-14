@@ -7,7 +7,7 @@
 * other stuff on here
 I like playing ctfs, sometimes writing [[file:ctf/][writeups]]
 
-during study has collected a lot of [[https://conspects.ilyay.space][notes and other stuff]]
+during study has collected a lot of [[https://conspects.iliay.ar][notes and other stuff]]
 
 hope some day will try to write smth in [[file:blog/][blog]]
 

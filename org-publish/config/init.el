@@ -121,13 +121,23 @@
 
 (setq org-rss-use-entry-url-as-guid nil)
 
+(setq hostname (getenv "MAINSITE_HOSTNAME"))
+(setq base-url (getenv "MAINSITE_BASE_URL"))
+(setq res-base-url (getenv "MAINSITE_RES_BASE_URL"))
+(setq matomo-host (getenv "MAINSITE_MATOMO_HOST"))
+
+(setq conspects-hostname (getenv "CONSPECTS_HOSTNAME"))
+(setq conspects-base-url (getenv "CONSPECTS_BASE_URL"))
+(setq conspects-res-base-url (getenv "CONSPECTS_RES_BASE_URL"))
+(setq conspects-matomo-host (getenv "CONSPECTS_MATOMO_HOST"))
+
 (setq org-publish-project-alist
       '(
         ("rss-mainsite"
          :base-directory "/publish/input"
          :base-extension "org"
          :recursive t
-		 :html-link-home "https://iliay.ar"
+		 :html-link-home base-url
 		 :html-link-use-abs-url t
 		 :rss-extension "xml"
          :publishing-directory "/publish/output"
@@ -144,12 +154,11 @@
          :recursive t
          :publishing-directory "/publish/output"
          :publishing-function iliayar/org-publish-to-html
-		 ;; :html-res-base-url "http://localhost:8000"
-		 ;; :html-base-url "http://localhost:8000"
 		 :html-links-template "links/main"
-		 :html-res-base-url "https://iliay.ar"
-		 :html-base-url "https://iliay.ar"
-		 :html-base-title "iliay.ar"
+		 :html-res-base-url res-base-url
+		 :html-base-url base-url
+		 :html-base-title hostname
+		 :html-matomo-host matomo-host
          )
         ("static-mainsite"
          :base-directory "/publish/input"
@@ -174,8 +183,10 @@
          :recursive t
          :publishing-function my/org-html-publish-to-html
          :headline-levels 4
-		 :html-base-url "https://conspects.iliay.ar"
-		 :html-base-title "conspects.iliay.ar"
+		 :html-res-base-url conspects-res-base-url
+		 :html-base-url conspects-base-url
+		 :html-base-title conspects-hostname
+		 :html-matomo-host conspects-matomo-host
          )
         ("pdfs-conspects"
          :base-directory "/publish/input"
@@ -184,9 +195,12 @@
          :publishing-directory "/publish/output"
          :recursive t
          :publishing-function my/org-latex-publish-to-pdf
-		 ;; Also publish pdfs
-		 :html-base-url "https://conspects.iliay.ar"
-		 :html-base-title "conspects.iliay.ar"
+
+		 ;; Also publish htmls
+		 :html-res-base-url conspects-res-base-url
+		 :html-base-url conspects-base-url
+		 :html-base-title conspects-hostname
+		 :html-matomo-host conspects-matomo-host
          )
         ("conspects" :components ("static-conspects" "org-conspects" "pdfs-conspects"))
         ))

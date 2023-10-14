@@ -191,12 +191,14 @@
 	 (title (if title-raw (org-export-data title-raw info)))
 	 (base-url (plist-get info :html-base-url))
 	 (res-base-url (plist-get info :html-res-base-url))
+	 (matomo-host (plist-get info :html-matomo-host))
 	 (base-title (plist-get info :html-base-title)))
     (use-template "template"
 		  `(("contents" . ,contents)
 		    ("title" . ,title)
 		    ("base_url" . ,base-url)
 		    ("res_base_url" . ,res-base-url)
+		    ("matomo_host" . ,matomo-host)
 		    ("base_title" . ,base-title)))))
 
 (defun iliayar/make-toc-rec (node info)
@@ -223,7 +225,9 @@
 	 (base-title (plist-get info :html-base-title))
 	 (footnotes (iliayar/org-footnote-section info))
 	 (links-template (plist-get info :html-links-template))
-	 (links (when links-template (use-template links-template '()))))
+	 (links (when links-template 
+              (use-template links-template 
+                            '(("base_url" . ,base-url))))))
     (use-template "inner-template"
 		  `(("contents" . ,contents)
 		    ("toc" . ,toc)
@@ -438,18 +442,23 @@
 		      plist pub-dir))
 
 (defcustom iliayar/org-base-url
-  "https://ilyay.space"
+  "https://iliay.ar"
   "Home page"
   :type '(string))
 
 (defcustom iliayar/org-res-base-url
-  "https://ilyay.space"
+  "https://iliay.ar"
   "URL of resources"
   :type '(string))
 
 (defcustom iliayar/org-base-title
-  "ilyay.space"
+  "iliay.ar"
   "Title"
+  :type '(string))
+
+(defcustom iliayar/org-matomo-host
+  "matomo.iliay.ar"
+  "Matomo host"
   :type '(string))
 
 (defcustom iliayar/org-links-template
@@ -506,7 +515,7 @@
 		     (node-property . iliayar/org-node-property)
 		     (footnote-definition . iliayar/org-footnote-definition)
 		     (footnote-reference . iliayar/org-footnote-reference)
-		     (subscript . iliayar/org-subscript)
+ 		     (subscript . iliayar/org-subscript)
 		     (superscript . iliayar/org-superscript)
 		     (latex-enironment . iliayar/org-latex-environment)
 		     (latex-fragment . iliayar/org-latex-fragment))
@@ -514,4 +523,5 @@
   '((:html-base-url nil nil iliayar/org-base-url)
     (:html-base-title nil nil iliayar/org-base-title)
     (:html-res-base-url nil nil iliayar/org-res-base-url)
+    (:html-matomo-host nil nil iliayar/org-matomo-host)
     (:html-links-template nil nil iliayar/org-links-template)))
