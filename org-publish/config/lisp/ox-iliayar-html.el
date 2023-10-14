@@ -227,7 +227,7 @@
 	 (links-template (plist-get info :html-links-template))
 	 (links (when links-template 
               (use-template links-template 
-                            '(("base_url" . ,base-url))))))
+                            `(("base_url" . ,base-url))))))
     (use-template "inner-template"
 		  `(("contents" . ,contents)
 		    ("toc" . ,toc)
