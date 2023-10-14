@@ -137,7 +137,7 @@
          :base-directory "/publish/input"
          :base-extension "org"
          :recursive t
-		 :html-link-home base-url
+		 :html-link-home ,base-url
 		 :html-link-use-abs-url t
 		 :rss-extension "xml"
          :publishing-directory "/publish/output"
