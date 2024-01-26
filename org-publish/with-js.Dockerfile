@@ -25,7 +25,7 @@ RUN mkdir mermaid && tar -xvf mermaid.tgz -C mermaid
 RUN unzip mathjax.zip
 
 RUN cd highlight.js && \
-    node tools/build.js -n python shell haskell c rust nim
+    node tools/build.js -n python shell haskell c rust nim sql
 
 COPY packages.el packages.el
 RUN emacs --batch -l /publish/packages.el
