@@ -16,7 +16,7 @@ poDef =
     }
 
 main :: IO ()
-main =
+main = do
   conf <- configFromEnv
   hakyllWith conf $ do
     copyExternalFromEnv "THIRDPARTY_PATH" "other/publish/thirdparty"
