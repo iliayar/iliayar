@@ -52,5 +52,6 @@ main = do
         }
 
     copy ["**.png", "**.jpeg", "**.svg", "**.gif", "**.ico"]
+    copy "**.pdf"
 
     rssFeed "rss.xml" posts rssFeedConfiguration
