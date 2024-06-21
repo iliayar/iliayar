@@ -19,8 +19,6 @@ main :: IO ()
 main = do
   conf <- configFromEnv
   hakyllWith conf $ do
-    copyExternalFromEnv "THIRDPARTY_PATH" "other/publish/thirdparty"
-
     template "other/publish/templates/*"
 
     page "**README.org" poDef
