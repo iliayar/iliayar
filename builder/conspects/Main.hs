@@ -16,24 +16,26 @@ poDef =
     }
 
 main :: IO ()
-main = hakyll $ do
-  copyExternalFromEnv "THIRDPARTY_PATH" "other/publish/thirdparty"
+main =
+  conf <- configFromEnv
+  hakyllWith conf $ do
+    copyExternalFromEnv "THIRDPARTY_PATH" "other/publish/thirdparty"
 
-  template "other/publish/templates/*"
+    template "other/publish/templates/*"
 
-  page "**README.org" poDef
+    page "**README.org" poDef
 
-  orgPdf
-    $ withMetaPred
-      ("**.org" .&&. complement "**README.org")
-    $ stringFieldEqOr "PUBNOTE" "pdf" True
+    orgPdf
+      $ withMetaPred
+        ("**.org" .&&. complement "**README.org")
+      $ stringFieldEqOr "PUBNOTE" "pdf" True
 
-  flip page poDef
-    $ withMetaPred
-      ("**.org" .&&. complement "**README.org")
-    $ stringFieldEqOr "PUBNOTE" "html" False
+    flip page poDef
+      $ withMetaPred
+        ("**.org" .&&. complement "**README.org")
+      $ stringFieldEqOr "PUBNOTE" "html" False
 
-  typst $ "**.typ" .&&. complement "other/**"
+    typst $ "**.typ" .&&. complement "other/**"
 
-  copy ["**.png", "**.jpeg", "**.svg", "**.gif", "**.ico"]
-  copy "**.pdf"
+    copy ["**.png", "**.jpeg", "**.svg", "**.gif", "**.ico"]
+    copy "**.pdf"
