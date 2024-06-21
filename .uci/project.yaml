@@ -25,6 +25,11 @@ caddy:
       file_server
       root * ${project.data_path}/hakyll/site
 
+      @conspectsOrigin { 
+        header Origin https://new-conspects.iliay.ar
+      }
+      header @conspectsOrigin Access-Control-Allow-Origin https://new-conspects.iliay.ar
+
 bind:
   enabled: true
   zones:
