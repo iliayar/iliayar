@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     denv = {
-      url = "path:/home/iliayar/Repos/env.nix";
+      url = "github:iliayar/env.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
