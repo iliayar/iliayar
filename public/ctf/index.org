@@ -1,5 +1,3 @@
-#+OPTIONS: toc:nil
-
 * Student CTF 2022
 ** Writeups
-- [[file:student/shop.org][shop]]
+- [[./student/shop.org][shop]]

@@ -1,0 +1,9 @@
+$body$
+
+<h1>posts</h1>
+$for(posts)$
+<div class="post-item">
+  <a href="$url$">$title$</a> - $date$
+  $if(teaser)$$teaser$$endif$
+</div>
+$endfor$

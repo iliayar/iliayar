@@ -1,0 +1,47 @@
+name:               site-lib
+version:            0.1.0.0
+build-type:         Simple
+cabal-version:      >= 1.10
+
+library
+  hs-source-dirs:   src
+  other-modules:    Site.Filters.Links
+                  , Site.Filters.Code
+                  , Site.Context.TableOfContent
+                  , Site.Context.Utils
+                  , Site.Rules.CopyExternal
+  exposed-modules:  Site.Compiler
+                  , Site.PandocWithFilename
+                  , Site.Filters
+                  , Site.Context
+                  , Site.Rules
+                  , Site.Utils
+                  , Site.OrgToPdfCompiler
+                  , Site.TypstCompiler
+                  , Site
+  build-depends:    base == 4.*
+                  , hakyll == 4.16.*
+                  , hakyll-sass
+                  , text
+                  , pandoc == 3.1.*
+                  , pandoc-types
+                  , http-types
+                  , bytestring
+                  , binary
+                  , directory
+                  , pathwalk
+                  , filepath
+                  , time
+                  , data-default
+                  , process
+  ghc-options:      -threaded -rtsopts -with-rtsopts=-N
+  default-language: Haskell2010
+
+test-suite site-lib-test
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   tests
+  main-is:          Tests.hs
+  build-depends:    base == 4.*
+                  , HUnit
+                  , site-lib
+  default-language: Haskell2010

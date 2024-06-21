@@ -1,6 +1,6 @@
 #+OPTIONS: toc:nil
 
-#+include: brief.org
+#+include: "brief.org"
 
 [[file:../other/cv/cv.pdf][download cv]]
 
@@ -13,7 +13,7 @@ with assignments is [[https://github.com/iliayar/ITMO][stored on github]]. consp
 published on [[https://conspects.iliay.ar/README.html][separate site]]
 
 * work experience
-- Sotware Engineer @ Yandex Go, <2021-11-24>- =now= \\
+- Sotware Engineer @ Yandex Go, November 2024 - /Ongoing/ \\
   developing and maintaining couple high load widely used
   infrastructure microservices, written in c++ using /userver/
   framework.
@@ -23,6 +23,7 @@ published on [[https://conspects.iliay.ar/README.html][separate site]]
   
   developed an infrastructure for using serverless cloud functions:
   ci/cd and tooling
+
 * TODO projects
 - *uCI* 
 

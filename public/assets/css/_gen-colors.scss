@@ -1,0 +1,68 @@
+$mult: 10;
+
+// Returns a Material Design-style value level of a color, i.e. a multiple of
+// 100 in the range 100-900 inclusive.
+//
+// @param color $color
+// @return number - the color's value level
+@function color-level($color) {
+  @return min(max(round((100 - lightness($color)/1%) / 10) * 100, $mult), 1000-$mult);
+}
+
+// Generates a map containing a full range of value steps.
+// - If one color is provided, that color is assigned to the closest value step
+// and other colors are generated automatically.
+// - If two colors are provided, both colors are assigned to their respective
+// closest value step and the value steps between are interpolated. Value steps
+// outside that range are generated automatically from the closest of the two
+// colors.
+//
+// @requires color-level
+// @param  color $color1
+// @param  color $color2 [null]
+// @return map - a map containing keys {100, 200, .., 900} and corresponding
+//               color values
+@function make-shades($color1, $color2: null) {
+  $level1: color-level($color1);
+  $shades: ();
+  
+  @if (type-of($color2) != color) {
+    @for $i from 1 through (1000/$mult - 1) {
+      @if $i*$mult == $level1 {
+        $shades: map-merge($shades, ($i*$mult: $color1));
+      } @else {
+        $shades: map-merge($shades, ($i*$mult: change-color($color1, $lightness: 100-($i*$mult/10))));
+      }
+    }
+  } @else {
+    $level2: color-level($color2);
+    
+    // We always want to work light-to-dark (100, 200, ..., 900)
+    @if $level2 < $level1 {
+      $tmp: $color1;
+      $color1: $color2;
+      $color2: $tmp;
+      $tmp: $level1;
+      $level1: $level2;
+      $level2: $tmp;
+    }
+
+    @if $level1 > $mult {
+      @for $i from 1 to $level1/$mult {
+        $shades: map-merge($shades, ($i*$mult: change-color($color1, $lightness: 100-($i*$mult/10))));
+      }
+    }
+    $shades: map-merge($shades, ($level1: $color1));
+    @for $i from $level1/$mult+1 to $level2/$mult {
+      $weight: 100% - (($i - $level1/$mult) / ($level2/$mult - $level1/$mult))*100%;
+      $shades: map-merge($shades, ($i*$mult: mix($color1, $color2, $weight)));
+    }
+    $shades: map-merge($shades, ($level2: $color2));
+    @if $level2 < 1000 - $mult {
+      @for $i from $level2/$mult+1 through (1000/$mult - 1) {
+        $shades: map-merge($shades, ($i*$mult: change-color($color2, $lightness: 100-($i*$mult/10))));
+      }
+    }
+  }
+  @return $shades;
+}

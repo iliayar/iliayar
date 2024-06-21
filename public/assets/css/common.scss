@@ -1,0 +1,591 @@
+@import "theme.css";
+
+// Colors ======================
+
+$font: "Iosevka Web";
+$header-height: 20px;
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+
+  font-family: $font;
+  font-size: 1em;
+}
+
+// Layout =======================
+
+body {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body > header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: #{$header-height};
+}
+
+body > {
+  header, footer {
+    background-color: var(--bg-light);
+  }
+}
+
+main .content {
+  width: calc(100% - 50px);
+  padding: 0px 25px;
+  flex-grow: 1;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+main {
+  flex-direction: column;
+  align-items: center;
+}
+
+.toc-wrapper {
+  display: none;
+}
+
+@mixin toc-wrapper-float {
+  display: block;
+  width: calc(50% - 2px);
+  border: 1px solid var(--fg);
+  position: fixed;
+  top: #{$header-height};
+  right: 0px;
+  border-top: none;
+  background-color: var(--bg);
+
+  .toc {
+    overflow-y: auto;
+    max-height: 50vh;
+  }
+
+  z-index: 100;
+}
+
+@mixin toc-default {
+  display: block;
+  width: 20%;
+  max-width: 300px;
+  position: unset;
+
+  background-color: var(--bg);
+  border: none;
+  padding-bottom: 0px;
+
+  .toc {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+header {
+  position: sticky;
+  top: 0px;
+  border-bottom: 1px solid var(--fg);
+  z-index: 200;
+}
+
+label[for="toggle-toc"] {
+  display: none;
+}
+
+body:has(.toc-wrapper) label[for="toggle-toc"] {
+  display: inline;
+}
+
+@media (min-width: 600px) {
+  main .content {
+    width: calc(100% - 100px);
+    padding: 0px 50px;
+  }
+
+  body:has(#toggle-toc:checked) .toc-wrapper {
+    @include toc-wrapper-float;
+  }
+}
+
+@media (min-width: 900px) {
+  main .content {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px 25px;
+  }
+
+  body:has(label[for="toggle-toc"]:hover) .toc-wrapper {
+    @include toc-wrapper-float;
+  }
+  
+  .toc-wrapper:hover {
+    @include toc-wrapper-float;
+  }
+
+  body:has(:not(label[for="toggle-toc"]:hover) + #toggle-toc:checked) .toc-wrapper {
+    display: none;
+  }
+
+  body:has(:not(label[for="toggle-toc"]:hover) + #toggle-toc:checked) .toc-wrapper:hover {
+    @include toc-wrapper-float;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    flex-direction: row-reverse;
+    align-items: normal;
+    flex-grow: 1;
+  }
+
+  main .content {
+    flow-grow: 1;
+  }
+
+  header {
+    position: unset;
+    border: none;
+  }
+
+  main .content {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px 50px;
+  }
+
+
+  label[for="toggle-toc"] {
+    display: none;
+  }
+
+  body:has(.toc-wrapper) label[for="toggle-toc"] {
+    display: none;
+  }
+
+  .toc-wrapper {
+    @include toc-default;
+  }
+
+  .toc-wrapper:hover {
+    @include toc-default;
+  }
+
+  body:has(:not(label[for="toggle-toc"]:hover) + #toggle-toc:checked) .toc-wrapper {
+    @include toc-default;
+  }
+
+  body:has(:not(label[for="toggle-toc"]:hover) + #toggle-toc:checked) .toc-wrapper:hover {
+    @include toc-default;
+  }
+}
+
+nav > .toc {
+  position: sticky;
+  top: 0px;
+}
+
+footer {
+  width: calc(100% - 10px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 5px;
+
+  .links {
+    maring: 2px;
+  }
+}
+
+// Other ========================
+
+// == Headers ===================
+
+h1 {
+  color: var(--top-header);
+  border-bottom: 1px solid;
+}
+
+@mixin header-sign {
+  font-size: 0.7em;
+  font-weight: normal;
+  color: var(--fg-dim);
+  border-bottom: reset;
+}
+
+h1:not([data-number])::before {
+  content: "# ";
+  @include header-sign;
+}
+
+h2:not([data-number])::before {
+  content: "## ";
+  @include header-sign;
+}
+
+h3:not([data-number])::before {
+  content: "### ";
+  @include header-sign;
+}
+
+h4:not([data-number])::before {
+  content: "#### ";
+  @include header-sign;
+}
+
+h5:not([data-number])::before {
+  content: "##### ";
+  @include header-sign;
+}
+
+h6:not([data-number])::before {
+  content: "###### ";
+  @include header-sign;
+}
+
+.header-section-number {
+  @include header-sign;
+}
+
+.header-section-number::after {
+  content: ".";
+}
+
+.header-section-number {
+  position: relative;
+}
+
+// == Links ===================
+
+.btn {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  color: var(--link-inactive);
+
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: $font;
+
+  &:hover {
+    text-decoration-line: none;
+    color: var(--link-active);
+    cursor: pointer;
+  }
+}
+
+a {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  color: var(--link-inactive);
+
+  &:hover {
+    text-decoration-line: none;
+    color: var(--link-active);
+  }
+}
+
+// == Table of Content =====
+
+.toc {
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: var(--fg-dim);
+
+    text-decoration-line: none;
+    text-decoration-style: unset;
+  }
+
+  a:hover {
+    color: var(--link-inactive);
+  }
+
+  a.is-active {
+    color: var(--link-active);
+    font-weight: bold;
+  }
+
+  a.is-active span.toc-section-number {
+    text-decoration: underline;
+  }
+  
+  a.is-active > span.toc-section-number::after {
+    content: ". >";
+    font-weight: bold;
+  }
+
+  // a:not(is-active):not(:has(.toc-section-number))::before {
+  //   content: "- ";
+  // }
+
+  a.is-active:not(:has(.toc-section-number))::before {
+    content: "> ";
+    font-weight: bold;
+  }
+
+  ul {
+    .toc-section-number::after {
+      content: ".";
+    }
+    
+    .toc-section-number {
+      font-size: 0.8rem;
+      min-width: 1.5em;
+      display: inline-block;
+    }
+
+    ul {
+      .toc-section-number {
+        min-width: 2em;
+      }
+    }
+  }
+}
+
+.toc::-webkit-scrollbar {
+    width: 3px;
+}
+.toc::-webkit-scrollbar-thumb {
+    background-color: var(--scroll);
+}
+.toc::-webkit-scrollbar-track-piece {
+    background-color: var(--bg);
+}
+
+// NOTE(iliayar): Maybe
+// .toc {
+//   .todo, .done {
+//     display: none;
+//   }
+// }
+
+// == Lists ==========================
+
+ul {
+  list-style-type: "- ";
+}
+
+.content {
+  ul, ol {
+    li:not(:first-child) {
+      margin-top: 0.5em;
+    }
+  }
+}
+
+// == Body ==========================
+
+body::-webkit-scrollbar {
+    width: 6px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scroll);
+}
+body::-webkit-scrollbar-track-piece {
+    background-color: var(--bg);
+}
+
+.content {
+  background-color: var(--bg-light);
+}
+
+// == Inline code ====================
+
+.inline-code {
+  background-color: var(--bg);
+  padding: 1px;
+  border: 1px solid var(--code-border);
+  font-family: #{$font};
+}
+
+// == Source Code ====================
+
+.block-code {
+  background-color: var(--bg); 
+  padding: 10px;
+  overflow-y: auto;
+
+  border: 1px solid var(--code-border);
+}
+
+// NOTE(iliayar): To be aligned with numbered
+// .block-code:not(.numberSource) {
+//   padding-left: 4em; 
+// }
+//
+// .block-code:not(.numberSource) > code {
+//   background-color: var(--bg); 
+//   display: inline-block;
+//   border-left: 1px solid var(--fg);
+//   padding-left: 0.5em;
+// }
+
+.block-code::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+.block-code::-webkit-scrollbar-thumb {
+    background-color: var(--scroll);
+}
+.block-code::-webkit-scrollbar-track-piece {
+    background-color: var(--bg);
+}
+
+div.captioned-content {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  div.sourceCode {
+    margin-bottom: 0px;
+
+    pre.block-code {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+div.caption {
+  width: 100%;
+  text-align: center;
+  padding-top: 1em;
+}
+
+div.sourceCode {
+  width: 100%;
+}
+
+pre.numberSource code { 
+  counter-reset: source-line 0; 
+}
+pre.numberSource code > span { 
+  counter-increment: source-line;
+}
+pre.numberSource code > span > a:first-child::before { 
+  content: counter(source-line);
+  display: inline-block;
+  width: 3em;
+  padding-right: 6px;
+  text-align: right;
+  margin-right: 6px;
+}
+
+pre.numberSource code > span > a:first-child::before { 
+  border-right: 1px solid var(--fg);
+}
+
+pre.numberSource code > span > a:first-child::before { 
+  // background-color: var(--bg);
+  color: var(--fg);
+}
+pre.numberSource code > span > a:hover:first-child::before { 
+  color: var(--link-active);
+}
+
+div.sourceCode { 
+  color: var(--fg); 
+}
+
+
+// == Keywords ====================
+
+.todo {
+  color: var(--todo);
+}
+
+// == Extra blocks =================
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+// == Checkboxes =================
+
+ol, ul {
+  li {
+    label > input[type="checkbox"] {
+      display: none
+    }
+
+    label:has(> input[type="checkbox"])::before {
+      content: "[ ] ";
+      color: var(--fg-dim);
+    }
+
+    label:has(> input[type="checkbox"]:checked)::before {
+      content: "[X] ";
+      color: var(--fg-dim);
+    }
+  }
+}
+
+// == Description list =============
+
+dl > dt {
+  font-weight: bold;
+}
+
+// == Table ======================
+
+table {
+  min-width: 50%;
+  border-collapse: collapse;
+  caption-side: bottom;
+
+  .header {
+    th, td {
+      font-weight: bold;
+      border-bottom: 2px solid var(--fg-dim);
+    }
+  }
+
+  th, td {
+    border: 1px solid var(--fg-dim);
+    padding: 0.5em;
+  }
+
+  tr.odd {
+    background-color: var(--bg);
+  }
+
+  > caption {
+    padding-top: 1em;
+  }
+
+  margin: 10px;
+}
+
+// == Figure =================
+
+img {
+  max-width: 100%;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > figcaption {
+    padding-top: 1em;
+  }
+}
+

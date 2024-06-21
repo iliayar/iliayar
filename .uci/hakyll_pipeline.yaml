@@ -1,0 +1,28 @@
+jobs:
+  publish:
+    do:
+      type: script
+      env:
+        HAKYLL_DESTINATION: ${project.data_path}/hakyll/site
+        HAKYLL_STORE: ${project.data_path}/hakyll/store
+        BUILDER: ${project.repos.main.path}/builder
+      script: |
+        set -e
+
+        mkdir -p $HAKYLL_DESTINATION
+        mkdir -p $HAKYLL_STORE
+
+        nix run $BUILDER#main-site build
+
+stages:
+  publish:
+    on_overlap: cancel
+
+integrations:
+  github:
+    token: ${project.secrets.github_token}
+    repo: 'iliayar/iliayar'
+    rev: ${project.repos.main.rev}
+    ui_url: 'https://uci.iliay.ar'
+    jobs_to_report:
+    - publish

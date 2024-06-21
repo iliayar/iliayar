@@ -1,5 +1,8 @@
-#+TITLE: Student CTF -> Shop
-#+OPTIONS: toc:nil
+------
+tocEnabled: yes
+title: Student CTF -> Shop
+------
+
 
 /I’ve created a custom shopping cart system. Can you get the flag?/ \\
 =nc 164.90.193.27 50009= \\

@@ -1,3 +1,0 @@
-#+OPTIONS: toc:nil
-
-Some other org file

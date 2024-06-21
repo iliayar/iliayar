@@ -1,7 +1,7 @@
 #+OPTIONS: toc:nil
 
 * hi
-#+include: about/brief.org
+#+include: "about/brief.org"
 
 [[file:about/][cv, links and more about...]]
 * other stuff on here
@@ -10,7 +10,3 @@ I like playing ctfs, sometimes writing [[file:ctf/][writeups]]
 during study has collected a lot of [[https://conspects.iliay.ar][notes and other stuff]]
 
 hope some day will try to write smth in [[file:blog/][blog]]
-
-* latest posts
-
-#+include: blog/posts.org::latest :only-contents t

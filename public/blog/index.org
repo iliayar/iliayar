@@ -1,6 +1,3 @@
 #+OPTIONS: toc:nil
 
-#+include: brief.org
-
-* posts
-#+include: posts.org::all :only-contents t
+here will be my posts. maybe one day I'will chose what to write about

@@ -1,0 +1,63 @@
+// NOTE: https://tailwindcolor.com/
+@import "gen-colors";
+
+$palette: (
+  dark: make-shades(#09242a),
+  bright: make-shades(#ffffff),
+  green: make-shades(#98e1b9),
+  red: make-shades(#db222a),
+);
+
+@function pc($name, $level) {
+  @return map-get(map-get($palette, $name), $level);
+}
+
+@mixin dark-theme {
+  --bg: #{pc(dark, 920)};
+  --bg-light: #{pc(dark, 900)};
+  --fg: #{pc(bright, 50)};
+  --fg-dim: #{pc(bright, 200)};
+  --top-header: #{pc(green, 200)};
+
+  --link-active: #{pc(green, 100)};
+  --link-inactive: #{pc(green, 200)};
+
+  --todo: #{pc(red, 200)};
+  --scroll: #{pc(green, 50)};
+
+  --code-border: #{pc(bright, 700)};
+}
+
+@mixin light-theme {
+  --bg: #{pc(bright, 100)};
+  --bg-light: #{pc(bright, 50)};
+  --fg: #{pc(dark, 900)};
+  --fg-dim: #{pc(dark, 800)};
+  --top-header: #{pc(green, 800)};
+
+  --link-active: #{pc(green, 900)};
+  --link-inactive: #{pc(green, 800)};
+
+  --todo: #{pc(red, 800)};
+  --scroll: #{pc(dark, 900)};
+
+  --code-border: #{pc(dark, 800)};
+}
+
+html:not([data-theme]) {
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme;
+  }
+
+  @media (prefers-color-scheme: light) {
+    @include light-theme;
+  }
+}
+
+html[data-theme="light"] {
+  @include light-theme;
+}
+
+html[data-theme="dark"] {
+  @include dark-theme;
+}

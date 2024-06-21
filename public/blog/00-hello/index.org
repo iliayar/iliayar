@@ -1,6 +1,11 @@
-#+OPTIONS: toc:nil
+------
+published: 2023-10-05
+title: hello world
+------
 
-#+include: brief.org
+the first post. yay
+
+#+HTML: <!--more-->
 
 * hello world
 just setting things up. I hope there will be more of these
