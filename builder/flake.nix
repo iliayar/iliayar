@@ -14,11 +14,6 @@
       flake = false;
     };
 
-    crimson = {
-      url = "file+https://font.download/dl/web-font/crimson-webfont.zip";
-      flake = false;
-    };
-
     katex = {
       url =
         "file+https://github.com/KaTeX/KaTeX/releases/download/v0.16.10/katex.tar.gz";
@@ -33,7 +28,7 @@
 
   };
 
-  outputs = inputs@{ flake-parts, denv, iosevka, katex, mermaid, crimson, ... }:
+  outputs = inputs@{ flake-parts, denv, iosevka, katex, mermaid, ... }:
     flake-parts.lib.mkFlake { inputs = denv.inputs; } {
       imports = [ denv.flakeModules.default ];
       systems =
@@ -68,9 +63,6 @@
 
               # Iosevka
               mkdir $out/iosevka && cd $out/iosevka && unzip ${iosevka}
-
-              # Crimson
-              mkdir $out/crimson && cd $out/crimson && unzip ${crimson}
 
               # Katex
               cd $out && tar -xvf ${katex}
