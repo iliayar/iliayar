@@ -25,6 +25,8 @@ caddy:
       file_server
       root * ${project.data_path}/hakyll/site
 
+bind:
+  enabled: true
   zones:
     'iliay.ar':
       cnames:
