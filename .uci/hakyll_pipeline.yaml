@@ -3,6 +3,7 @@ jobs:
     do:
       type: script
       env:
+        INPUT: ${project.repos.main.path}/public
         HAKYLL_DESTINATION: ${project.data_path}/hakyll/site
         HAKYLL_STORE: ${project.data_path}/hakyll/store
         BUILDER: ${project.repos.main.path}/builder
@@ -13,6 +14,7 @@ jobs:
         mkdir -p $HAKYLL_DESTINATION
         mkdir -p $HAKYLL_STORE
 
+        cd $INPUT
         nix run $BUILDER#main-site build
 
 stages:
