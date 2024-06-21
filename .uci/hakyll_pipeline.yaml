@@ -9,7 +9,7 @@ jobs:
         HAKYLL_STORE: ${project.data_path}/hakyll/store
         BUILDER: ${project.repos.main.path}/builder
 
-        MATOMO_HOST: iliay.ar
+        MATOMO_HOST: matomo.iliay.ar
       script: |
         set -e
         . /etc/profile.d/nix.sh
