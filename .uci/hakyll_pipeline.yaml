@@ -8,6 +8,8 @@ jobs:
         HAKYLL_DESTINATION: ${project.data_path}/hakyll/site
         HAKYLL_STORE: ${project.data_path}/hakyll/store
         BUILDER: ${project.repos.main.path}/builder
+
+        MATOMO_HOST: iliay.ar
       script: |
         set -e
         . /etc/profile.d/nix.sh

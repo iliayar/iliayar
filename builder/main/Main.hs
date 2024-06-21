@@ -15,6 +15,7 @@ rssFeedConfiguration = FeedConfiguration
 
 commonCtx :: Context String
 commonCtx = mempty
+    <> envField "matomo_host" "MATOMO_HOST"
 
 posts :: Pattern
 posts = "blog/*/index*"

@@ -7,6 +7,7 @@ import Site.Rules (copyExternalFromEnv)
 commonCtx :: Context String
 commonCtx = mempty
     <> envFieldDef "assets_root" "ASSETS_ROOT" ""
+    <> envField "matomo_host" "MATOMO_HOST"
 
 poDef :: PagesOptions
 poDef =

@@ -1,3 +1,0 @@
-* Speedtest
-Simple interface to meter speed from server to provider \\
-Use speedtest cli util
