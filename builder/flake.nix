@@ -98,6 +98,7 @@
               } ''
                 makeWrapper ${siteUnwrapped}/bin/site $out/bin/site \
                     --set THIRDPARTY_PATH "${thirdparty}" \
+                    --set LOCALE_ARCHIVE "${pkgs.glibcLocales}/lib/locale/locale-archive" \
                     --prefix PATH : "${lib.makeBinPath binDeps}"
               '';
           in { 
