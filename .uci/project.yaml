@@ -1,48 +1,19 @@
 caddy:
   enabled: true
   hostnames:
-    'iliayar.ru': |
-      redir https://iliay.ar{uri}
-
     'ilyay.space': |
       redir https://iliay.ar{uri}
 
     'iliay.ar': |
       file_server
-      root * ${project.data_path}/gen-main
-
-      @conspectsOldOrigin { 
-        header Origin https://conspects.ilyay.space
-      }
-      header @conspectsOldOrigin Access-Control-Allow-Origin https://conspects.ilyay.space
+      root * ${project.data_path}/hakyll/site
 
       @conspectsOrigin { 
         header Origin https://conspects.iliay.ar
       }
       header @conspectsOrigin Access-Control-Allow-Origin https://conspects.iliay.ar
 
-    'new.iliay.ar': |
-      file_server
-      root * ${project.data_path}/hakyll/site
-
-      @conspectsOrigin { 
-        header Origin https://new-conspects.iliay.ar
-      }
-      header @conspectsOrigin Access-Control-Allow-Origin https://new-conspects.iliay.ar
-
-bind:
-  enabled: true
-  zones:
-    'iliay.ar':
-      cnames:
-        - 'new'
-
-docker:
-  volumes:
-    main-org-publish-cache:
-
 actions: ${${load(./actions.yaml)}.actions}
 
 pipelines:
-  publish-main: ${load(./publish_pipeline.yaml)}
   hakyll-main: ${load(./hakyll_pipeline.yaml)}
