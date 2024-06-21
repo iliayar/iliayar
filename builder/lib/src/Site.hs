@@ -20,6 +20,8 @@ module Site
     boolFieldOr,
     stringFieldEqOr,
     configFromEnv,
+    envField,
+    envFieldDef,
     -- Hakyll re-export
     hakyll,
     hakyllWith,
@@ -40,7 +42,7 @@ import Hakyll
 import Hakyll.Web.Sass (sassCompiler)
 import Site.Compiler (unsafePandocCompiler)
 import Site.Context (tocField, yearField)
-import Site.Context.Utils (loadPosts, postCtx)
+import Site.Context.Utils (loadPosts, postCtx, envField, envFieldDef)
 import Site.OrgToPdfCompiler (orgToPdfCompiler)
 import Site.TypstCompiler (typstCompiler)
 import Site.Utils (isTrue)

@@ -1,5 +1,6 @@
 jobs:
   publish:
+    stage: publish
     do:
       type: script
       env:

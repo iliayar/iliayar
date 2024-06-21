@@ -6,6 +6,7 @@ import Site.Rules (copyExternalFromEnv)
 
 commonCtx :: Context String
 commonCtx = mempty
+    <> envFieldDef "assets_root" "ASSETS_ROOT" ""
 
 poDef :: PagesOptions
 poDef =
@@ -16,8 +17,6 @@ poDef =
 
 main :: IO ()
 main = hakyll $ do
-  sass "other/publish/css/*.scss"
-  copy "other/publish/js/*.js"
   copyExternalFromEnv "THIRDPARTY_PATH" "other/publish/thirdparty"
 
   template "other/publish/templates/*"
