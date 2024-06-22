@@ -108,14 +108,14 @@ body:has(.toc-wrapper) label[for="toggle-toc"] {
   display: inline;
 }
 
+body:has(#toggle-toc:checked) .toc-wrapper {
+  @include toc-wrapper-float;
+}
+
 @media (min-width: 600px) {
   main .content {
     width: calc(100% - 100px);
     padding: 0px 50px;
-  }
-
-  body:has(#toggle-toc:checked) .toc-wrapper {
-    @include toc-wrapper-float;
   }
 }
 
@@ -196,11 +196,19 @@ nav > .toc {
   top: 0px;
 }
 
+@media (min-width: 900px) {
+  footer {
+    flex-direction: row !important;
+    align-items: unset !important;
+  }
+}
+
 footer {
   width: calc(100% - 10px);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
   padding: 5px;
 
