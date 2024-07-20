@@ -1,0 +1,144 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jskherman/imprecv/main/cv.typ.schema.json
+
+personal:
+  name: Ilya Yaroshevskiy
+  email: iliayar3@gmail.com
+  phone:
+  url: https://iliay.ar
+  titles:
+    - Software Engineer
+  location:
+  profiles:
+    - network: LinkedIn
+      username: iliayar
+      url: https://linkedin.com/in/iliayar
+    - network: GitHub
+      username: iliayar
+      url: https://github.com/iliayar
+    - network: Telegram
+      username: iliayar
+      url: https://t.me/iliayar
+
+work:
+  - organization: Yandex GO
+    url:
+    location: Saint-Petersburg, Russia
+    positions:
+      - position: Software Engineer
+        startDate: 2022-10-01
+        endDate: "present"
+        highlights:
+          - Worked out new way of deploying user's code, designed new gRPC service following Google's AIP.
+          - Designed and implemented new Domain Specific, Python's expressions inspired Language and tooling for it, including translator from previously used DSL.
+          - "*Skills*: C++, Python, PostreSQL, MongoDB, Git, Unix/Linux, Userver, YDB, SQL, gRPC, DSLs"
+      - position: Junior Software Engineer
+        startDate: 2021-11-24
+        endDate: 2022-10-01
+        highlights:
+          - Developing and maintaining couple high load widely used infrastructure microservices, written in C++ using _userver_ framework. 
+          - Developed a type inference system for internally used DSL, OpenAPI schemas generator and tooling around. 
+
+education:
+  - institution: ITMO University
+    url:
+    area: Computer Science
+    studyType: Bachelor of Science
+    startDate: 2019-09-01
+    endDate: 2024-07-06
+    location: Saint-Petersburg, Russia
+    honors:
+      - 3.97 / 5.0 GPA
+    courses:
+      - Algorithms & Data Structures
+      - Type Theory
+      - Compilers Development
+      - Formal Verification
+    highlights:
+      - "*Thesis*: Development of utility for automatic generation of OpenAPI schemas of endpoints written in dynamically typed domain specific language"
+      - "*Skills*: Java, Haskell, Rust, Go, Python, C++, Coq"
+
+
+affiliations:
+  - organization: CTF Team
+    position: Member
+    location: 
+    url: https://ctftime.org/team/107190
+    startDate: "2018-01-01"
+    endDate: "present"
+    highlights:
+      - Profecient in reverse engineering and binary exploitation. Intermediate proficiency in all categories.
+
+awards: []
+certificates: []
+publications: []
+
+projects:
+  - name: "UPA CAN FLASH"
+    url: https://github.com/iliayar/UPA_CAN_FLASH
+    affiliation: Author
+    startDate: 2021-02-01
+    endDate: 2021-09-01
+    highlights:
+      - Create a graphical user interface, configurable from user configs
+      - Implement binary communication CAN protocol following ISO, using multithreading for creating synchronous-like interface to describe communication on higher level.
+      - "*Skills*: C++, Qt, GTest, CMake, Windows, Linux, Github CI/CD"
+  - name: "uCI"
+    url: https://github.com/iliayar/uci
+    affiliation: Author
+    startDate: 2023-04-01
+    endDate: 2023-09-01
+    highlights:
+      - Implement service for executing pipelines and manage docker container
+      - Made a command line interface for interacting with service
+      - Made a Web app to display runs, logs, etc. and iteracting with service using reactive framework
+      - "*Skills*: Rust, Nix, Docker, Tokio, HTML, CSS"
+
+skills:
+  - category: Programming
+    skills:
+      - C++
+      - Python
+      - Rust
+      - Haskell
+      - Java
+      - Kotlin
+      - JavaScript
+      - Go
+      - C
+      - Bash
+      - SQL
+  - category: Tools
+    skills:
+      - Git
+      - Github CI
+      - Unix/Linux
+      - Docker
+      - Nix
+      - HTML
+      - CSS
+      - LaTeX
+  - category: Frameworks & Databases
+    skills:
+      - Django
+      - Qt
+      - PostgreSQL
+      - MongoDB
+      - Userver
+      - YDB
+      - Tokio
+
+
+languages:
+  - language: Russian
+    fluency: Native speaker
+  - language: English
+    fluency: Professional working
+
+interests:
+  - Programming Languages
+  - Formal Verification
+  - Cybersecurity
+  - Low level programming
+  - Microcontrollers
+
+references: []
