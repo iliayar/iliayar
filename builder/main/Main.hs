@@ -55,4 +55,6 @@ main = do
     copy ["**.png", "**.jpeg", "**.svg", "**.gif", "**.ico"]
     copy "**.pdf"
 
+    typst $ "other/cv/cv.typ"
+
     rssFeed "rss.xml" posts rssFeedConfiguration
