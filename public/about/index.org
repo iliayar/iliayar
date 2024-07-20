@@ -5,43 +5,40 @@
 [[file:../other/cv/cv.pdf][download cv]]
 
 * general
-21 y.o, located in Saint-Petersburg, Russia
+22 y.o, located in Saint-Petersburg, Russia
+
 * education
-4^th year student at ITMO university at computer scienece
-department. I used to write conspects in \(\LaTeX\), all of this along
-with assignments is [[https://github.com/iliayar/ITMO][stored on github]]. conspects are auto built and
-published on [[https://conspects.iliay.ar/README.html][separate site]]
+*ITMO University*, september 2019 - july 2024 \\
+/B.S. in Computer Science/
+- used to write conspects in \(\LaTeX\), all of this along with assignments is
+  [[https://github.com/iliayar/ITMO][stored on github]]. Conspects are auto
+  built and published on [[https://conspects.iliay.ar/README.html][separate
+  site]]
 
 * work experience
-- Sotware Engineer @ Yandex Go, November 2024 - /Ongoing/ \\
-  developing and maintaining couple high load widely used
-  infrastructure microservices, written in c++ using /userver/
-  framework.
+*Yandex Go*, november 2024 - /present/ \\
+/Sotware Engineer/
+- designed and implemented new Domain Specific, Python's expressions inspired
+  Language and tooling for it, including translator from previously used DSL.
+- worked out new way of deploying user's code, designed new gRPC service
+  following Google's AIP.
+- developing and maintaining couple high load widely used infrastructure
+  microservices, written in C++ using /userver/ framework. 
+- developed a type inference system for internally used DSL, OpenAPI schemas
+  generator and tooling around. 
 
-  developed a type inference system for inernally used DSL, OpenAPI
-  schemas generator and tooling around
-  
-  developed an infrastructure for using serverless cloud functions:
-  ci/cd and tooling
-
-* TODO projects
-- *uCI* 
-
-  ⚡blazingly fast⚡
-
-  completly [[https://github.com/iliayar/uci][opensource]]. simple and easy to use but at the same time
+* projects
+*uCI* \\
+blazingly fast 🚀 
+- completly [[https://github.com/iliayar/uci][opensource]]. simple and easy to use but at the same time
   enough powefull ci/cd system, intendent to use as self-hosted.
 
-  some day I'll write post about it
-
-- *upa can flash*
-
-  partially [[https://github.com/iliayar/UPA_CAN_FLASH][opensource]]. cross-platform gui application for flashing
+*UPA CAN FLASH*
+- partially [[https://github.com/iliayar/UPA_CAN_FLASH][opensource]]. cross-platform gui application for flashing
   microcontrollers, that operates with ISO-14229. implement protocol
   from scratch up to abstraction of application layer.
 
-- ...
-* TODO other interests
+* other interests
 like [[https://ctftime.org/user/70331][playing ctfs]] sometimes. last couple years stick with pwn and
 reverse, but used to other category, as was playing almost solo in the
 beginning.
