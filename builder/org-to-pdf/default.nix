@@ -5,7 +5,7 @@ let
 
     ls -la
     cp $src/init.el $out/init.el
-    cp $src/preamble.sty $out/preamble.sty
+    cp -r $src/latex $out/latex
     cp $src/script.el $out/script.el
   '';
 
@@ -13,7 +13,8 @@ let
     (epkgs: with epkgs; [ haskell-mode ]);
 
   emacsUnwrapped = pkgs.writeShellScriptBin "emacs" ''
-    export PREAMBLE_PATH="${configs}/preamble.sty"
+    # This one is used as prefix everywhere in `kpsewhich texmf.cnf`
+    export TEXMFDOTDIR=.:${configs}/latex
     ${emacsPkgs}/bin/emacs --batch -l ${configs}/init.el "$@"
   '';
 
@@ -24,7 +25,7 @@ let
   emacs = let binDeps = with pkgs; [ texliveFull ];
   in pkgs.runCommand "emacs" { buildInputs = with pkgs; [ makeWrapper ]; } ''
     makeWrapper ${emacsUnwrapped}/bin/emacs $out/bin/emacs \
-        --prefix PATH : "${lib.makeBinPath binDeps}" \
+        --prefix PATH : "${lib.makeBinPath binDeps}"
   '';
 in pkgs.writeShellScriptBin "org-to-pdf" ''
   ${emacs}/bin/emacs -l ${configs}/script.el -- "$@"
