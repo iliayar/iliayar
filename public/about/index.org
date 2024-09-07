@@ -16,7 +16,7 @@
   site]]
 
 * work experience
-*Yandex Go*, november 2024 - /present/ \\
+*Yandex Go*, november 2021 - /present/ \\
 /Sotware Engineer/
 - designed and implemented new Domain Specific, Python's expressions inspired
   Language and tooling for it, including translator from previously used DSL.
