@@ -42,6 +42,17 @@ education:
   - institution: ITMO University
     url:
     area: Computer Science
+    studyType: Master of Science
+    startDate: 2024-09-01
+    endDate: 2026-08-21
+    location: Saint-Petersburg, Russia
+    honors: null
+    courses: null
+    highlights: []
+
+  - institution: ITMO University
+    url:
+    area: Computer Science
     studyType: Bachelor of Science
     startDate: 2019-09-01
     endDate: 2024-07-06
