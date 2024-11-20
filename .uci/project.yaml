@@ -1,9 +1,6 @@
 caddy:
   enabled: true
   hostnames:
-    'ilyay.space': |
-      redir https://iliay.ar{uri}
-
     'iliay.ar': |
       file_server
       root * ${project.data_path}/hakyll/site
