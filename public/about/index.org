@@ -5,7 +5,7 @@
 [[file:../other/cv/cv.pdf][download cv]]
 
 * general
-22 y.o, located in Saint-Petersburg, Russia
+23 y.o, located in Saint-Petersburg, Russia
 
 * education
 *ITMO University*, september 2019 - july 2024 \\
@@ -16,7 +16,10 @@
   site]]
 
 * work experience
-*Yandex Go*, november 2021 - /present/ \\
+*REDACTED*, november 2024 - /present/ \\
+/Compiler Engineer/
+
+*Yandex Go*, november 2021 - november 2024 \\
 /Sotware Engineer/
 - designed and implemented new Domain Specific, Python's expressions inspired
   Language and tooling for it, including translator from previously used DSL.
