@@ -2,7 +2,7 @@
   description = "My site builder";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     denv = {
       url = "github:iliayar/env.nix";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -9,7 +9,7 @@ let
     cp $src/script.el $out/script.el
   '';
 
-  emacsPkgs = pkgs.emacsWithPackages
+  emacsPkgs = pkgs.emacs.pkgs.withPackages
     (epkgs: with epkgs; [ haskell-mode ]);
 
   emacsUnwrapped = pkgs.writeShellScriptBin "emacs" ''

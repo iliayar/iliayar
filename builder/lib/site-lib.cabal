@@ -23,7 +23,7 @@ library
                   , hakyll == 4.16.*
                   , hakyll-sass
                   , text
-                  , pandoc == 3.1.*
+                  , pandoc
                   , pandoc-types
                   , http-types
                   , bytestring
