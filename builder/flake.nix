@@ -52,6 +52,7 @@
               haskellPackages.hakyll
               (python3.withPackages (pypkgs: with pypkgs; [ pygments ]))
               texliveFull
+              haskell-language-server
             ];
           };
 

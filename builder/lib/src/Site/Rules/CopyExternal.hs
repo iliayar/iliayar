@@ -7,6 +7,7 @@ import System.Environment (lookupEnv)
 import System.Directory.PathWalk (pathWalk)
 import System.FilePath ((</>), makeRelative)
 import Control.Monad (forM_)
+import Site.Compiler (CopyFileSetWritable (..))
 
 import Control.Monad.IO.Class (MonadIO (liftIO))
 
@@ -47,4 +48,4 @@ copyExternalFromPath from to = runRules $ pathWalk from $ \dir _ files ->
 copyExternalFile :: FilePath -> FilePath -> Rules ()
 copyExternalFile from to = create [fromFilePath to] $ do
     route idRoute
-    compile $ makeItem $ CopyFile from
+    compile $ makeItem $ CopyFileSetWritable from

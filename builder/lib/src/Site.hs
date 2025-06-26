@@ -5,6 +5,8 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TypeOperators #-}
 {-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module Site
   ( sass,
@@ -86,7 +88,7 @@ boolFieldOr :: String -> Bool -> Metadata -> Bool
 boolFieldOr key def meta = maybe def (isTrue . Just) $ lookupString key meta
 
 stringFieldEqOr :: String -> String -> Bool -> Metadata -> Bool
-stringFieldEqOr key value def meta = maybe def (\inner -> inner == value) $ lookupString key meta
+stringFieldEqOr key value def meta = maybe def (== value) $ lookupString key meta
 
 ---------------------------------------------
 
@@ -182,7 +184,7 @@ rssFeed ident postsPat conf = create [ident] $ do
 
 configFromEnv :: IO Configuration
 configFromEnv = do
-    destDir <- lookupEnv "HAKYLL_DESTINATION"    
+    destDir <- lookupEnv "HAKYLL_DESTINATION"
     storeDir <- lookupEnv "HAKYLL_STORE"
     let conf = defaultConfiguration
         confDest = case destDir of
