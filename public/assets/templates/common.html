@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Custom -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
     <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/thirdparty/iosevka/Iosevka.css">
     <link rel="stylesheet" href="/assets/css/listing.css">
-
     <script src="/assets/js/common.js"></script>
+
+    <link rel="stylesheet" href="/assets/thirdparty/iosevka/Iosevka.css">
+
 
     <!-- KaTeX -->
     <link rel="stylesheet" href="/assets/thirdparty/katex/katex.min.css">
@@ -28,12 +30,12 @@
     </script>
 
     <!-- Mermaid -->
-    <script type="module" src="/assets/thirdparty/mermaid.min.js"></script>
+    <script defer type="module" src="/assets/thirdparty/mermaid.min.js"></script>
 
     <!-- Matomo -->
     <!-- NOTE: It's selfhosted -->
     $if(matomo_host)$
-    <script>
+    <script defer>
       var _paq = window._paq = window._paq || [];
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
