@@ -36,7 +36,9 @@ main = do
 
     typst $ "**.typ" .&&. complement "other/**"
 
-    latex "**.tex"
+    latex "CT/Term2/algo/**.tex"
+    latex "CT/Term2/discrete/**.tex"
+    -- FIXME(iliayar): There are some other latex files
 
     copy ["**.png", "**.jpeg", "**.svg", "**.gif", "**.ico"]
     copy "**.pdf"
