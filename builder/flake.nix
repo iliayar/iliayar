@@ -93,7 +93,7 @@
 
             makeBuilder = path:
               let siteUnwrapped = makeBuilderUnwrapped path;
-                  binDeps = [ org-to-pdf pkgs.typst ];
+                  binDeps = [ org-to-pdf pkgs.typst pkgs.texliveFull ];
               in pkgs.runCommand "site" {
                 buildInputs = with pkgs; [ makeWrapper ];
               } ''
