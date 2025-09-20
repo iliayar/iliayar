@@ -18,6 +18,7 @@ library
                   , Site.Utils
                   , Site.OrgToPdfCompiler
                   , Site.TypstCompiler
+                  , Site.LatexCompiler
                   , Site
   build-depends:    base == 4.*
                   , hakyll == 4.16.*

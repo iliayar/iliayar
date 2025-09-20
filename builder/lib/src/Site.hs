@@ -18,6 +18,7 @@ module Site
     rssFeed,
     orgPdf,
     typst,
+    latex,
     withMetaPred,
     boolFieldOr,
     stringFieldEqOr,
@@ -47,6 +48,7 @@ import Site.Context (tocField, yearField)
 import Site.Context.Utils (loadPosts, postCtx, envField, envFieldDef)
 import Site.OrgToPdfCompiler (orgToPdfCompiler)
 import Site.TypstCompiler (typstCompiler)
+import Site.LatexCompiler (latexCompiler)
 import Site.Utils (isTrue)
 import System.Environment (lookupEnv)
 import System.FilePath ((</>))
@@ -169,6 +171,12 @@ typst pat =
   matchExt pat $ do
     route $ setExtension "pdf"
     compile typstCompiler
+
+latex :: (PatternExt a) => a -> Rules ()
+latex pat =
+  matchExt pat $ do
+    route $ setExtension "pdf"
+    compile latexCompiler
 
 -----------------------------------------
 

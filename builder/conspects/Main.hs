@@ -36,5 +36,7 @@ main = do
 
     typst $ "**.typ" .&&. complement "other/**"
 
+    latex "**.tex"
+
     copy ["**.png", "**.jpeg", "**.svg", "**.gif", "**.ico"]
     copy "**.pdf"
