@@ -5,14 +5,17 @@
 
 module Site.LatexCompiler (latexCompiler) where
 
+import Control.Exception (Exception, throw, try)
 import Data.Binary (Binary (..))
 import Data.Typeable (Typeable)
 import GHC.Generics (Generic)
 import Hakyll
 import Hakyll.Core.Provider (resourceFilePath)
-import System.Process (callProcess)
+import System.Directory (copyFile, doesFileExist)
 import System.Exit (ExitCode)
-import Control.Exception (try)
+import System.FilePath.Posix (addExtension, takeBaseName, (</>))
+import System.IO.Temp (withSystemTempDirectory)
+import System.Process (spawnProcess, waitForProcess)
 
 newtype Latex = Latex
   { tFrom :: FilePath
@@ -24,8 +27,19 @@ latexCompiler = do
   from <- getResourceFilePath
   makeItem $ Latex from
 
+data LatexNoFileProduced = LatexNoFileProduced
+  deriving (Show)
+
+instance Exception LatexNoFileProduced
+
 instance Writable Latex where
-  write dst (Item _ (Latex src)) = do
+  write dst (Item _ (Latex src)) = withSystemTempDirectory "hakyll-latex" $ \dir -> do
     -- NOTE(iliayar): Ignoring exit code of pdflatex, because it can be non 0, but pdf is produced
-    (_ :: Either ExitCode ()) <- try $ callProcess "pdflatex" ["-shell-escape", "--synctex=1", "-interaction", "nonstopmode", src, dst]
-    return ()
+    h <- spawnProcess "pdflatex" ["-shell-escape", "--synctex=1", "-interaction", "nonstopmode", "-output-directory", dir, src]
+    _ <- waitForProcess h
+    let pdfFile = dir </> addExtension (takeBaseName src) "pdf"
+    pdfFileExists <- doesFileExist pdfFile
+    if pdfFileExists
+      then do
+        copyFile pdfFile dst
+      else throw LatexNoFileProduced
