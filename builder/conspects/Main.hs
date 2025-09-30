@@ -34,6 +34,10 @@ main = do
         ("**.org" .&&. complement "**README.org")
       $ stringFieldEqOr "PUBNOTE" "html" False
 
+    flip page poDef
+      $ withMetaPred "**.md"
+      $ stringFieldEqOr "PUBNOTE" "html" True
+
     typst $ "**.typ" .&&. complement "other/**"
 
     latex "CT/Term2/algo/**.tex"
