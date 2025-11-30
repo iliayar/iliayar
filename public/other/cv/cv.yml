@@ -20,13 +20,23 @@ personal:
       url: https://t.me/iliayar
 
 work:
+  - organization: Huawei
+    url:
+    location: Saint-Petersburg, Russia
+    positions:
+      - position: Software Engineer
+        startDate: 2024-11-18
+        endDate: "present"
+        highlights:
+          - Development multiple features in compiler for mocking framework, Java interoperability and multiplatform framework
+          - "*Skills*: C++, Cangjie, Compilers, Progamming Languages"
   - organization: Yandex GO
     url:
     location: Saint-Petersburg, Russia
     positions:
       - position: Software Engineer
         startDate: 2022-10-01
-        endDate: "present"
+        endDate: 2024-11-15
         highlights:
           - Worked out new way of deploying user's code, designed new gRPC service following Google's AIP.
           - Designed and implemented new Domain Specific, Python's expressions inspired Language and tooling for it, including translator from previously used DSL.
@@ -84,15 +94,6 @@ certificates: []
 publications: []
 
 projects:
-  - name: "UPA CAN FLASH"
-    url: https://github.com/iliayar/UPA_CAN_FLASH
-    affiliation: Author
-    startDate: 2021-02-01
-    endDate: 2021-09-01
-    highlights:
-      - Create a graphical user interface, configurable from user configs
-      - Implement binary communication CAN protocol following ISO, using multithreading for creating synchronous-like interface to describe communication on higher level.
-      - "*Skills*: C++, Qt, GTest, CMake, Windows, Linux, Github CI/CD"
   - name: "uCI"
     url: https://github.com/iliayar/uci
     affiliation: Author
