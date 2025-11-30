@@ -16,8 +16,9 @@
   site]]
 
 * work experience
-*REDACTED*, november 2024 - /present/ \\
+*Huawei*, november 2024 - /present/ \\
 /Compiler Engineer/
+- Development multiple features in compiler for mocking framework, Java interoperability and multiplatform framework
 
 *Yandex Go*, november 2021 - november 2024 \\
 /Sotware Engineer/
