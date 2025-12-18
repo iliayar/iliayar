@@ -34,11 +34,6 @@ work:
     url:
     location: Saint-Petersburg, Russia
     positions:
-      - position: Junior Software Engineer
-        startDate: 2021-11-24
-        endDate: 2022-10-01
-        highlights:
-          - Developing and maintaining couple high load widely used infrastructure microservices, written in C++ using _userver_ framework. 
       - position: Software Engineer
         startDate: 2022-10-01
         endDate: 2024-11-15
@@ -47,6 +42,11 @@ work:
           - Designed and implemented new Domain Specific, Python's expressions inspired Language and tooling for it, including translator from previously used DSL.
           - "*Skills*: C++, Python, PostreSQL, MongoDB, Git, Unix/Linux, Userver, YDB, SQL, gRPC, DSLs"
           - Developed a type inference system for internally used DSL, OpenAPI schemas generator and tooling around. 
+      - position: Junior Software Engineer
+        startDate: 2021-11-24
+        endDate: 2022-10-01
+        highlights:
+          - Developing and maintaining couple high load widely used infrastructure microservices, written in C++ using _userver_ framework. 
 
 education:
   - institution: ITMO University
