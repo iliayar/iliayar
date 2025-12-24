@@ -38,14 +38,14 @@ work:
         startDate: 2022-10-01
         endDate: 2024-11-15
         highlights:
-          - Worked out new way of deploying user's code, designed new gRPC service following Google's AIP.
           - Designed and implemented new Domain Specific, Python's expressions inspired Language and tooling for it, including translator from previously used DSL.
+          - Worked out new way of deploying user's code, designed new gRPC service following Google's AIP.
           - "*Skills*: C++, Python, PostreSQL, MongoDB, Git, Unix/Linux, Userver, YDB, SQL, gRPC, DSLs"
-          - Developed a type inference system for internally used DSL, OpenAPI schemas generator and tooling around. 
       - position: Junior Software Engineer
         startDate: 2021-11-24
         endDate: 2022-10-01
         highlights:
+          - Developed a type inference system for internally used DSL, OpenAPI schemas generator and tooling around. 
           - Developing and maintaining couple high load widely used infrastructure microservices, written in C++ using _userver_ framework. 
 
 education:
