@@ -7,7 +7,7 @@ module Site.TypstCompiler (typstCompiler) where
 import Data.Binary (Binary (..))
 import Data.Typeable (Typeable)
 import GHC.Generics (Generic)
-import Hakyll
+import Hakyll hiding (Typst)
 import Hakyll.Core.Provider (resourceFilePath)
 import System.Process (callProcess)
 
