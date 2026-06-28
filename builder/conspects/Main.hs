@@ -42,8 +42,8 @@ main = do
 
     latex "CT/Term2/algo/**.tex"
     latex "CT/Term2/discrete/**.tex"
-    latex "MSE/**.tex"
     -- FIXME(iliayar): There are some other latex files
+    -- latex "MSE/**.tex" -- FIXME(iliayar): Something fails there
 
     copy ["**.png", "**.jpeg", "**.svg", "**.gif", "**.ico"]
     copy "**.pdf"
