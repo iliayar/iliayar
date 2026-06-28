@@ -42,6 +42,7 @@ main = do
 
     latex "CT/Term2/algo/**.tex"
     latex "CT/Term2/discrete/**.tex"
+    latex "MSE/**.tex"
     -- FIXME(iliayar): There are some other latex files
 
     copy ["**.png", "**.jpeg", "**.svg", "**.gif", "**.ico"]
