@@ -20,7 +20,7 @@ personal:
       url: https://t.me/iliayar
 
 work:
-  - organization: Huawei
+  - organization: Huawei RnD
     url:
     location: Saint-Petersburg, Russia
     positions:
@@ -29,6 +29,7 @@ work:
         endDate: "present"
         highlights:
           - Development multiple features in compiler for mocking framework, Java interoperability and multiplatform framework
+          - Research and development of concurrency testing framework
           - "*Skills*: C++, Cangjie, Compilers, Progamming Languages"
   - organization: Yandex GO
     url:
@@ -56,9 +57,14 @@ education:
     startDate: 2025-09-01
     endDate: 2027-08-21
     location: Saint-Petersburg, Russia
-    honors: null
-    courses: null
-    highlights: []
+    honors:
+      - "First year: 4.86 / 5.0 GPA"
+    courses:
+      - Functional Programming
+      - Logic
+      - Formal languages
+    highlights:
+      - "*Skills*: Haskell, OCaml, PL & Compilers"
 
   - institution: ITMO University
     url:
