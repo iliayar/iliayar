@@ -96,6 +96,8 @@
                   binDeps = [ org-to-pdf pkgs.typst pkgs.texliveFull ];
               in pkgs.runCommand "site" {
                 buildInputs = with pkgs; [ makeWrapper ];
+                # Build-time env is GC-rooted in CI via `nix print-dev-env .#<pkg>.unwrapped --profile ...`
+                passthru.unwrapped = siteUnwrapped;
               } ''
                 makeWrapper ${siteUnwrapped}/bin/site $out/bin/site \
                     --set THIRDPARTY_PATH "${thirdparty}" \

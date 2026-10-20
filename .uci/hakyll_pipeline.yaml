@@ -9,12 +9,16 @@ jobs:
         HAKYLL_STORE: ${project.data_path}/hakyll/store
         BUILDER: ${project.repos.main.path}/builder
         BUILDER_PROFILE: ${project.data_path}/builder
+        # GC root for the build-time closure (ghc, hakyll, site-lib, ...) so that
+        # rebuilding the builder after a GC doesn't start from scratch.
+        BUILDER_ENV_PROFILE: ${project.data_path}/builder-env
 
         MATOMO_HOST: matomo.iliay.ar
       script: |
         set -e
         . /etc/profile
 
+        nix print-dev-env $BUILDER#main-site.unwrapped --profile $BUILDER_ENV_PROFILE > /dev/null
         nix build $BUILDER#main-site --profile $BUILDER_PROFILE --no-link
 
         mkdir -p $HAKYLL_DESTINATION
